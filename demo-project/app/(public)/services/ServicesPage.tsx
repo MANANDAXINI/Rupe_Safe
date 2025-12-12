@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Globe, Code, Server, Database, Layout, 
+import {
+  Globe, Code, Server, Database, Layout,
   Smartphone, Wifi, Tablet, Battery, Bluetooth,
   BarChart3, Users, PieChart, TrendingUp, Building,
   Megaphone, Share2, ThumbsUp, Search, Mail,
@@ -86,18 +86,18 @@ export default function ServicesPage() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-purple-900/5 rounded-full blur-[120px]" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-6 py-20 relative z-10">
-        
+      <div className="max-w-[1800px] mx-auto px-20 py-20 relative z-10">
+
         {/* Header */}
         <div className="text-center mb-20">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-bold text-slate-900 mb-6"
           >
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Services</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -107,8 +107,22 @@ export default function ServicesPage() {
           </motion.p>
         </div>
 
+        {/* Header Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mb-20 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop"
+            alt="Our Services"
+            className="w-full h-[400px] object-cover"
+          />
+        </motion.div>
+
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {SERVICES.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
@@ -125,11 +139,11 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative h-[700px] rounded-3xl overflow-hidden bg-white shadow-2xl cursor-pointer perspective-1000"
+      className="group relative h-[240px] rounded-3xl overflow-hidden bg-white shadow-2xl cursor-pointer perspective-1000"
     >
       {/* Background Image with Scale Effect */}
       <div className="absolute inset-0 overflow-hidden bg-slate-900">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110 opacity-80 group-hover:opacity-60"
           style={{ backgroundImage: `url('${service.image}')` }}
         />
@@ -137,18 +151,16 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
       </div>
 
       {/* Content Box - Slides Up on Hover */}
-      <div className="absolute bottom-0 left-0 w-full h-[60%] group-hover:h-[80%] bg-white rounded-t-[30px] p-8 flex flex-col transition-all duration-500 ease-in-out shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-        
-        {/* Header Row */}
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-lg shrink-0">
-            <service.icon size={24} />
+      <div className="absolute bottom-0 left-0 w-full h-[60%] group-hover:h-[80%] bg-white rounded-t-[30px] p-4 flex flex-col transition-all duration-500 ease-in-out shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-lg shrink-0">
+            <service.icon size={20} />
           </div>
-          <h3 className="text-2xl font-bold text-slate-900 leading-tight">{service.title}</h3>
+          <h3 className="text-xl font-bold text-slate-900 leading-tight">{service.title}</h3>
         </div>
 
-        {/* Marquee */}
-        <div className="w-full overflow-hidden py-4 border-y border-slate-100 mb-6 relative mask-linear-fade">
+        <div className="w-full overflow-hidden py-2 border-y border-slate-100 mb-3 relative mask-linear-fade">
           <div className="flex gap-8 w-max animate-scroll text-slate-400">
             {service.marquee.map((Icon, i) => (
               <Icon key={i} size={20} />
@@ -156,13 +168,11 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
           </div>
         </div>
 
-        {/* Description */}
-        <p className="text-slate-600 leading-relaxed mb-6 line-clamp-3 group-hover:line-clamp-none transition-all">
+        <p className="text-slate-600 leading-relaxed mb-3 line-clamp-2 group-hover:line-clamp-none transition-all text-sm">
           {service.description}
         </p>
 
-        {/* Features List */}
-        <ul className="space-y-3 mb-6">
+        <ul className="space-y-2 mb-3">
           {service.features.map((feature, i) => (
             <li key={i} className="flex items-center gap-3 text-slate-700 font-medium text-sm">
               <div className="w-5 h-5 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">

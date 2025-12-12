@@ -21,23 +21,23 @@ interface Blog {
 }
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
 const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
     }
-  }
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
 };
 
 export default function BlogsPage() {
@@ -66,7 +66,7 @@ export default function BlogsPage() {
     const handleShare = async (e: React.MouseEvent, blog: Blog) => {
         e.preventDefault(); // Prevent link navigation when clicking share
         const url = `${window.location.origin}/blogs/${blog.slug}`;
-        
+
         if (navigator.share) {
             try {
                 await navigator.share({
@@ -98,7 +98,7 @@ export default function BlogsPage() {
 
     return (
         <main className="min-h-screen bg-white font-sans selection:bg-blue-100">
-            
+
             {/* 1. Hero Section */}
             <section className="relative pt-40 pb-28 overflow-hidden">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50 rounded-full blur-3xl -mr-40 -mt-40 opacity-70 pointer-events-none" />
@@ -143,7 +143,7 @@ export default function BlogsPage() {
                             <p className="text-gray-500 mt-2">Check back soon for new articles!</p>
                         </div>
                     ) : (
-                        <motion.div 
+                        <motion.div
                             className="grid grid-cols-1 md:grid-cols-2 gap-12"
                             variants={staggerContainer}
                             initial="hidden"
@@ -155,17 +155,17 @@ export default function BlogsPage() {
                                         <div className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 h-full flex flex-col border-4 border-blue-600 overflow-hidden">
                                             {blog.coverImage && (
                                                 <div className="overflow-hidden">
-                                                    <img 
-                                                        src={blog.coverImage} 
-                                                        alt={blog.title} 
-                                                        className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" 
+                                                    <img
+                                                        src={blog.coverImage}
+                                                        alt={blog.title}
+                                                        className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                                                     />
                                                 </div>
                                             )}
                                             <div className="p-8 flex flex-col flex-grow">
                                                 <h2 className="text-2xl font-bold text-slate-800 mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300">{blog.title}</h2>
                                                 <p className="text-slate-600 text-lg line-clamp-3 mb-6 flex-grow">{blog.excerpt}</p>
-                                                
+
                                                 <div className="flex items-center text-base text-slate-500 space-x-6 mt-auto mb-6">
                                                     <div className="flex items-center gap-2">
                                                         <User className="w-5 h-5" />
@@ -182,9 +182,9 @@ export default function BlogsPage() {
                                                         Read More
                                                         <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform duration-300" />
                                                     </div>
-                                                    <Button 
-                                                        variant="ghost" 
-                                                        size="icon" 
+                                                    <Button
+                                                        variant="ghost"
+                                                        size="icon"
                                                         onClick={(e) => handleShare(e, blog)}
                                                         className="rounded-full w-12 h-12 hover:bg-blue-100"
                                                     >

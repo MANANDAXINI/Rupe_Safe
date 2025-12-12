@@ -151,10 +151,9 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               className="relative group"
             >
-              {/* Glowing Border Effect - Subtle for Light Theme */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 rounded-[2.5rem] opacity-30 blur-lg group-hover:opacity-50 group-hover:blur-xl transition-all duration-500" />
+              {/* Glowing Border Effect - Removed for cleaner look */}
 
-              <div className="relative bg-white rounded-[2rem] p-8 md:p-16 border border-slate-100 shadow-2xl overflow-hidden">
+              <div className="relative bg-white rounded-[2rem] p-8 md:p-16 border-2 border-blue-200 shadow-2xl overflow-hidden hover:border-blue-300 transition-colors duration-300">
                 {/* Subtle inner glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-blue-50/50 blur-[100px] pointer-events-none" />
 
@@ -174,7 +173,7 @@ export default function ContactPage() {
                           onFocus={() => setFocusedField('name')}
                           onBlur={() => setFocusedField(null)}
                           placeholder="John Doe"
-                          className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-white outline-none transition-all duration-300 text-lg"
+                          className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-slate-300 focus:ring-2 focus:ring-slate-200 focus:bg-white outline-none transition-all duration-300 text-lg"
                           required
                         />
                       </div>
@@ -194,7 +193,7 @@ export default function ContactPage() {
                           onFocus={() => setFocusedField('phone')}
                           onBlur={() => setFocusedField(null)}
                           placeholder="+1 (555) 000-0000"
-                          className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-white outline-none transition-all duration-300 text-lg"
+                          className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-slate-300 focus:ring-2 focus:ring-slate-200 focus:bg-white outline-none transition-all duration-300 text-lg"
                         />
                       </div>
                     </div>
@@ -214,7 +213,7 @@ export default function ContactPage() {
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
                         placeholder="john@example.com"
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-white outline-none transition-all duration-300 text-lg"
+                        className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-slate-300 focus:ring-2 focus:ring-slate-200 focus:bg-white outline-none transition-all duration-300 text-lg"
                         required
                       />
                     </div>
@@ -232,7 +231,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('subject')}
                         onBlur={() => setFocusedField(null)}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-white outline-none transition-all duration-300 text-lg appearance-none cursor-pointer"
+                        className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 focus:border-slate-300 focus:ring-2 focus:ring-slate-200 focus:bg-white outline-none transition-all duration-300 text-lg appearance-none cursor-pointer"
                       >
                         <option value="" className="text-slate-400">Select a topic</option>
                         <option value="Web Development" className="text-slate-900">Web Development</option>
@@ -259,7 +258,7 @@ export default function ContactPage() {
                       onBlur={() => setFocusedField(null)}
                       rows={6}
                       placeholder="Tell us about your project..."
-                      className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-white outline-none transition-all duration-300 text-lg resize-none"
+                      className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-slate-300 focus:ring-2 focus:ring-slate-200 focus:bg-white outline-none transition-all duration-300 text-lg resize-none"
                       required
                     />
                   </div>
