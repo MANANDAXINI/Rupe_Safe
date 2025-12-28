@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Globe, Code, Server, Database, Layout,
   Smartphone, Wifi, Tablet, Battery, Bluetooth,
@@ -9,11 +10,21 @@ import {
   Megaphone, Share2, ThumbsUp, Search, Mail,
   Cpu, Terminal, Lock, Network,
   Lightbulb, Target, Briefcase, GraduationCap, LineChart,
-  ArrowRight, Check
+  ArrowRight, Check, CreditCard, Shield, Zap
 } from "lucide-react";
 
 // Service Data with Images and Icons
 const SERVICES = [
+  {
+    id: "payment-gateway",
+    title: "Payment Gateway",
+    icon: CreditCard,
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
+    marquee: [CreditCard, Shield, Lock, Zap, Check, CreditCard, Shield, Lock, Zap, Check],
+    description:
+      "Secure, fast, and reliable payment processing solutions. Accept payments seamlessly with industry-leading security standards and instant settlement.",
+    features: ["Multi-Currency Support", "Instant Settlements", "Advanced Fraud Detection", "Easy Integration APIs"],
+  },
   {
     id: "web-development",
     title: "Web Development",
@@ -185,12 +196,12 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
 
         {/* Action Buttons - Fade In & Slide Up on Hover */}
         <div className="mt-auto grid grid-cols-2 gap-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
-          <button className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors">
+          <Link href={`/services/${service.id}`} className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors">
             Explore <ArrowRight size={16} />
-          </button>
-          <button className="py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0">
+          </Link>
+          <Link href="/contact" className="py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0 text-center">
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </motion.div>

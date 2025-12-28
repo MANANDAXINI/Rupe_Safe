@@ -3,8 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { 
-  Globe, Code, Server, Database, Layout, 
+import {
+  Globe, Code, Server, Database, Layout,
   Smartphone, Wifi, Tablet, Battery, Bluetooth,
   BarChart3, Users, PieChart, TrendingUp, Building,
   Megaphone, Share2, ThumbsUp, Search, Mail,
@@ -81,26 +81,31 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#f0f2f5] relative overflow-hidden font-sans text-slate-900">
       {/* Background Gradients */}
-        <section className="relative pt-40 pb-32 overflow-hidden bg-white">
-        {/* Background Gradients (Blue/White Theme) */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-100/80 rounded-full blur-[80px] opacity-60" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-50/80 rounded-full blur-[80px] opacity-60" />
+      <section className="relative pt-40 pb-32 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop"
+            alt="Technology Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/60 to-slate-900/80"></div>
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 font-bold text-sm uppercase tracking-wider mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold text-sm uppercase tracking-wider mb-6">
             Our Expertise
           </span>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-8 tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 tracking-tight">
             Driving Innovation <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
               Through Technology
             </span>
           </h1>
 
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Follow our roadmap of digital transformation — strategy, engineering, and delivery that scales your business.
           </p>
         </div>
@@ -112,7 +117,7 @@ export default function ServicesPage() {
       </div>
 
       <div className="max-w-[1600px] mx-auto px-6 py-20 relative z-10">
-        
+
         {/* Added "Our Services" Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Our Services</h2>
@@ -135,8 +140,8 @@ export default function ServicesPage() {
           <p className="text-xl text-white mb-10 max-w-2xl mx-auto">
             Let's collaborate to build something amazing. Our team is ready to help you achieve your digital goals.
           </p>
-          <Link 
-            href="/contact" 
+          <Link
+            href="/contact"
             className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-black transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-blue-500 hover:scale-105 hover:shadow-blue-400/30"
           >
             Contact Us
@@ -159,7 +164,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
     >
       {/* Background Image with Scale Effect */}
       <div className="absolute inset-0 overflow-hidden bg-slate-900">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110 opacity-80 group-hover:opacity-60"
           style={{ backgroundImage: `url('${service.image}')` }}
         />
@@ -168,7 +173,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
 
       {/* Content Box - Slides Up on Hover */}
       <div className="absolute bottom-0 left-0 w-full h-[60%] group-hover:h-[80%] bg-white rounded-t-[30px] p-8 flex flex-col transition-all duration-500 ease-in-out shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-        
+
         {/* Header Row */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-lg shrink-0">
@@ -205,13 +210,13 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
 
         {/* Action Buttons - Fade In & Slide Up on Hover */}
         <div className="mt-auto grid grid-cols-2 gap-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
-          <Link 
+          <Link
             href={`/services/${service.id}`}
             className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors"
           >
             Explore Service <ArrowRight size={16} />
           </Link>
-          <Link 
+          <Link
             href="/contact"
             className="flex items-center justify-center py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0"
           >

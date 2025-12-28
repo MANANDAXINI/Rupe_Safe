@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Code, Smartphone, TrendingUp, Database, Boxes, CheckCircle, Star, Zap, Shield, Users, Lightbulb } from 'lucide-react';
+import { ArrowRight, Code, Smartphone, TrendingUp, Database, Boxes, CheckCircle, Star, Zap, Shield, Users, Lightbulb, CreditCard } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface Counter {
@@ -230,6 +230,122 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Payment Gateway Hero Section - MAIN FOCUS */}
+      <section className="relative py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 overflow-hidden z-10">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 animate-blob animation-delay-2000"></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-400/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-white">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6">
+                <CreditCard className="h-4 w-4" />
+                <span className="text-sm font-semibold">Featured Service</span>
+              </div>
+
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Accept Payments <br />
+                <span className="text-blue-200">Faster & Safer</span>
+              </h2>
+
+              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+                India's most advanced payment gateway with instant settlements, 100+ payment methods,
+                and bank-grade security. Start accepting payments in minutes.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">99.9%</div>
+                  <div className="text-sm text-blue-100">Uptime SLA</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">₹500Cr+</div>
+                  <div className="text-sm text-blue-100">Monthly Volume</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">50K+</div>
+                  <div className="text-sm text-blue-100">Active Merchants</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">&lt;2s</div>
+                  <div className="text-sm text-blue-100">Response Time</div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/services/payment-gateway">
+                  <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 w-full sm:w-auto">
+                    Explore Payment Gateway
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 w-full sm:w-auto">
+                    Get Started Free
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Content - Features */}
+            <div className="space-y-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <Shield className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Bank-Grade Security</h3>
+                    <p className="text-blue-100 text-sm">PCI DSS Level 1 compliant with 256-bit encryption</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <Zap className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Instant Settlements</h3>
+                    <p className="text-blue-100 text-sm">Get your money in minutes, not days</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <CreditCard className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">100+ Payment Methods</h3>
+                    <p className="text-blue-100 text-sm">Cards, UPI, Wallets, Net Banking & more</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Easy Integration</h3>
+                    <p className="text-blue-100 text-sm">Developer-friendly APIs and SDKs</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section with Enhanced Cards */}
       <section className="py-20 bg-gradient-to-b from-gray-100 to-gray-50 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -243,6 +359,45 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Payment Gateway Card - PRIMARY FOCUS */}
+            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4">
+              <div className="relative h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop"
+                  alt="Payment Gateway"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+                {/* "Featured" Badge */}
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                  ⭐ FEATURED
+                </div>
+
+                {/* Text Content - Bottom Quarter */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <CreditCard className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-1">Payment Gateway</h3>
+                </div>
+
+                {/* Sliding Container - Covers 3/4 on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col justify-center p-6 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <CreditCard className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Payment Gateway</h3>
+                  <p className="mb-4 text-sm leading-relaxed">
+                    Secure, fast, and reliable payment processing solutions. Accept payments seamlessly with industry-leading security standards.
+                  </p>
+                  <Link href="/services/payment-gateway" className="text-white font-medium inline-flex items-center hover:underline">
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </Card>
+
             {/* Website Development Card */}
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
               <div className="relative h-full">
