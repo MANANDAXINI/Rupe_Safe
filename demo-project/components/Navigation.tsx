@@ -56,11 +56,10 @@ export default function Navigation() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors ${
-                  pathname === link.path
+                className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors ${pathname === link.path
                     ? 'text-blue-600 border-b-2 border-blue-600'
                     : 'text-gray-700 hover:text-blue-600'
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>
@@ -94,7 +93,7 @@ export default function Navigation() {
                       Profile
                     </Link>
                   </DropdownMenuItem>
-                  
+
                   {/* Admin Dashboard Link - Only show if user is admin */}
                   {user.isAdmin && (
                     <>
@@ -107,7 +106,7 @@ export default function Navigation() {
                       </DropdownMenuItem>
                     </>
                   )}
-                  
+
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
                     onClick={handleLogout}
@@ -119,14 +118,9 @@ export default function Navigation() {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <div className="flex items-center space-x-4">
-                <Link href="/auth/signin">
-                  <Button variant="ghost">Sign In</Button>
-                </Link>
-                <Link href="/auth/signup">
-                  <Button className="bg-blue-600 hover:bg-blue-700">Sign Up</Button>
-                </Link>
-              </div>
+              <Link href="/auth/signin">
+                <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
+              </Link>
             )}
           </div>
 
@@ -150,11 +144,10 @@ export default function Navigation() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`block pl-3 pr-4 py-2 text-base font-medium ${
-                  pathname === link.path
+                className={`block pl-3 pr-4 py-2 text-base font-medium ${pathname === link.path
                     ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
                     : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
-                }`}
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -218,18 +211,11 @@ export default function Navigation() {
                   </div>
                 </>
               ) : (
-                <div className="space-y-2 px-4">
-                  <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="w-full">
-                      Sign In
-                    </Button>
-                  </Link>
-                  <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Sign Up
-                    </Button>
-                  </Link>
-                </div>
+                <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                    Get Started
+                  </Button>
+                </Link>
               )}
             </div>
           </div>

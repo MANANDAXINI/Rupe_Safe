@@ -213,7 +213,7 @@ export default function Home() {
       <section className="pt-8 pb-8 bg-transparent">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
-            <h3 className="text-sm font-bold text-brand-600 uppercase">Trusted By</h3>
+            <h3 className="text-sm font-bold text-blue-600 uppercase">Trusted By</h3>
             <p className="text-slate-600 mt-2">Partners who trust our work</p>
           </div>
 

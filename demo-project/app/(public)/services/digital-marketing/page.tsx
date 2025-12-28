@@ -183,7 +183,7 @@ export default function DigitalMarketingPage() {
                     "Continuous Optimization"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-blue-500" />
+                      <CheckCircle2 className="w-5 h-5 text-blue-600" />
                       {item}
                     </li>
                   ))}
@@ -238,7 +238,7 @@ export default function DigitalMarketingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative bg-slate-900 rounded-[2.5rem] p-12 md:p-20 text-center overflow-hidden shadow-2xl"
+            className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-[2.5rem] p-12 md:p-20 text-center overflow-hidden shadow-2xl"
           >
             {/* Decorative Orbs */}
             <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />

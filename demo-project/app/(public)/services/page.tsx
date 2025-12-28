@@ -83,14 +83,14 @@ export default function ServicesPage() {
       {/* Background Gradients */}
       <section className="relative pt-40 pb-32 overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 w-full h-full">
           <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop"
+            src="/images/services.jpg"
             alt="Technology Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
           {/* Overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/60 to-slate-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">

@@ -123,7 +123,7 @@ export default function About(): JSX.Element {
 
             <div className="grid gap-4 mt-6">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand-600/10 flex items-center justify-center text-brand-600 font-bold">01</div>
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">01</div>
                 <div>
                   <div className="font-semibold text-slate-900">Product-led engineering</div>
                   <div className="text-sm text-slate-600">Ship fast, iterate safely with measurable outcomes.</div>
@@ -131,7 +131,7 @@ export default function About(): JSX.Element {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand-600/10 flex items-center justify-center text-brand-600 font-bold">02</div>
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">02</div>
                 <div>
                   <div className="font-semibold text-slate-900">Cloud-first operations</div>
                   <div className="text-sm text-slate-600">Secure, observable and cost-optimised platforms.</div>
@@ -139,7 +139,7 @@ export default function About(): JSX.Element {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand-600/10 flex items-center justify-center text-brand-600 font-bold">03</div>
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">03</div>
                 <div>
                   <div className="font-semibold text-slate-900">Long-term partnerships</div>
                   <div className="text-sm text-slate-600">We stay to evolve and operate the product with you.</div>
@@ -154,7 +154,7 @@ export default function About(): JSX.Element {
             transition={{ duration: 0.6 }}
             className="relative rounded-3xl overflow-hidden shadow-2xl"
           >
-            <div className="w-full h-[560px] bg-black/40 flex items-center justify-center">
+            <div className="w-full h-[560px] bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center rounded-3xl overflow-hidden">
               <Image
                 src="/Rupesafe-aboutus.png"
                 alt="Gig illustration"
@@ -169,9 +169,9 @@ export default function About(): JSX.Element {
       </section>
 
       {/* Our Impact - counters + hover animation */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6" ref={impactRef as React.RefObject<HTMLDivElement>}>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-500 text-center mb-10">Our Impact</h3>
+          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-600 text-center mb-10">Our Impact</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -189,15 +189,15 @@ export default function About(): JSX.Element {
                   whileHover={{ scale: 1.04 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="glass-card bg-white/80 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-10 hover:shadow-2xl transition-transform"
+                  className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 shadow-xl rounded-3xl p-10 hover:shadow-2xl transition-all"
                 >
                   <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center animate-pulse">
-                      <Icon className="w-7 h-7 text-brand-600" />
+                    <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                      <Icon className="w-7 h-7 text-blue-600" />
                     </div>
 
                     <div>
-                      <div className="text-5xl md:text-6xl font-extrabold text-brand-600 leading-tight">
+                      <div className="text-5xl md:text-6xl font-extrabold text-blue-600 leading-tight">
                         {counts[i]}
                         {s.suffix}
                       </div>
@@ -211,10 +211,10 @@ export default function About(): JSX.Element {
         </div>
       </section>
 
-      {/* Our Values - modern dark background, centered blue-400 heading */}
-      <section className="py-20 bg-slate-900">
+      {/* Our Values - modern light background, centered blue heading */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-500 text-center mb-10">Our Values</h3>
+          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-600 text-center mb-10">Our Values</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {["Innovation", "Integrity", "Excellence"].map((val, idx) => (
@@ -224,23 +224,23 @@ export default function About(): JSX.Element {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.06 }}
-                className="relative rounded-3xl p-10 bg-gradient-to-br from-slate-800 to-slate-900 text-white overflow-hidden transform transition hover:scale-105 hover:shadow-2xl"
+                className="relative rounded-3xl p-10 bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 overflow-hidden transform transition hover:scale-105 hover:shadow-2xl"
               >
-                <h4 className="text-2xl font-bold mb-4">{val}</h4>
-                <p className="text-slate-300 mb-6">
+                <h4 className="text-2xl font-bold mb-4 text-slate-900">{val}</h4>
+                <p className="text-slate-700 mb-6">
                   We prioritise {val.toLowerCase()} in everything we build — from architecture to culture.
                 </p>
 
                 <div className="mt-6 overflow-hidden" style={{ maskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)" }}>
                   <div className="flex gap-6 whitespace-nowrap animate-scroll-left">
                     {Array.from({ length: 10 }).map((_, i) => (
-                      <span key={i} className="text-sm font-semibold text-slate-400">{val} •</span>
+                      <span key={i} className="text-sm font-semibold text-blue-600">{val} •</span>
                     ))}
                   </div>
                 </div>
 
-                <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brand-600/5 blur-3xl pointer-events-none" />
-                <div className="absolute -left-20 -bottom-20 w-72 h-72 rounded-full bg-indigo-600/5 blur-3xl pointer-events-none" />
+                <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-blue-200/30 blur-3xl pointer-events-none" />
+                <div className="absolute -left-20 -bottom-20 w-72 h-72 rounded-full bg-purple-200/30 blur-3xl pointer-events-none" />
               </motion.div>
             ))}
           </div>
@@ -248,9 +248,9 @@ export default function About(): JSX.Element {
       </section>
 
       {/* Meet the Team - centered blue header, hover-grow cards */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-500 text-center mb-10">Meet the Team</h3>
+          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-600 text-center mb-10">Meet the Team</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {Array.from({ length: 8 }).map((_, i) => (
@@ -260,12 +260,12 @@ export default function About(): JSX.Element {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 whileHover={{ scale: 1.06 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                className="bg-white rounded-2xl p-8 text-center shadow-lg border-b-4 border-brand-600 transform transition hover:shadow-2xl hover:-translate-y-2"
+                className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
               >
-                <div className="mx-auto w-28 h-28 rounded-full bg-slate-200 mb-4" />
+                <div className="mx-auto w-28 h-28 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 mb-4" />
                 <div className="font-semibold text-slate-900 text-lg">Member {i + 1}</div>
-                <div className="text-sm text-slate-600 mt-1">Role</div>
-                <p className="text-sm text-slate-600 mt-3"> bio describing expertise and interests — adds personality and trust.</p>
+                <div className="text-sm text-blue-600 mt-1 font-medium">Role</div>
+                <p className="text-sm text-slate-600 mt-3">Bio describing expertise and interests — adds personality and trust.</p>
               </motion.div>
             ))}
           </div>
@@ -273,12 +273,12 @@ export default function About(): JSX.Element {
       </section>
 
       {/* Bottom CTA - attach Get Started to Contact page */}
-      <section className="py-20 bg-blue-500">
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Ready to transform your business?</h2>
-          <p className="text-white mb-8">Let&apos;s partner to design and deliver software that moves your business forward.</p>
+          <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Let&apos;s partner to design and deliver software that moves your business forward.</p>
           <Link href="/contact" className="inline-block">
-            <button className="px-12 py-4 bg-blue-400 text-black font-semibold rounded-xl hover:scale-105 transition-transform shadow-lg">
+            <button className="px-12 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 hover:scale-105 transition-all shadow-lg">
               Contact Us
             </button>
           </Link>

@@ -8,8 +8,8 @@ export default function AboutUsPage(): JSX.Element {
       {/* Header */}
       <header className="py-20 relative overflow-hidden">
         {/* animated blobs behind header */}
-        <div className="absolute -top-10 -left-10 w-56 h-56 rounded-full bg-brand-600/10 animate-float pointer-events-none" />
-        <div className="absolute -top-20 right-10 w-72 h-72 rounded-full bg-brand-600/10 animate-float pointer-events-none" />
+        <div className="absolute -top-10 -left-10 w-56 h-56 rounded-full bg-blue-100 animate-float pointer-events-none" />
+        <div className="absolute -top-20 right-10 w-72 h-72 rounded-full bg-blue-100 animate-float pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-slate-900">
@@ -22,13 +22,13 @@ export default function AboutUsPage(): JSX.Element {
       </header>
 
       {/* Our Story */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card bg-white/80 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl p-8"
+            className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 shadow-xl rounded-2xl p-8"
           >
             <h2 className="text-2xl font-extrabold text-slate-900 mb-4">Our Story</h2>
             <p className="text-slate-600 leading-relaxed">
@@ -40,19 +40,19 @@ export default function AboutUsPage(): JSX.Element {
 
           {/* Visual - orbit animation */}
           <div className="relative flex items-center justify-center mt-8 lg:mt-0">
-            <div className="w-64 h-64 rounded-full bg-brand-600/10 flex items-center justify-center relative">
-              <div className="absolute inset-0 animate-spin-slow rounded-full border border-white/20 opacity-60" />
-              <div className="absolute inset-8 rounded-full bg-white/50" />
+            <div className="w-64 h-64 rounded-full bg-blue-100 flex items-center justify-center relative">
+              <div className="absolute inset-0 animate-spin-slow rounded-full border border-blue-200 opacity-60" />
+              <div className="absolute inset-8 rounded-full bg-white shadow-lg" />
               {/* orbit rings with icons */}
-              <div className="absolute w-44 h-44 rounded-full border border-white/10 animate-spin-slow">
-                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center left-1/2 top-4 transform -translate-x-1/2">
-                  <Code className="w-4 h-4 text-brand-600" />
+              <div className="absolute w-44 h-44 rounded-full border border-blue-200 animate-spin-slow">
+                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center left-1/2 top-4 transform -translate-x-1/2 shadow-md">
+                  <Code className="w-4 h-4 text-blue-600" />
                 </div>
-                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center right-4 top-1/2 transform -translate-y-1/2">
-                  <Cloud className="w-4 h-4 text-brand-600" />
+                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center right-4 top-1/2 transform -translate-y-1/2 shadow-md">
+                  <Cloud className="w-4 h-4 text-blue-600" />
                 </div>
-                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center left-4 bottom-6">
-                  <Server className="w-4 h-4 text-brand-600" />
+                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center left-4 bottom-6 shadow-md">
+                  <Server className="w-4 h-4 text-blue-600" />
                 </div>
               </div>
             </div>
@@ -76,10 +76,10 @@ export default function AboutUsPage(): JSX.Element {
                 <div key={s.key} className="glass-card bg-white/80 backdrop-blur-md border border-white/20 shadow-xl rounded-xl p-6 hover:-translate-y-2 transition">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center animate-pulse">
-                      <Icon className="w-6 h-6 text-brand-600" />
+                      <Icon className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <div className="text-5xl font-extrabold text-brand-600 leading-none">{
+                      <div className="text-5xl font-extrabold text-blue-600 leading-none">{
                         s.key === "years" ? "15+" : s.key === "team" ? "50+" : s.key === "clients" ? "250+" : "500+"
                       }</div>
                       <div className="text-sm text-slate-600 mt-1">{s.label.replace(/^[0-9+\s-]+/, "").trim() || s.label}</div>
@@ -106,7 +106,7 @@ export default function AboutUsPage(): JSX.Element {
 
                 <div className="mt-6 overflow-hidden" style={{ maskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)" }}>
                   <div className="flex gap-6 whitespace-nowrap animate-scroll-left">
-                    {Array.from({length: 6}).map((_, i) => (
+                    {Array.from({ length: 6 }).map((_, i) => (
                       <span key={i} className="text-sm font-semibold text-slate-500">{val} •</span>
                     ))}
                   </div>
@@ -134,18 +134,12 @@ export default function AboutUsPage(): JSX.Element {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16">
-        <div className="relative">
-          <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="bg-brand-600 w-full h-full" />
-          </div>
-
-          <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <h2 className="text-3xl font-extrabold text-white mb-4">Ready to transform your business?</h2>
-            <button className="px-8 py-4 bg-white text-brand-600 font-semibold rounded-lg hover:bg-slate-100 transition">
-              Get Started
-            </button>
-          </div>
+      <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl font-extrabold text-white mb-4">Ready to transform your business?</h2>
+          <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg">
+            Get Started
+          </button>
         </div>
       </section>
     </main>
