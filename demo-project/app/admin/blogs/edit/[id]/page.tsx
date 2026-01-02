@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,8 +13,8 @@ import Link from 'next/link';
 import { RichTextEditor } from '@/components/admin/RichTextEditor';
 import { toast } from 'sonner';
 
-export default function EditBlogPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params);
+export default function EditBlogPage({ params }: { params: { id: string } }) {
+    const { id } = params;
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -103,7 +103,7 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (!formData.title.trim()) {
             toast.error('Title is required');
             return;
@@ -235,8 +235,8 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
                                     />
                                 </div>
                                 <p className="text-sm text-gray-500">
-                                    {formData.published 
-                                        ? 'This blog is visible to the public.' 
+                                    {formData.published
+                                        ? 'This blog is visible to the public.'
                                         : 'This blog is saved as a draft.'}
                                 </p>
                                 <Button type="submit" disabled={isSubmitting} className="w-full">
@@ -253,15 +253,15 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
                             <CardContent className="space-y-4">
                                 {imagePreview ? (
                                     <div className="relative">
-                                        <img 
-                                            src={imagePreview} 
-                                            alt="Cover preview" 
-                                            className="w-full h-48 object-cover rounded-md" 
+                                        <img
+                                            src={imagePreview}
+                                            alt="Cover preview"
+                                            className="w-full h-48 object-cover rounded-md"
                                         />
-                                        <Button 
+                                        <Button
                                             type="button"
-                                            variant="destructive" 
-                                            size="icon" 
+                                            variant="destructive"
+                                            size="icon"
                                             className="absolute top-2 right-2"
                                             onClick={removeImage}
                                         >

@@ -65,20 +65,20 @@ export default function BlogContent({ blog, readingTime }: BlogContentProps) {
 
     return (
         <div className="bg-white font-sans">
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
                 <article>
                     {/* Header Section */}
-                    <header className="mb-8 md:mb-12 text-center">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-4">
+                    <header className="mb-8 md:mb-12 text-left">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-600 leading-tight mb-4">
                             {blog.title}
                         </h1>
-                        <p className="text-lg md:text-xl text-slate-600 mt-4 max-w-3xl mx-auto">
+                        <p className="text-lg md:text-xl text-slate-600 mt-4 max-w-4xl">
                             {blog.excerpt}
                         </p>
                     </header>
 
                     {/* Meta Info Section */}
-                    <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 mb-8 md:mb-12 border-y border-slate-200 py-4">
+                    <div className="flex flex-wrap justify-start items-center gap-x-6 gap-y-4 mb-8 md:mb-12 border-y border-slate-200 py-4">
                         <div className="flex items-center gap-2 text-slate-600">
                             <UserIcon className="w-5 h-5" />
                             <span className="font-medium text-slate-800">{blog.author?.name || 'Rupesafe Team'}</span>
@@ -103,11 +103,11 @@ export default function BlogContent({ blog, readingTime }: BlogContentProps) {
 
                     {/* Cover Image */}
                     {blog.coverImage && (
-                        <div className="mb-8 md:mb-12 rounded-2xl overflow-hidden shadow-lg">
+                        <div className="mb-8 md:mb-12 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
                             <img
                                 src={blog.coverImage}
                                 alt={blog.title}
-                                className="w-full h-auto object-cover"
+                                className="w-full h-auto max-h-[500px] object-cover"
                                 width={1200}
                                 height={630}
                             />

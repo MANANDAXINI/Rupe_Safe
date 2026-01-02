@@ -104,7 +104,7 @@ export default function BlogsPage() {
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50 rounded-full blur-3xl -mr-40 -mt-40 opacity-70 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gray-100 rounded-full blur-3xl -ml-20 -mb-20 opacity-70 pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.div
                         initial="hidden"
                         animate="visible"
@@ -144,7 +144,7 @@ export default function BlogsPage() {
                         </div>
                     ) : (
                         <motion.div
-                            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+                            className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14"
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
@@ -152,44 +152,52 @@ export default function BlogsPage() {
                             {blogs.map((blog) => (
                                 <motion.div key={blog.id} variants={cardVariants}>
                                     <Link href={`/blogs/${blog.slug}`} passHref>
-                                        <div className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 h-full flex flex-col border-4 border-blue-600 overflow-hidden">
+                                        <div className="group bg-white rounded-[2rem] shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 border-2 border-gray-100 hover:border-blue-600 overflow-hidden flex flex-col h-full min-h-[500px]">
                                             {blog.coverImage && (
-                                                <div className="overflow-hidden">
+                                                <div className="relative h-64 overflow-hidden">
                                                     <img
                                                         src={blog.coverImage}
                                                         alt={blog.title}
-                                                        className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                                     />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                                 </div>
                                             )}
-                                            <div className="p-8 flex flex-col flex-grow">
-                                                <h2 className="text-2xl font-bold text-slate-800 mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300">{blog.title}</h2>
-                                                <p className="text-slate-600 text-lg line-clamp-3 mb-6 flex-grow">{blog.excerpt}</p>
-
-                                                <div className="flex items-center text-base text-slate-500 space-x-6 mt-auto mb-6">
-                                                    <div className="flex items-center gap-2">
-                                                        <User className="w-5 h-5" />
-                                                        <span className="font-medium">{blog.author.name || 'Admin'}</span>
-                                                    </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <Calendar className="w-5 h-5" />
-                                                        <span>{formatDate(blog.createdAt)}</span>
-                                                    </div>
+                                            <div className="p-8 md:p-10 flex flex-col flex-grow">
+                                                <div className="flex-grow">
+                                                    <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300 tracking-tight">{blog.title}</h2>
+                                                    <p className="text-slate-600 text-lg leading-relaxed line-clamp-3 mb-6">{blog.excerpt}</p>
                                                 </div>
 
-                                                <div className="flex justify-between items-center mt-4 border-t pt-6">
-                                                    <div className="flex items-center text-blue-600 font-bold text-lg">
-                                                        Read More
-                                                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform duration-300" />
+                                                <div className="mt-auto pt-8 border-t border-gray-50">
+                                                    <div className="flex items-center justify-between">
+                                                        <div className="flex items-center gap-6 text-sm text-slate-500">
+                                                            <div className="flex items-center gap-2">
+                                                                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
+                                                                    <User className="w-4 h-4 text-blue-600" />
+                                                                </div>
+                                                                <span className="font-semibold">{blog.author.name || 'Admin'}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-2">
+                                                                <Calendar className="w-4 h-4" />
+                                                                <span>{formatDate(blog.createdAt)}</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <Button
+                                                            variant="ghost"
+                                                            size="icon"
+                                                            onClick={(e) => handleShare(e, blog)}
+                                                            className="rounded-full w-10 h-10 hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-all"
+                                                        >
+                                                            <Share2 className="w-5 h-5" />
+                                                        </Button>
                                                     </div>
-                                                    <Button
-                                                        variant="ghost"
-                                                        size="icon"
-                                                        onClick={(e) => handleShare(e, blog)}
-                                                        className="rounded-full w-12 h-12 hover:bg-blue-100"
-                                                    >
-                                                        <Share2 className="w-6 h-6 text-slate-500 hover:text-blue-600" />
-                                                    </Button>
+
+                                                    <div className="mt-6 flex items-center text-blue-600 font-bold text-base group-hover:gap-3 transition-all">
+                                                        Read Full Article
+                                                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

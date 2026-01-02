@@ -579,22 +579,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose RupeSafe - New Design */}
       <section
-        className="relative py-20 text-gray-900"
-        style={{
-          backgroundImage: 'url(/aboutus-1.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="relative py-20 bg-gray-50 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Why Choose RupeSafe?
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
             </p>
           </div>
@@ -608,8 +601,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-white">Expert Team</h3>
-                  <p className="text-blue-100">
+                  <h3 className="text-lg font-semibold mb-2 text-gray-900">Expert Team</h3>
+                  <p className="text-gray-600">
                     Skilled professionals with years of industry experience in cutting-edge technologies.
                   </p>
                 </div>
@@ -622,8 +615,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-white">Proven Results</h3>
-                  <p className="text-blue-100">
+                  <h3 className="text-lg font-semibold mb-2 text-gray-900">Proven Results</h3>
+                  <p className="text-gray-600">
                     Track record of successful projects across industries with measurable ROI.
                   </p>
                 </div>
@@ -636,8 +629,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-white">End-to-End Support</h3>
-                  <p className="text-blue-100">
+                  <h3 className="text-lg font-semibold mb-2 text-gray-900">End-to-End Support</h3>
+                  <p className="text-gray-600">
                     From concept to deployment and beyond with continuous support and maintenance.
                   </p>
                 </div>
@@ -650,8 +643,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-white">Scalable Solutions</h3>
-                  <p className="text-blue-100">
+                  <h3 className="text-lg font-semibold mb-2 text-gray-900">Scalable Solutions</h3>
+                  <p className="text-gray-600">
                     Technology that grows with your business and adapts to changing needs.
                   </p>
                 </div>
@@ -662,16 +655,16 @@ export default function Home() {
               {counters.map((counter, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg p-8 text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-in fade-in slide-in-from-bottom-4 text-white"
+                  className="bg-white border border-gray-100 rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-in fade-in slide-in-from-bottom-4"
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold mb-2">
+                  <div className="text-4xl md:text-5xl font-bold mb-2 text-blue-600">
                     {counter.value}
-                    <span className="text-blue-200">{counter.suffix}</span>
+                    <span className="text-blue-400">{counter.suffix}</span>
                   </div>
-                  <div className="text-blue-100 text-sm font-medium">{counter.label}</div>
+                  <div className="text-gray-500 text-sm font-medium">{counter.label}</div>
                 </div>
               ))}
             </div>

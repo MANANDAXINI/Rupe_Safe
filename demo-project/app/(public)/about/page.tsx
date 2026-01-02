@@ -94,13 +94,10 @@ export default function About(): JSX.Element {
 
       {/* Our Story - background image Rupesafe-aboutus.png */}
       <section
-        className="py-24 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/aboutus-1.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="py-24 bg-slate-50 overflow-hidden relative"
       >
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl -mr-48 -mt-48" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl -ml-48 -mb-48" />
         <div className="max-w-7xl mx-auto px-6 lg:grid lg:grid-cols-2 gap-12 items-start">
           <motion.article
             initial="hidden"
