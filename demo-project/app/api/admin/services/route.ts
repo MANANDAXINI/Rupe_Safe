@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     try {
         await requireAdmin();
         const body = await request.json();
-        const { title, description, icon, features } = body;
+        const { title, slug, description, icon, image, features } = body;
 
         if (!title || !description) {
             return NextResponse.json(
@@ -38,10 +38,12 @@ export async function POST(request: NextRequest) {
         const service = await prisma.service.create({
             data: {
                 title,
+                slug: slug || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
                 description,
                 icon: icon || null,
+                image: image || null,
                 features: features || [],
-            },
+            } as any,
         });
 
         return NextResponse.json(service, { status: 201 });

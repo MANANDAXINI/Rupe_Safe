@@ -1,17 +1,22 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { ArrowLeft, Plus, X } from 'lucide-react';
+import { ArrowLeft, Plus, X, Loader2, Save } from 'lucide-react';
 import Link from 'next/link';
+import { toast } from 'sonner';
 
-export default function NewServicePage() {
+export default function EditServicePage() {
     const router = useRouter();
+    const params = useParams();
+    const id = params.id as string;
+
+    const [isLoading, setIsLoading] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         title: '',
@@ -21,6 +26,37 @@ export default function NewServicePage() {
         image: '',
         features: [''],
     });
+
+    useEffect(() => {
+        const fetchService = async () => {
+            try {
+                const response = await fetch(`/api/admin/services/${id}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setFormData({
+                        title: data.title || '',
+                        slug: data.slug || '',
+                        description: data.description || '',
+                        icon: data.icon || '',
+                        image: data.image || '',
+                        features: data.features && data.features.length > 0 ? data.features : [''],
+                    });
+                } else {
+                    toast.error('Failed to fetch service details');
+                    router.push('/admin/services');
+                }
+            } catch (error) {
+                console.error('Fetch failed:', error);
+                toast.error('Error loading service');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        if (id) {
+            fetchService();
+        }
+    }, [id, router]);
 
     const handleTitleChange = (title: string) => {
         const slug = title
@@ -55,8 +91,8 @@ export default function NewServicePage() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('/api/admin/services', {
-                method: 'POST',
+            const response = await fetch(`/api/admin/services/${id}`, {
+                method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...formData,
@@ -65,19 +101,28 @@ export default function NewServicePage() {
             });
 
             if (response.ok) {
+                toast.success('Service updated successfully');
                 router.push('/admin/services');
                 router.refresh();
             } else {
                 const data = await response.json();
-                alert(data.error || 'Failed to create service');
+                toast.error(data.error || 'Failed to update service');
             }
         } catch (error) {
             console.error('Submit failed:', error);
-            alert('Failed to create service');
+            toast.error('Failed to update service');
         } finally {
             setIsSubmitting(false);
         }
     };
+
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center min-h-[400px]">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+            </div>
+        );
+    }
 
     return (
         <div className="max-w-4xl space-y-6">
@@ -89,8 +134,8 @@ export default function NewServicePage() {
                     </Button>
                 </Link>
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900">Add New Service</h1>
-                    <p className="mt-1 text-gray-500 text-sm">Create a new service for your website.</p>
+                    <h1 className="text-3xl font-bold text-gray-900">Edit Service</h1>
+                    <p className="mt-1 text-gray-500 text-sm">Update the details for "{formData.title}"</p>
                 </div>
             </div>
 
@@ -200,7 +245,17 @@ export default function NewServicePage() {
 
                         <div className="flex gap-4 pt-4 border-t">
                             <Button type="submit" disabled={isSubmitting} className="flex-1 bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200">
-                                {isSubmitting ? 'Creating...' : 'Create Service'}
+                                {isSubmitting ? (
+                                    <>
+                                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                        Updating...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Save className="w-4 h-4 mr-2" />
+                                        Save Changes
+                                    </>
+                                )}
                             </Button>
                             <Link href="/admin/services" className="flex-1">
                                 <Button type="button" variant="outline" className="w-full">

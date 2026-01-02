@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/table';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Eye, Trash2 } from 'lucide-react';
+import { Eye, Trash2, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const dynamic = 'force-dynamic';
@@ -35,74 +35,88 @@ export default async function OrdersPage() {
         });
 
         return (
-            <div className="space-y-6">
-                <h1 className="text-3xl font-bold text-gray-900">Orders & Payments</h1>
-                <Card className="border-none shadow-md bg-white">
-                    <CardHeader>
-                        <CardTitle className="text-gray-900">Recent Orders</CardTitle>
-                    </CardHeader>
-                    <CardContent>
+            <div className="space-y-8 pb-10">
+                <div className="flex flex-col gap-1 border-b pb-6">
+                    <h1 className="text-2xl font-black text-gray-900 tracking-tight">Orders & Transactions</h1>
+                    <p className="text-gray-500 font-medium">Track and manage financial activities and service fulfillment.</p>
+                </div>
+
+                <div className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
+                    <div className="overflow-x-auto">
                         <Table>
                             <TableHeader>
-                                <TableRow className="hover:bg-gray-50 border-gray-200">
-                                    <TableHead className="text-gray-600">Order ID</TableHead>
-                                    <TableHead className="text-gray-600">User</TableHead>
-                                    <TableHead className="text-gray-600">Service</TableHead>
-                                    <TableHead className="text-gray-600">Amount</TableHead>
-                                    <TableHead className="text-gray-600">Payment</TableHead>
-                                    <TableHead className="text-gray-600">Status</TableHead>
-                                    <TableHead className="text-gray-600">Date</TableHead>
-                                    <TableHead className="text-gray-600">Actions</TableHead>
+                                <TableRow className="bg-gray-50/50 hover:bg-gray-50/50 border-b border-gray-100">
+                                    <TableHead className="px-8 py-5 text-[11px] font-bold text-gray-400 uppercase tracking-widest">Order Details</TableHead>
+                                    <TableHead className="px-8 py-5 text-[11px] font-bold text-gray-400 uppercase tracking-widest">Customer</TableHead>
+                                    <TableHead className="px-8 py-5 text-[11px] font-bold text-gray-400 uppercase tracking-widest text-center">Amount</TableHead>
+                                    <TableHead className="px-8 py-5 text-[11px] font-bold text-gray-400 uppercase tracking-widest text-center">Status</TableHead>
+                                    <TableHead className="px-8 py-5 text-[11px] font-bold text-gray-400 uppercase tracking-widest text-right">Actions</TableHead>
                                 </TableRow>
                             </TableHeader>
-                            <TableBody>
+                            <TableBody className="divide-y divide-gray-50">
                                 {orders.length === 0 ? (
                                     <TableRow>
-                                        <TableCell colSpan={8} className="text-center text-gray-500 py-8">
-                                            No orders found
+                                        <TableCell colSpan={5} className="px-8 py-20 text-center">
+                                            <div className="flex flex-col items-center gap-3">
+                                                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center">
+                                                    <ShoppingCart className="w-6 h-6 text-gray-200" />
+                                                </div>
+                                                <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">No transactions found</p>
+                                            </div>
                                         </TableCell>
                                     </TableRow>
                                 ) : (
                                     orders.map((order) => (
-                                        <TableRow key={order.id} className="hover:bg-gray-50 border-gray-200">
-                                            <TableCell className="font-medium text-gray-900">{order.id.slice(0, 8)}...</TableCell>
-                                            <TableCell>
+                                        <TableRow key={order.id} className="hover:bg-gray-50/50 transition-colors group text-sm">
+                                            <TableCell className="px-8 py-5">
+                                                <div className="flex flex-col gap-0.5">
+                                                    <span className="font-bold text-gray-900 tracking-tight">#{order.id.slice(0, 8).toUpperCase()}</span>
+                                                    <span className="text-[11px] font-bold text-blue-600 uppercase tracking-tighter">{order.service?.title || 'Unknown Service'}</span>
+                                                    <span className="text-[10px] text-gray-400 font-mono mt-1">
+                                                        {new Date(order.createdAt).toLocaleDateString('en-GB', {
+                                                            day: '2-digit',
+                                                            month: 'short',
+                                                            year: 'numeric'
+                                                        })}
+                                                    </span>
+                                                </div>
+                                            </TableCell>
+                                            <TableCell className="px-8 py-5">
                                                 <div className="flex flex-col">
-                                                    <span className="font-medium text-gray-900">{order.user.name}</span>
-                                                    <span className="text-xs text-gray-500">{order.user.email}</span>
+                                                    <span className="font-bold text-gray-900 leading-none">{order.user.name}</span>
+                                                    <span className="text-[11px] font-medium text-gray-400 mt-1">{order.user.email}</span>
                                                 </div>
                                             </TableCell>
-                                            <TableCell className="text-gray-600">{order.service?.title || 'N/A'}</TableCell>
-                                            <TableCell className="font-medium text-gray-900">
-                                                {order.currency} {order.amount}
+                                            <TableCell className="px-8 py-5 text-center">
+                                                <div className="flex flex-col items-center">
+                                                    <span className="text-base font-black text-gray-900 tracking-tighter">{order.currency} {order.amount}</span>
+                                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">{order.paymentMethod || 'Gateway'}</span>
+                                                </div>
                                             </TableCell>
-                                            <TableCell className="text-gray-600">{order.paymentMethod || 'N/A'}</TableCell>
-                                            <TableCell>
-                                                <Badge className={`${
-                                                    order.status === 'COMPLETED' ? 'bg-green-100 text-green-700 hover:bg-green-200' :
-                                                    order.status === 'PENDING' ? 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200' :
-                                                    'bg-red-100 text-red-700 hover:bg-red-200'
-                                                }`}>
+                                            <TableCell className="px-8 py-5 text-center">
+                                                <div className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${order.status === 'COMPLETED' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
+                                                    order.status === 'PENDING' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
+                                                        'bg-rose-50 text-rose-600 border border-rose-100'
+                                                    }`}>
+                                                    <div className={`w-1 h-1 rounded-full mr-1.5 ${order.status === 'COMPLETED' ? 'bg-emerald-600' :
+                                                        order.status === 'PENDING' ? 'bg-amber-600 animate-pulse' :
+                                                            'bg-rose-600'
+                                                        }`} />
                                                     {order.status}
-                                                </Badge>
-                                            </TableCell>
-                                            <TableCell className="text-gray-600">
-                                                {new Date(order.createdAt).toLocaleDateString()}
-                                            </TableCell>
-                                            <TableCell>
-                                                <div className="flex gap-2">
-                                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50">
-                                                        <Eye className="h-4 w-4" />
-                                                    </Button>
                                                 </div>
+                                            </TableCell>
+                                            <TableCell className="px-8 py-5 text-right">
+                                                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full text-gray-400 hover:text-black hover:bg-white border border-transparent hover:border-gray-100 transition-all shadow-none hover:shadow-sm">
+                                                    <Eye className="h-4 w-4" />
+                                                </Button>
                                             </TableCell>
                                         </TableRow>
                                     ))
                                 )}
                             </TableBody>
                         </Table>
-                    </CardContent>
-                </Card>
+                    </div>
+                </div>
             </div>
         );
     } catch (error) {

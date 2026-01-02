@@ -29,16 +29,18 @@ export async function PUT(
     try {
         await requireAdmin();
         const body = await request.json();
-        const { title, description, icon, features } = body;
+        const { title, slug, description, icon, image, features } = body;
 
         const service = await prisma.service.update({
             where: { id: params.id },
             data: {
                 title,
+                slug,
                 description,
                 icon: icon || null,
+                image: image || null,
                 features: features || [],
-            },
+            } as any,
         });
 
         return NextResponse.json(service);
