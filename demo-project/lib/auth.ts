@@ -26,7 +26,7 @@ export async function getUserFromCookie() {
     try {
         const user = await prisma.user.findUnique({
             where: { id: decoded.id },
-            select: { id: true, name: true, email: true, image: true, isAdmin: true }
+            select: { id: true, name: true, email: true, image: true, isAdmin: true, phone: true, company: true, bio: true }
         });
         return user;
     } catch {

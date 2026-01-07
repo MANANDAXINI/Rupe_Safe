@@ -10,6 +10,9 @@ type User = {
   provider?: string;
   isAdmin?: boolean;
   image?: string | null;
+  phone?: string | null;
+  company?: string | null;
+  bio?: string | null;
 };
 
 type AuthContextType = {

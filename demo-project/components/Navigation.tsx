@@ -46,7 +46,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-blue-600">RupeSafe</span>
+              <span className="text-2xl font-bold text-indigo-600">RupeSafe</span>
             </Link>
           </div>
 
@@ -57,8 +57,8 @@ export default function Navigation() {
                 key={link.path}
                 href={link.path}
                 className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors ${pathname === link.path
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                  ? 'text-blue-600 border-b-2 border-blue-600'
+                  : 'text-gray-700 hover:text-blue-600'
                   }`}
               >
                 {link.name}
@@ -90,7 +90,7 @@ export default function Navigation() {
                   <DropdownMenuItem asChild>
                     <Link href="/profile" className="flex items-center cursor-pointer">
                       <User className="w-4 h-4 mr-2" />
-                      Profile
+                      My Profile
                     </Link>
                   </DropdownMenuItem>
 
@@ -99,9 +99,9 @@ export default function Navigation() {
                     <>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem asChild>
-                        <Link href="/admin" className="flex items-center cursor-pointer bg-blue-50">
-                          <Shield className="w-4 h-4 mr-2 text-blue-600" />
-                          <span className="text-blue-600 font-semibold">Admin Dashboard</span>
+                        <Link href="/admin" className="flex items-center cursor-pointer bg-indigo-50">
+                          <Shield className="w-4 h-4 mr-2 text-indigo-600" />
+                          <span className="text-indigo-600 font-semibold">Admin</span>
                         </Link>
                       </DropdownMenuItem>
                     </>
@@ -145,8 +145,8 @@ export default function Navigation() {
                 key={link.path}
                 href={link.path}
                 className={`block pl-3 pr-4 py-2 text-base font-medium ${pathname === link.path
-                    ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                  ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
+                  : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
                   }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -183,18 +183,18 @@ export default function Navigation() {
                       onClick={() => setIsOpen(false)}
                     >
                       <User className="w-4 h-4 mr-3" />
-                      Profile
+                      My Profile
                     </Link>
 
                     {/* Admin Dashboard - Mobile */}
                     {user.isAdmin && (
                       <Link
                         href="/admin"
-                        className="flex items-center px-4 py-2 text-base font-medium bg-blue-50 text-blue-600 hover:bg-blue-100"
+                        className="flex items-center px-4 py-2 text-base font-medium bg-indigo-50 text-indigo-600 hover:bg-indigo-100"
                         onClick={() => setIsOpen(false)}
                       >
                         <Shield className="w-4 h-4 mr-3" />
-                        Admin Dashboard
+                        Admin
                       </Link>
                     )}
 
