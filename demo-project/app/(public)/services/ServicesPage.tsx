@@ -199,7 +199,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
           <Link href={`/services/${service.id}`} className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors">
             Explore <ArrowRight size={16} />
           </Link>
-          <Link href="/contact" className="py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0 text-center">
+          <Link href={service.id === 'payment-gateway' ? '/onboarding/payment-gateway' : '/contact'} className="py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0 text-center">
             Get Started
           </Link>
         </div>

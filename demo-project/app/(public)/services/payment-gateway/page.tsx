@@ -183,14 +183,14 @@ export default function PaymentGatewayPage() {
                             </span>
                         </motion.h1>
 
-                        <motion.p variants={fadeInUp} className="text-xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed">
+                        <motion.p variants={fadeInUp} className="text-xl text-white max-w-3xl mx-auto mb-10 leading-relaxed">
                             India's most advanced payment gateway. Accept payments from customers worldwide with instant settlements,
                             bank-grade security, and seamless integration.
                         </motion.p>
 
                         <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                            <Link href="/contact" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:shadow-blue-600/40 transition-all transform hover:-translate-y-1">
-                                Get Started Free
+                            <Link href="/onboarding/payment-gateway" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:shadow-blue-600/40 transition-all transform hover:-translate-y-1 text-center">
+                                Start Onboarding Now
                             </Link>
                             <Link href="#pricing" className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all">
                                 View Pricing
@@ -202,7 +202,7 @@ export default function PaymentGatewayPage() {
                             {stats.map((stat, index) => (
                                 <div key={index} className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                                     <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
-                                    <div className="text-sm text-blue-200 font-medium">{stat.label}</div>
+                                    <div className="text-sm text-white font-medium">{stat.label}</div>
                                 </div>
                             ))}
                         </motion.div>
@@ -309,8 +309,8 @@ export default function PaymentGatewayPage() {
                     </div>
 
                     <div className="text-center mt-12">
-                        <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25">
-                            Start Integration <ChevronRight className="w-5 h-5" />
+                        <Link href="/onboarding/payment-gateway" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25">
+                            Go to Onboarding Flow <ChevronRight className="w-5 h-5" />
                         </Link>
                     </div>
                 </div>
@@ -366,7 +366,7 @@ export default function PaymentGatewayPage() {
                                 </ul>
 
                                 <Link
-                                    href="/contact"
+                                    href="/onboarding/payment-gateway"
                                     className={`block w-full py-3 rounded-full font-bold text-center transition-all ${plan.highlight
                                         ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/25'
                                         : 'bg-gray-100 text-slate-700 hover:bg-gray-200'
@@ -403,7 +403,7 @@ export default function PaymentGatewayPage() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                <Link href="/onboarding/payment-gateway" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg">
                                     Start Free Trial <ArrowRight className="w-5 h-5" />
                                 </Link>
                                 <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-colors">

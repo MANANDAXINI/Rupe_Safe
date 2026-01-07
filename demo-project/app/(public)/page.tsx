@@ -253,7 +253,7 @@ export default function Home() {
                 <span className="text-blue-200">Faster & Safer</span>
               </h2>
 
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              <p className="text-xl text-white mb-8 leading-relaxed">
                 India's most advanced payment gateway with instant settlements, 100+ payment methods,
                 and bank-grade security. Start accepting payments in minutes.
               </p>
@@ -261,30 +261,30 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                   <div className="text-3xl font-bold mb-2">99.9%</div>
-                  <div className="text-sm text-blue-100">Uptime SLA</div>
+                  <div className="text-sm text-white">Uptime SLA</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                   <div className="text-3xl font-bold mb-2">₹500Cr+</div>
-                  <div className="text-sm text-blue-100">Monthly Volume</div>
+                  <div className="text-sm text-white">Monthly Volume</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                   <div className="text-3xl font-bold mb-2">50K+</div>
-                  <div className="text-sm text-blue-100">Active Merchants</div>
+                  <div className="text-sm text-white">Active Merchants</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                   <div className="text-3xl font-bold mb-2">&lt;2s</div>
-                  <div className="text-sm text-blue-100">Response Time</div>
+                  <div className="text-sm text-white">Response Time</div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/services/payment-gateway">
+                <Link href="/onboarding/payment-gateway">
                   <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 w-full sm:w-auto">
                     Explore Payment Gateway
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/contact">
+                <Link href="/onboarding/payment-gateway">
                   <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 w-full sm:w-auto transition-all duration-300">
                     Get Started Free
                   </Button>
@@ -301,7 +301,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Bank-Grade Security</h3>
-                    <p className="text-blue-100 text-sm">PCI DSS Level 1 compliant with 256-bit encryption</p>
+                    <p className="text-white text-sm">PCI DSS Level 1 compliant with 256-bit encryption</p>
                   </div>
                 </div>
               </div>
@@ -313,7 +313,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Instant Settlements</h3>
-                    <p className="text-blue-100 text-sm">Get your money in minutes, not days</p>
+                    <p className="text-white text-sm">Get your money in minutes, not days</p>
                   </div>
                 </div>
               </div>
@@ -325,7 +325,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">100+ Payment Methods</h3>
-                    <p className="text-blue-100 text-sm">Cards, UPI, Wallets, Net Banking & more</p>
+                    <p className="text-white text-sm">Cards, UPI, Wallets, Net Banking & more</p>
                   </div>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Easy Integration</h3>
-                    <p className="text-blue-100 text-sm">Developer-friendly APIs and SDKs</p>
+                    <p className="text-white text-sm">Developer-friendly APIs and SDKs</p>
                   </div>
                 </div>
               </div>
@@ -391,7 +391,7 @@ export default function Home() {
                   <p className="mb-4 text-sm leading-relaxed">
                     Secure, fast, and reliable payment processing solutions. Accept payments seamlessly with industry-leading security standards.
                   </p>
-                  <Link href="/services/payment-gateway" className="text-white font-medium inline-flex items-center hover:underline">
+                  <Link href="/onboarding/payment-gateway" className="text-white font-medium inline-flex items-center hover:underline">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>

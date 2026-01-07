@@ -10,7 +10,7 @@ import {
   Megaphone, Share2, ThumbsUp, Search, Mail,
   Cpu, Terminal, Lock, Network,
   Lightbulb, Target, Briefcase, GraduationCap, LineChart,
-  ArrowRight, Check
+  ArrowRight, Check, CreditCard, Shield, Zap
 } from "lucide-react";
 
 // Service Data with Images and Icons
@@ -74,6 +74,16 @@ const SERVICES = [
     description:
       "Navigate the complex technology landscape. We provide strategic advisory, technical audits, and governance frameworks to align IT with business goals.",
     features: ["Digital Transformation", "IT Infrastructure Audits", "Security Governance", "Product Roadmapping"],
+  },
+  {
+    id: "payment-gateway",
+    title: "Payment Gateway",
+    icon: CreditCard,
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
+    marquee: [CreditCard, Shield, Zap, Lock, Globe, CreditCard, Shield, Zap, Lock, Globe],
+    description:
+      "India's most advanced payment gateway with instant settlements, 100+ payment methods, and bank-grade security.",
+    features: ["Instant Settlements", "100+ Payment Methods", "PCI DSS Compliance", "Easy API Integration"],
   },
 ];
 
@@ -217,7 +227,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
             Explore Service <ArrowRight size={16} />
           </Link>
           <Link
-            href="/contact"
+            href={service.id === 'payment-gateway' ? '/onboarding/payment-gateway' : '/contact'}
             className="flex items-center justify-center py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0"
           >
             Get Started
