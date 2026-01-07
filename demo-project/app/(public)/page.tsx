@@ -300,7 +300,7 @@ export default function Home() {
                     <Shield className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Bank-Grade Security</h3>
+                    <h3 className="font-bold text-lg mb-2 text-white">Bank-Grade Security</h3>
                     <p className="text-white text-sm">PCI DSS Level 1 compliant with 256-bit encryption</p>
                   </div>
                 </div>
@@ -312,7 +312,7 @@ export default function Home() {
                     <Zap className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Instant Settlements</h3>
+                    <h3 className="font-bold text-lg mb-2 text-white">Instant Settlements</h3>
                     <p className="text-white text-sm">Get your money in minutes, not days</p>
                   </div>
                 </div>
@@ -324,7 +324,7 @@ export default function Home() {
                     <CreditCard className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">100+ Payment Methods</h3>
+                    <h3 className="font-bold text-lg mb-2 text-white">100+ Payment Methods</h3>
                     <p className="text-white text-sm">Cards, UPI, Wallets, Net Banking & more</p>
                   </div>
                 </div>
@@ -336,7 +336,7 @@ export default function Home() {
                     <CheckCircle className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Easy Integration</h3>
+                    <h3 className="font-bold text-lg mb-2 text-white">Easy Integration</h3>
                     <p className="text-white text-sm">Developer-friendly APIs and SDKs</p>
                   </div>
                 </div>
