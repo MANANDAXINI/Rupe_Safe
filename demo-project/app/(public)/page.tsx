@@ -167,7 +167,7 @@ export default function Home() {
                   Get Started
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8">
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 transition-all duration-300">
                   Learn More
                 </Button>
               </div>
@@ -285,7 +285,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link href="/contact">
-                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 w-full sm:w-auto transition-all duration-300">
                     Get Started Free
                   </Button>
                 </Link>
@@ -803,8 +803,8 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/services">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8">
-                View Services
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-500 text-lg px-8 transition-all duration-300">
+                View All Services
               </Button>
             </Link>
           </div>
