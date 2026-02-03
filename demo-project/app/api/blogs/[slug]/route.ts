@@ -7,9 +7,9 @@ export async function GET(
 ) {
     try {
         const blog = await prisma.blog.findUnique({
-            where: { 
+            where: {
                 slug: params.slug,
-                published: true 
+                published: true
             },
             include: {
                 author: {

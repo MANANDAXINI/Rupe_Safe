@@ -144,7 +144,7 @@ export default function BlogsPage() {
                         </div>
                     ) : (
                         <motion.div
-                            className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14"
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
@@ -152,34 +152,34 @@ export default function BlogsPage() {
                             {blogs.map((blog) => (
                                 <motion.div key={blog.id} variants={cardVariants}>
                                     <Link href={`/blogs/${blog.slug}`} passHref>
-                                        <div className="group bg-white rounded-[2rem] shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 border-2 border-gray-100 hover:border-blue-600 overflow-hidden flex flex-col h-full min-h-[500px]">
+                                        <div className="group bg-white rounded-3xl shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 border border-gray-100 hover:border-blue-500 overflow-hidden flex flex-col h-full min-h-[450px]">
                                             {blog.coverImage && (
-                                                <div className="relative h-64 overflow-hidden">
+                                                <div className="relative h-52 overflow-hidden">
                                                     <img
                                                         src={blog.coverImage}
                                                         alt={blog.title}
-                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                                     />
                                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                                 </div>
                                             )}
-                                            <div className="p-8 md:p-10 flex flex-col flex-grow">
+                                            <div className="p-6 flex flex-col flex-grow">
                                                 <div className="flex-grow">
-                                                    <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300 tracking-tight">{blog.title}</h2>
-                                                    <p className="text-slate-600 text-lg leading-relaxed line-clamp-3 mb-6">{blog.excerpt}</p>
+                                                    <h2 className="text-xl font-bold text-slate-800 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 tracking-tight">{blog.title}</h2>
+                                                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-4">{blog.excerpt}</p>
                                                 </div>
 
-                                                <div className="mt-auto pt-8 border-t border-gray-50">
+                                                <div className="mt-auto pt-6 border-t border-gray-50 flex flex-col gap-4">
                                                     <div className="flex items-center justify-between">
-                                                        <div className="flex items-center gap-6 text-sm text-slate-500">
-                                                            <div className="flex items-center gap-2">
-                                                                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
-                                                                    <User className="w-4 h-4 text-blue-600" />
+                                                        <div className="flex items-center gap-3 text-xs text-slate-500">
+                                                            <div className="flex items-center gap-1.5">
+                                                                <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center">
+                                                                    <User className="w-3 h-3 text-blue-600" />
                                                                 </div>
                                                                 <span className="font-semibold">{blog.author.name || 'Admin'}</span>
                                                             </div>
-                                                            <div className="flex items-center gap-2">
-                                                                <Calendar className="w-4 h-4" />
+                                                            <div className="flex items-center gap-1.5">
+                                                                <Calendar className="w-3 h-3" />
                                                                 <span>{formatDate(blog.createdAt)}</span>
                                                             </div>
                                                         </div>
@@ -188,15 +188,15 @@ export default function BlogsPage() {
                                                             variant="ghost"
                                                             size="icon"
                                                             onClick={(e) => handleShare(e, blog)}
-                                                            className="rounded-full w-10 h-10 hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-all"
+                                                            className="rounded-full w-8 h-8 hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-all font-bold"
                                                         >
-                                                            <Share2 className="w-5 h-5" />
+                                                            <Share2 className="w-4 h-4" />
                                                         </Button>
                                                     </div>
 
-                                                    <div className="mt-6 flex items-center text-blue-600 font-bold text-base group-hover:gap-3 transition-all">
-                                                        Read Full Article
-                                                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                                                    <div className="flex items-center text-blue-600 font-bold text-sm group-hover:gap-2 transition-all">
+                                                        Read More
+                                                        <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,6 +206,32 @@ export default function BlogsPage() {
                             ))}
                         </motion.div>
                     )}
+                </div>
+            </section>
+
+            {/* Trusted Partners Section */}
+            <section className="py-20 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Trusted By Partners</h3>
+                        <p className="text-slate-500 font-medium">Companies that trust us with their digital transformation</p>
+                    </div>
+
+                    <div className="overflow-hidden marquee-container">
+                        <div className="flex gap-8 items-center animate-scroll-left w-max">
+                            {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+                                <span key={i} className="mx-4 px-8 py-3 bg-slate-50 border border-gray-100 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
+                                    {p}
+                                </span>
+                            ))}
+                            {/* Duplicate for seamless loop */}
+                            {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+                                <span key={"d" + i} className="mx-4 px-8 py-3 bg-slate-50 border border-gray-100 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
+                                    {p}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>

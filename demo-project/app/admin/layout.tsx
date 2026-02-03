@@ -59,12 +59,12 @@ export default function AdminLayout({
     return (
         <div className="flex min-h-screen bg-slate-50">
             {/* Sidebar is fixed on the left */}
-            <div className="fixed inset-y-0 left-0 z-50 w-64">
+            <div className="fixed inset-y-0 left-0 z-50 w-56">
                 <AdminSidebar />
             </div>
-            
+
             {/* Main content has a left margin to clear the sidebar */}
-            <main className="flex-1 ml-64 min-h-screen flex flex-col">
+            <main className="flex-1 ml-56 min-h-screen flex flex-col">
                 <AdminHeader email={email || 'Admin'} />
                 <div className="p-6 flex-1 overflow-auto">
                     {children}

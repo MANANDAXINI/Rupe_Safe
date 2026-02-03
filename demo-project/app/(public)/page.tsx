@@ -144,91 +144,61 @@ export default function Home() {
           autoPlay
           muted
           loop
+          playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/Herosection-vid.mp4" type="video/mp4" />
+          <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/ebe6d5de-4b23-4dc0-a454-63b7a0d2dd7f.mp4" type="video/mp4" />
         </video>
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight animate-fade-in-up">
-                Transform Your Business with Intelligent Technology Solutions
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 w-full flex flex-col h-screen justify-between">
+          <div className="flex-grow flex items-center">
+            <div className="max-w-3xl">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
+                Transform Your Business with <span className="text-blue-400">Intelligent</span> Technology Solutions
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100 animate-fade-in-up animation-delay-200">
+              <p className="text-lg md:text-xl mb-8 text-blue-50 animate-fade-in-up animation-delay-200">
                 RupeSafe is a technology solutions company that helps businesses build, grow, and scale in the digital world.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8">
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 rounded-full shadow-lg hover:shadow-xl transition-all h-12">
                   Get Started
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 transition-all duration-300">
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 rounded-full transition-all duration-300 h-12">
                   Learn More
                 </Button>
               </div>
             </div>
-            <div className="hidden md:flex justify-center items-center">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20 animate-fade-in-up animation-delay-400">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-blue-500 p-3 rounded-lg">
-                      <Code className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white">Custom Development</h3>
-                      <p className="text-sm text-blue-100">Tailored solutions for your needs</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-blue-500 p-3 rounded-lg">
-                      <TrendingUp className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white">Digital Growth</h3>
-                      <p className="text-sm text-blue-100">Scale your business effectively</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-blue-500 p-3 rounded-lg">
-                      <Database className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white">Smart Systems</h3>
-                      <p className="text-sm text-blue-100">Connected solutions that work</p>
-                    </div>
-                  </div>
-                </div>
+          </div>
+
+          {/* Trusted Partners - Now inside Hero */}
+          <div className="animate-fade-in-up animation-delay-600 mb-4">
+            <div className="text-center mb-4">
+              <h3 className="text-xs font-bold text-blue-400 uppercase tracking-widest">Trusted By Partners</h3>
+            </div>
+            <div className="overflow-hidden marquee-container-hero">
+              <div className="flex gap-10 items-center animate-scroll-left w-max">
+                {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+                  <span key={i} className="mx-2 px-8 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-sm font-bold text-white/90 transition-all hover:bg-white/20 hover:border-blue-500/50 cursor-default">
+                    {p}
+                  </span>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+                  <span key={"d" + i} className="mx-2 px-8 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-sm font-bold text-white/90 transition-all hover:bg-white/20 hover:border-blue-500/50 cursor-default">
+                    {p}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trusted Partners Section */}
-      <section className="pt-8 pb-8 bg-transparent">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center">
-            <h3 className="text-sm font-bold text-blue-600 uppercase">Trusted By</h3>
-            <p className="text-slate-600 mt-2">Partners who trust our work</p>
-          </div>
-
-          <div className="mt-4 overflow-hidden marquee-container">
-            <div className="flex gap-6 items-center animate-scroll-left w-max justify-center">
-              {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus"
-                , "Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus"
-              ].map((p) => (
-                <span key={p} className="mx-3 px-4 py-2 bg-white/70 rounded-full shadow-sm text-sm text-slate-700">{p}</span>
-              ))}
-              {["Acme Corp", "Bluewave", "Cloudify"].map((p, i) => <span key={"d" + i} className="mx-3 px-4 py-2 bg-white/70 rounded-full shadow-sm text-sm text-slate-700">{p}</span>)}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Payment Gateway Hero Section - MAIN FOCUS */}
       <section className="relative py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 overflow-hidden z-10">

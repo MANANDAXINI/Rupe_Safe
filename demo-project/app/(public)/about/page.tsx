@@ -269,6 +269,32 @@ export default function About(): JSX.Element {
         </div>
       </section>
 
+      {/* Trusted Partners Section */}
+      <section className="py-20 bg-slate-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Trusted By Partners</h3>
+            <p className="text-slate-500 font-medium">Companies that trust us with their digital transformation</p>
+          </div>
+
+          <div className="overflow-hidden marquee-container">
+            <div className="flex gap-8 items-center animate-scroll-left w-max">
+              {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+                <span key={i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
+                  {p}
+                </span>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+                <span key={"d" + i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
+                  {p}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Bottom CTA - attach Get Started to Contact page */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
