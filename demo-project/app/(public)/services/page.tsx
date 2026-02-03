@@ -19,6 +19,7 @@ const SERVICES = [
     id: "payment-gateway",
     title: "Payment Gateway",
     icon: CreditCard,
+    highlighted: true,
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
     marquee: [CreditCard, Shield, Zap, Lock, Globe, CreditCard, Shield, Zap, Lock, Globe],
     description:
@@ -170,12 +171,21 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative h-[700px] rounded-3xl overflow-hidden bg-white shadow-2xl cursor-pointer perspective-1000"
+      className={`group relative h-[700px] rounded-3xl overflow-hidden bg-white shadow-2xl cursor-pointer perspective-1000 ${service.highlighted ? 'ring-4 ring-indigo-500 shadow-indigo-500/20' : ''}`}
     >
+      {/* Highlight Badge */}
+      {service.highlighted && (
+        <div className="absolute top-6 right-6 z-20">
+          <span className="bg-indigo-600 text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg">
+            Most Popular
+          </span>
+        </div>
+      )}
+
       {/* Background Image with Scale Effect */}
       <div className="absolute inset-0 overflow-hidden bg-slate-900">
         <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110 opacity-80 group-hover:opacity-60"
+          className={`absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110 opacity-80 ${service.highlighted ? 'opacity-90' : 'group-hover:opacity-60'}`}
           style={{ backgroundImage: `url('${service.image}')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

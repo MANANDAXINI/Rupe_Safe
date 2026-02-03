@@ -147,7 +147,7 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/ebe6d5de-4b23-4dc0-a454-63b7a0d2dd7f.mp4" type="video/mp4" />
+          <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/85eb28b5-f3ce-47a0-8e50-1cb4ec8e1ce8.mp4" type="video/mp4" />
         </video>
 
         {/* Overlay */}

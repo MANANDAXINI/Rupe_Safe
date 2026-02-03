@@ -12,7 +12,7 @@ export default function TermsModal() {
 
     useEffect(() => {
         setMounted(true);
-        const hasAccepted = localStorage.getItem('terms-popup-v3');
+        const hasAccepted = localStorage.getItem('terms-popup-v4');
         if (!hasAccepted) {
             setIsOpen(true);
         }
@@ -20,7 +20,7 @@ export default function TermsModal() {
 
     const handleAccept = () => {
         if (checks.terms && checks.partner) {
-            localStorage.setItem('terms-popup-v3', 'true');
+            localStorage.setItem('terms-popup-v4', 'true');
             setIsOpen(false);
         }
     };

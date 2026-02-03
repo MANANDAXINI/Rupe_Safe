@@ -12,7 +12,7 @@ export default function CookieConsent() {
 
     useEffect(() => {
         setMounted(true);
-        const consent = localStorage.getItem('cookie-consent-v2');
+        const consent = localStorage.getItem('cookie-consent-v3');
         if (!consent) {
             setIsVisible(true);
         }
@@ -21,12 +21,12 @@ export default function CookieConsent() {
     if (!mounted) return null;
 
     const handleAccept = () => {
-        localStorage.setItem('cookie-consent-v2', 'accepted');
+        localStorage.setItem('cookie-consent-v3', 'accepted');
         setIsVisible(false);
     };
 
     const handleDecline = () => {
-        localStorage.setItem('cookie-consent-v2', 'declined');
+        localStorage.setItem('cookie-consent-v3', 'declined');
         setIsVisible(false);
     };
 
