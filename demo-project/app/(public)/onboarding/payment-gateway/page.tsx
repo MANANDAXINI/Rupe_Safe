@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, CheckCircle2, User, Building2, FileCheck, Landmark, ShieldCheck, ArrowRight } from 'lucide-react';
+import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -27,6 +27,11 @@ export default function PaymentGatewayOnboarding() {
         acceptOn: 'Website',
         websiteLink: '',
         pan: '',
+        termsAccepted: false,
+        partnerTermsAccepted: false,
+        aadhaarFront: null as File | null,
+        aadhaarBack: null as File | null,
+        panFile: null as File | null,
     });
 
     const handleNext = () => {
@@ -35,16 +40,27 @@ export default function PaymentGatewayOnboarding() {
     };
 
     const handleComplete = () => {
+        if (!formData.termsAccepted || !formData.partnerTermsAccepted) {
+            toast.error('Please accept all terms and conditions to proceed.');
+            return;
+        }
         setIsSubmitting(true);
-        // Simulate API call
+        // Simulate AI-Powered Verification
         setTimeout(() => {
             setIsSubmitting(false);
             setCurrentStep('success');
-        }, 2000);
+            toast.success('AI Verification Successful!');
+        }, 4000);
     };
 
-    const updateFormData = (field: string, value: string) => {
+    const updateFormData = (field: string, value: any) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
+    };
+
+    const handleFileChange = (field: string, e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            updateFormData(field, e.target.files[0]);
+        }
     };
 
     return (
@@ -98,6 +114,16 @@ export default function PaymentGatewayOnboarding() {
                             );
                         })}
                     </nav>
+
+                    <div className="mt-12 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                        <div className="flex items-center gap-2 mb-3">
+                            <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Protocol</span>
+                        </div>
+                        <p className="text-[10px] leading-relaxed text-slate-400 font-bold uppercase tracking-tight">
+                            All data is encrypted with AES-256 and transmitted directly to our financial settlement partners through an isolated vault.
+                        </p>
+                    </div>
                 </div>
 
                 <div className="mt-auto pt-8 border-t border-slate-100">
@@ -250,7 +276,7 @@ export default function PaymentGatewayOnboarding() {
                                             Final <br />
                                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">Milestone</span>
                                         </h1>
-                                        <p className="text-slate-500 text-lg font-medium text-center lg:text-left">You're seconds away from going live with RupeSafe.</p>
+                                        <p className="text-slate-500 text-lg font-medium text-center lg:text-left font-black animate-pulse">AI-POWERED DOCUMENT VERIFICATION ACTIVE</p>
                                     </div>
 
                                     <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative">
@@ -260,42 +286,105 @@ export default function PaymentGatewayOnboarding() {
                                             <div className="w-20 h-20 bg-indigo-50 rounded-[2rem] flex items-center justify-center mx-auto mb-6 transform rotate-3 shadow-lg shadow-indigo-100">
                                                 <ShieldCheck className="h-10 w-10 text-indigo-600" />
                                             </div>
-                                            <h3 className="text-2xl font-black text-slate-900">Documents Checklist</h3>
+                                            <h3 className="text-2xl font-black text-slate-900 uppercase">Documents Upload</h3>
                                         </div>
 
-                                        <div className="space-y-4 mb-10">
-                                            {[
-                                                { title: 'Aadhaar Card', desc: 'Front and back photos required' },
-                                                { title: 'Bank Passbook', desc: 'Or cancelled cheque for payout activation' },
-                                                { title: 'Business Proof', desc: 'GST/Trade License or any valid proof' }
-                                            ].map((doc, i) => (
-                                                <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 group hover:bg-indigo-50 hover:border-indigo-100 transition-all">
-                                                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                                                        <FileCheck className="h-5 w-5 text-indigo-600" />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="font-bold text-slate-800 text-sm">{doc.title}</h4>
-                                                        <p className="text-xs text-slate-500 font-medium">{doc.desc}</p>
-                                                    </div>
-                                                    <div className="ml-auto w-6 h-6 rounded-full border-2 border-slate-200 flex items-center justify-center group-hover:border-indigo-500 transition-colors">
-                                                        <div className="w-2 h-2 rounded-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="space-y-6 mb-10">
+                                            <div className="space-y-3">
+                                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Aadhaar Card (Front)</Label>
+                                                <div className="relative group">
+                                                    <input
+                                                        type="file"
+                                                        accept="image/*,.pdf"
+                                                        onChange={(e) => handleFileChange('aadhaarFront', e)}
+                                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                                    />
+                                                    <div className="h-16 border-2 border-dashed border-slate-100 rounded-2xl bg-slate-50 flex items-center justify-center gap-3 transition-all group-hover:bg-indigo-50 group-hover:border-indigo-200">
+                                                        <FileCheck className="h-5 w-5 text-indigo-400" />
+                                                        <span className="text-sm font-bold text-slate-500 group-hover:text-indigo-600">
+                                                            {formData.aadhaarFront ? formData.aadhaarFront.name : 'Upload Aadhaar Front'}
+                                                        </span>
                                                     </div>
                                                 </div>
-                                            ))}
+                                            </div>
+
+                                            <div className="space-y-3">
+                                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Aadhaar Card (Back)</Label>
+                                                <div className="relative group">
+                                                    <input
+                                                        type="file"
+                                                        accept="image/*,.pdf"
+                                                        onChange={(e) => handleFileChange('aadhaarBack', e)}
+                                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                                    />
+                                                    <div className="h-16 border-2 border-dashed border-slate-100 rounded-2xl bg-slate-50 flex items-center justify-center gap-3 transition-all group-hover:bg-indigo-50 group-hover:border-indigo-200">
+                                                        <FileCheck className="h-5 w-5 text-indigo-400" />
+                                                        <span className="text-sm font-bold text-slate-500 group-hover:text-indigo-600">
+                                                            {formData.aadhaarBack ? formData.aadhaarBack.name : 'Upload Aadhaar Back'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="space-y-3">
+                                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400">PAN Card Image</Label>
+                                                <div className="relative group">
+                                                    <input
+                                                        type="file"
+                                                        accept="image/*,.pdf"
+                                                        onChange={(e) => handleFileChange('panFile', e)}
+                                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                                    />
+                                                    <div className="h-16 border-2 border-dashed border-slate-100 rounded-2xl bg-slate-50 flex items-center justify-center gap-3 transition-all group-hover:bg-indigo-50 group-hover:border-indigo-200">
+                                                        <Landmark className="h-5 w-5 text-indigo-400" />
+                                                        <span className="text-sm font-bold text-slate-500 group-hover:text-indigo-600">
+                                                            {formData.panFile ? formData.panFile.name : 'Upload PAN Card'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-4 mb-10 border-t pt-8">
+                                            <div className="flex items-start gap-4">
+                                                <input
+                                                    type="checkbox"
+                                                    id="user-terms"
+                                                    checked={formData.termsAccepted}
+                                                    onChange={(e) => updateFormData('termsAccepted', e.target.checked)}
+                                                    className="mt-1 w-5 h-5 rounded border-slate-200 text-indigo-600 focus:ring-indigo-600 cursor-pointer"
+                                                />
+                                                <Label htmlFor="user-terms" className="text-xs text-slate-500 font-bold leading-relaxed cursor-pointer">
+                                                    I agree to the <Link href="/terms" className="text-indigo-600 underline">User Terms & Conditions</Link> for data collection and processing.
+                                                </Label>
+                                            </div>
+
+                                            <div className="flex items-start gap-4">
+                                                <input
+                                                    type="checkbox"
+                                                    id="partner-terms"
+                                                    checked={formData.partnerTermsAccepted}
+                                                    onChange={(e) => updateFormData('partnerTermsAccepted', e.target.checked)}
+                                                    className="mt-1 w-5 h-5 rounded border-slate-200 text-indigo-600 focus:ring-indigo-600 cursor-pointer"
+                                                />
+                                                <Label htmlFor="partner-terms" className="text-xs text-slate-500 font-bold leading-relaxed cursor-pointer">
+                                                    I agree to the <Link href="/terms" className="text-indigo-600 underline">Payment Gateway Partner Terms</Link> for high-volume financial transactions.
+                                                </Label>
+                                            </div>
                                         </div>
 
                                         <Button
-                                            className="w-full h-16 text-lg font-bold bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-600/30 rounded-2xl transition-all disabled:opacity-70"
+                                            className="w-full h-20 text-xl font-black bg-indigo-600 hover:bg-indigo-700 shadow-2xl shadow-indigo-600/40 rounded-3xl transition-all disabled:opacity-70 uppercase tracking-widest"
                                             onClick={handleComplete}
                                             disabled={isSubmitting}
                                         >
                                             {isSubmitting ? (
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                                    Processing...
+                                                <div className="flex flex-col items-center">
+                                                    <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin mb-1" />
+                                                    <span className="text-[10px] font-black">AI VERIFICATION IN PROGRESS</span>
                                                 </div>
                                             ) : (
-                                                <>Start KYC Process <ArrowRight className="ml-2 h-5 w-5" /></>
+                                                <>Submit for Verification <ArrowRight className="ml-2 h-6 w-6" /></>
                                             )}
                                         </Button>
                                     </div>

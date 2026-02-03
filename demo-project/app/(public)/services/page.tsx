@@ -16,6 +16,16 @@ import {
 // Service Data with Images and Icons
 const SERVICES = [
   {
+    id: "payment-gateway",
+    title: "Payment Gateway",
+    icon: CreditCard,
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
+    marquee: [CreditCard, Shield, Zap, Lock, Globe, CreditCard, Shield, Zap, Lock, Globe],
+    description:
+      "India's most advanced payment gateway with instant settlements, 100+ payment methods, and bank-grade security.",
+    features: ["Instant Settlements", "100+ Payment Methods", "PCI DSS Compliance", "Easy API Integration"],
+  },
+  {
     id: "web-development",
     title: "Web Development",
     icon: Globe,
@@ -74,16 +84,6 @@ const SERVICES = [
     description:
       "Navigate the complex technology landscape. We provide strategic advisory, technical audits, and governance frameworks to align IT with business goals.",
     features: ["Digital Transformation", "IT Infrastructure Audits", "Security Governance", "Product Roadmapping"],
-  },
-  {
-    id: "payment-gateway",
-    title: "Payment Gateway",
-    icon: CreditCard,
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
-    marquee: [CreditCard, Shield, Zap, Lock, Globe, CreditCard, Shield, Zap, Lock, Globe],
-    description:
-      "India's most advanced payment gateway with instant settlements, 100+ payment methods, and bank-grade security.",
-    features: ["Instant Settlements", "100+ Payment Methods", "PCI DSS Compliance", "Easy API Integration"],
   },
 ];
 

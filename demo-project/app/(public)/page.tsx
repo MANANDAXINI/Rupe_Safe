@@ -154,42 +154,43 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 w-full flex flex-col h-screen justify-between">
-          <div className="flex-grow flex items-center">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
-                Transform Your Business with <span className="text-blue-400">Intelligent</span> Technology Solutions
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col h-screen">
+          {/* Main Headline Area */}
+          <div className="flex-grow flex flex-col justify-center items-center text-center">
+            <div className="max-w-4xl">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase tracking-tight leading-[0.9] animate-fade-in-up">
+                Transform Your Business with <span className="text-blue-300 drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">Intelligent</span> Technology Solutions
               </h1>
-              <p className="text-lg md:text-xl mb-8 text-blue-50 animate-fade-in-up animation-delay-200">
-                RupeSafe is a technology solutions company that helps businesses build, grow, and scale in the digital world.
+              <p className="text-sm md:text-lg mb-10 text-blue-50/80 max-w-2xl mx-auto font-medium animate-fade-in-up animation-delay-200 uppercase tracking-widest leading-relaxed">
+                RupeSafe advances digital infrastructure with bank-grade security and autonomous transformation protocols.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 rounded-full shadow-lg hover:shadow-xl transition-all h-12">
+              <div className="flex flex-wrap justify-center gap-6 animate-fade-in-up animation-delay-400">
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-[11px] font-black uppercase tracking-widest px-10 h-14 rounded-full shadow-2xl transition-all">
                   Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 rounded-full transition-all duration-300 h-12">
-                  Learn More
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-[11px] font-black uppercase tracking-widest px-10 h-14 rounded-full transition-all duration-300">
+                  Digital Services
                 </Button>
               </div>
             </div>
           </div>
 
-          {/* Trusted Partners - Now inside Hero */}
-          <div className="animate-fade-in-up animation-delay-600 mb-4">
-            <div className="text-center mb-4">
-              <h3 className="text-xs font-bold text-blue-400 uppercase tracking-widest">Trusted By Partners</h3>
+          {/* Trusted Partners - HIGHER POSITIONING WITHIN HERO */}
+          <div className="animate-fade-in-up animation-delay-600 pb-16">
+            <div className="text-center mb-6">
+              <h3 className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] opacity-90">Institutional Partners</h3>
             </div>
-            <div className="overflow-hidden marquee-container-hero">
-              <div className="flex gap-10 items-center animate-scroll-left w-max">
+            <div className="overflow-hidden marquee-container-hero max-w-5xl mx-auto">
+              <div className="flex gap-12 items-center animate-scroll-left w-max">
                 {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
-                  <span key={i} className="mx-2 px-8 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-sm font-bold text-white/90 transition-all hover:bg-white/20 hover:border-blue-500/50 cursor-default">
+                  <span key={i} className="px-6 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest text-white/50 transition-all hover:bg-white/10 hover:text-white cursor-default">
                     {p}
                   </span>
                 ))}
                 {/* Duplicate for seamless loop */}
                 {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
-                  <span key={"d" + i} className="mx-2 px-8 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-sm font-bold text-white/90 transition-all hover:bg-white/20 hover:border-blue-500/50 cursor-default">
+                  <span key={"d" + i} className="px-6 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest text-white/50 transition-all hover:bg-white/10 hover:text-white cursor-default">
                     {p}
                   </span>
                 ))}
@@ -199,14 +200,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SMOOTH TRANSITION GRADIENT */}
+      <div className="h-24 bg-gradient-to-b from-black/20 to-slate-950 -mt-24 relative z-20 pointer-events-none"></div>
 
-      {/* Payment Gateway Hero Section - MAIN FOCUS */}
-      <section className="relative py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 overflow-hidden z-10">
-        {/* Animated Background Elements */}
+      {/* Payment Gateway Hero Section */}
+      <section className="relative py-32 bg-slate-950 overflow-hidden z-10">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-400/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 animate-blob animation-delay-4000"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -218,32 +219,32 @@ export default function Home() {
                 <span className="text-sm font-semibold">Featured Service</span>
               </div>
 
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                 Accept Payments <br />
                 <span className="text-blue-200">Faster & Safer</span>
               </h2>
 
-              <p className="text-xl text-white mb-8 leading-relaxed">
+              <p className="text-lg text-white mb-8 leading-relaxed">
                 India's most advanced payment gateway with instant settlements, 100+ payment methods,
                 and bank-grade security. Start accepting payments in minutes.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-3xl font-bold mb-2">99.9%</div>
-                  <div className="text-sm text-white">Uptime SLA</div>
+                  <div className="text-2xl font-bold mb-2">99.9%</div>
+                  <div className="text-xs text-white">Uptime SLA</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-3xl font-bold mb-2">₹500Cr+</div>
-                  <div className="text-sm text-white">Monthly Volume</div>
+                  <div className="text-2xl font-bold mb-2">₹500Cr+</div>
+                  <div className="text-xs text-white">Monthly Volume</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-3xl font-bold mb-2">50K+</div>
-                  <div className="text-sm text-white">Active Merchants</div>
+                  <div className="text-2xl font-bold mb-2">50K+</div>
+                  <div className="text-xs text-white">Active Merchants</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-3xl font-bold mb-2">&lt;2s</div>
-                  <div className="text-sm text-white">Response Time</div>
+                  <div className="text-2xl font-bold mb-2">&lt;2s</div>
+                  <div className="text-xs text-white">Response Time</div>
                 </div>
               </div>
 
@@ -314,16 +315,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Services Section with Enhanced Cards */}
-      <section className="py-20 bg-gradient-to-b from-gray-100 to-gray-50 relative z-10">
+      < section className="py-20 bg-gradient-to-b from-gray-100 to-gray-50 relative z-10" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Comprehensive Technology Solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We specialize in website and app development, digital marketing, ERP systems, and custom software solutions
             </p>
           </div>
@@ -547,17 +548,17 @@ export default function Home() {
             </Card>
           </div>
         </div>
-      </section>
+      </section >
 
       <section
         className="relative py-20 bg-gray-50 overflow-hidden"
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Why Choose RupeSafe?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
             </p>
           </div>
@@ -694,10 +695,10 @@ export default function Home() {
       <section className="py-20 bg-gray-100 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Client Reviews
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Hear what our satisfied clients have to say about working with RupeSafe
             </p>
           </div>
@@ -749,7 +750,7 @@ export default function Home() {
 
       {/* Ready to Transform - With Background Image */}
       <section
-        className="relative py-20 text-white bg-blue-500 overflow-hidden z-10"
+        className="relative py-20 text-white bg-gradient-to-br from-blue-700 to-indigo-800 overflow-hidden z-10"
       // style={{
       //   backgroundImage: 'url(/footersection-1.png)',
       //   backgroundSize: 'cover',
@@ -759,10 +760,10 @@ export default function Home() {
         <div className="absolute inset-0 "></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
+          <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
             Get in touch with us today and discover how RupeSafe can help you achieve your digital goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -782,6 +783,6 @@ export default function Home() {
       </section>
 
 
-    </div>
+    </div >
   );
 }
