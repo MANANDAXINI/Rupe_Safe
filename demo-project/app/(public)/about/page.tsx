@@ -60,6 +60,23 @@ export default function About(): JSX.Element {
   const endNumbers = [15, 50, 250, 500];
   const counts = useCountOnView(impactRef as React.RefObject<HTMLElement>, endNumbers);
 
+  const [partners, setPartners] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const response = await fetch('/api/partners');
+        if (response.ok) {
+          const data = await response.json();
+          setPartners(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch partners:', error);
+      }
+    };
+    fetchPartners();
+  }, []);
+
   return (
     <main className="font-sans bg-slate-100 text-slate-600 min-h-screen">
       {/* Hero Section - White with Blue Gradient Accents */}
@@ -279,15 +296,25 @@ export default function About(): JSX.Element {
 
           <div className="overflow-hidden marquee-container">
             <div className="flex gap-8 items-center animate-scroll-left w-max">
-              {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+              {(partners.length > 0 ? partners : [
+                { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
+                { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
+                { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
+                { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
+              ]).map((p, i) => (
                 <span key={i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
-                  {p}
+                  {p.name}
                 </span>
               ))}
               {/* Duplicate for seamless loop */}
-              {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
+              {(partners.length > 0 ? partners : [
+                { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
+                { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
+                { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
+                { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
+              ]).map((p, i) => (
                 <span key={"d" + i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
-                  {p}
+                  {p.name}
                 </span>
               ))}
             </div>

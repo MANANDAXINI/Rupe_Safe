@@ -99,7 +99,22 @@ export default function Home() {
     }
   ];
 
+  const [partners, setPartners] = useState<any[]>([]);
+
   useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const response = await fetch('/api/partners');
+        if (response.ok) {
+          const data = await response.json();
+          setPartners(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch partners:', error);
+      }
+    };
+    fetchPartners();
+
     const targets = [500, 250, 15, 98];
     const intervals = targets.map((target, index) => {
       return setInterval(() => {
@@ -177,21 +192,31 @@ export default function Home() {
           </div>
 
           {/* Trusted Partners - HIGHER POSITIONING WITHIN HERO */}
-          <div className="animate-fade-in-up animation-delay-600 pb-16">
-            <div className="text-center mb-6">
-              <h3 className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] opacity-90">Institutional Partners</h3>
+          <div className="animate-fade-in-up animation-delay-600 pb-28">
+            <div className="text-center mb-10">
+              <h3 className="text-[11px] font-black text-white uppercase tracking-[0.4em] drop-shadow-sm">Institutional Partners</h3>
             </div>
             <div className="overflow-hidden marquee-container-hero max-w-5xl mx-auto">
-              <div className="flex gap-12 items-center animate-scroll-left w-max">
-                {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
-                  <span key={i} className="px-6 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest text-white/50 transition-all hover:bg-white/10 hover:text-white cursor-default">
-                    {p}
+              <div className="flex gap-16 items-center animate-scroll-left w-max">
+                {(partners.length > 0 ? partners : [
+                  { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
+                  { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
+                  { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
+                  { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
+                ]).map((p, i) => (
+                  <span key={i} className="px-8 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                    {p.name}
                   </span>
                 ))}
                 {/* Duplicate for seamless loop */}
-                {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
-                  <span key={"d" + i} className="px-6 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest text-white/50 transition-all hover:bg-white/10 hover:text-white cursor-default">
-                    {p}
+                {(partners.length > 0 ? partners : [
+                  { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
+                  { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
+                  { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
+                  { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
+                ]).map((p, i) => (
+                  <span key={"d" + i} className="px-8 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                    {p.name}
                   </span>
                 ))}
               </div>
