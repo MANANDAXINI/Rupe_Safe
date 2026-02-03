@@ -27,7 +27,7 @@ export default function AdminHeader({ email }: AdminHeaderProps) {
             </div>
 
             <div className="flex items-center gap-6">
-                <div className="flex items-center gap-3 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-100">
+                <div className="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-gray-50 border border-gray-100">
                     <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-[10px] font-bold text-white shadow-sm">
                         {email?.charAt(0).toUpperCase() || 'A'}
                     </div>
