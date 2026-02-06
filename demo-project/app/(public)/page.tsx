@@ -370,15 +370,15 @@ export default function Home() {
                 </div>
 
                 {/* Sliding Container - Covers 3/4 on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col justify-center p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <CreditCard className="h-6 w-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                    <CreditCard className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Payment Gateway</h3>
                   <p className="mb-4 text-sm leading-relaxed">
                     Secure, fast, and reliable payment processing solutions. Accept payments seamlessly with industry-leading security standards.
                   </p>
-                  <Link href="/onboarding/payment-gateway" className="text-white font-medium inline-flex items-center hover:underline">
+                  <Link href="/onboarding/payment-gateway" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
@@ -404,15 +404,15 @@ export default function Home() {
                 </div>
 
                 {/* Sliding Container - Covers 3/4 on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col justify-center p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <Code className="h-6 w-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                    <Code className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Website Development</h3>
                   <p className="mb-4 text-sm leading-relaxed">
                     Build stunning, responsive websites that engage users and drive results with cutting-edge technology.
                   </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline">
+                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
@@ -436,15 +436,15 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-1">App Development</h3>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col justify-center p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <Smartphone className="h-6 w-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                    <Smartphone className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">App Development</h3>
                   <p className="mb-4 text-sm leading-relaxed">
                     Create powerful mobile and web applications for iOS and Android platforms with seamless performance.
                   </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline">
+                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
@@ -468,15 +468,15 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-1">Digital Marketing</h3>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col justify-center p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <TrendingUp className="h-6 w-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                    <TrendingUp className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Digital Marketing</h3>
                   <p className="mb-4 text-sm leading-relaxed">
                     Grow your online presence with strategic marketing solutions that drive engagement and conversions.
                   </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline">
+                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
@@ -500,15 +500,15 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-1">ERP Systems</h3>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col justify-center p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <Database className="h-6 w-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                    <Database className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">ERP Systems</h3>
                   <p className="mb-4 text-sm leading-relaxed">
                     Streamline operations with integrated enterprise resource planning solutions for your business.
                   </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline">
+                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
@@ -532,36 +532,22 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-1">Custom Software</h3>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col justify-center p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <Boxes className="h-6 w-6 text-white" />
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                    <Boxes className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Custom Software</h3>
                   <p className="mb-4 text-sm leading-relaxed">
                     Tailored software solutions designed specifically for your unique business needs and challenges.
                   </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline">
+                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </div>
             </Card>
 
-            {/* CTA Card */}
-            <Card className="border-0 overflow-hidden h-96 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center hover:shadow-2xl transition-all duration-300 group hover:h-[450px]">
-              <div className="text-center text-white p-6">
-                <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-                <p className="mb-6 text-blue-100">
-                  Let&apos;s discuss how we can help transform your business
-                </p>
-                <Link href="/contact">
-                  <Button className="w-full bg-white text-blue-600 hover:bg-gray-100">
-                    Contact Us
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </Card>
+
           </div>
         </div>
       </section >
@@ -574,7 +560,10 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Why Choose RupeSafe?
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-5xl mx-auto whitespace-nowrap hidden md:block">
+              We combine technical expertise with business insight to deliver solutions that truly make a difference.
+            </p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto md:hidden">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
             </p>
           </div>
