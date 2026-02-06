@@ -154,7 +154,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section with Video Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden z-10">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
         <video
           autoPlay
           muted
@@ -169,16 +169,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col h-screen">
-          {/* Main Headline Area */}
-          <div className="flex-grow flex flex-col justify-center items-center text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col h-full">
+          {/* Main Action Area - Pushed LOWER but with room for partners */}
+          <div className="flex-grow flex flex-col justify-end items-center text-center pb-8">
             <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 uppercase tracking-tight leading-[0.9] animate-fade-in-up">
-                Transform Your Business with <span className="text-blue-300 drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">Intelligent</span> Technology Solutions
-              </h1>
-              <p className="text-sm md:text-lg mb-10 text-blue-50/80 max-w-2xl mx-auto font-medium animate-fade-in-up animation-delay-200 uppercase tracking-widest leading-relaxed">
-                RupeSafe advances digital infrastructure with bank-grade security and autonomous transformation protocols.
-              </p>
               <div className="flex flex-wrap justify-center gap-6 animate-fade-in-up animation-delay-400">
                 <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-[11px] font-black uppercase tracking-widest px-10 h-14 rounded-full shadow-2xl transition-all">
                   Get Started
@@ -191,20 +185,20 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Trusted Partners - HIGHER POSITIONING WITHIN HERO */}
-          <div className="animate-fade-in-up animation-delay-600 pb-28">
-            <div className="text-center mb-10">
+          {/* Trusted Partners - Adjusted to fit on screen */}
+          <div className="animate-fade-in-up animation-delay-600 pb-20">
+            <div className="text-center mb-6">
               <h3 className="text-[11px] font-black text-white uppercase tracking-[0.4em] drop-shadow-sm">Institutional Partners</h3>
             </div>
-            <div className="overflow-hidden marquee-container-hero max-w-5xl mx-auto">
-              <div className="flex gap-16 items-center animate-scroll-left w-max">
+            <div className="overflow-hidden marquee-container-hero max-w-7xl mx-auto">
+              <div className="flex gap-20 items-center animate-scroll-left w-max">
                 {(partners.length > 0 ? partners : [
                   { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
                   { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
                   { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
                   { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
                 ]).map((p, i) => (
-                  <span key={i} className="px-8 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                  <span key={i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
                     {p.name}
                   </span>
                 ))}
@@ -215,7 +209,7 @@ export default function Home() {
                   { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
                   { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
                 ]).map((p, i) => (
-                  <span key={"d" + i} className="px-8 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                  <span key={"d" + i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
                     {p.name}
                   </span>
                 ))}
@@ -224,9 +218,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* SMOOTH TRANSITION GRADIENT */}
-      <div className="h-24 bg-gradient-to-b from-black/20 to-slate-950 -mt-24 relative z-20 pointer-events-none"></div>
 
       {/* Payment Gateway Hero Section */}
       <section className="relative py-32 bg-slate-950 overflow-hidden z-10">
