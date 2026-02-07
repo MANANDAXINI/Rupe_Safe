@@ -11,8 +11,21 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase App
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth(app);
+let app;
+let auth: any;
+
+if (typeof window !== 'undefined' && firebaseConfig.apiKey) {
+    try {
+        app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+        auth = getAuth(app);
+    } catch (error) {
+        console.error("Firebase initialization failed:", error);
+    }
+} else {
+    // Mock or empty objects for build time
+    app = null;
+    auth = null;
+}
 
 /**
  * A helper function to trigger Google Sign-In popup and return the ID token.

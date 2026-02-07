@@ -4,6 +4,8 @@ import BlogContent from './BlogContent';
 
 const prisma = new PrismaClient();
 
+export const dynamic = 'force-dynamic';
+
 interface BlogPageProps {
     params: {
         slug: string;
@@ -24,8 +26,7 @@ async function getBlogBySlug(slug: string) {
             },
         });
         return blog;
-    } catch (error)
-    {
+    } catch (error) {
         console.error("Error fetching blog:", error);
         return null;
     }
