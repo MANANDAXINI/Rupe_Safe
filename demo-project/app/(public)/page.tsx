@@ -350,7 +350,7 @@ export default function Home() {
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4">
               <div className="relative h-full">
                 <img
-                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop"
+                  src="/services/payment-gateway.jpg"
                   alt="Payment Gateway"
                   className="w-full h-full object-cover"
                 />
@@ -389,7 +389,7 @@ export default function Home() {
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
               <div className="relative h-full">
                 <img
-                  src="/Web-dev.png"
+                  src="/services/web-dev.jpg"
                   alt="Website Development"
                   className="w-full h-full object-cover"
                 />
@@ -423,7 +423,7 @@ export default function Home() {
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
               <div className="relative h-full">
                 <img
-                  src="/App-dev.png"
+                  src="/services/app-dev.jpg"
                   alt="App Development"
                   className="w-full h-full object-cover"
                 />
@@ -455,7 +455,7 @@ export default function Home() {
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
               <div className="relative h-full">
                 <img
-                  src="/digital-marketing.png"
+                  src="/services/digital-marketing.jpg"
                   alt="Digital Marketing"
                   className="w-full h-full object-cover"
                 />
@@ -487,7 +487,7 @@ export default function Home() {
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
               <div className="relative h-full">
                 <img
-                  src="/ERP-system.png"
+                  src="/services/erp.jpg"
                   alt="ERP Systems"
                   className="w-full h-full object-cover"
                 />
@@ -519,7 +519,7 @@ export default function Home() {
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
               <div className="relative h-full">
                 <img
-                  src="/custom-software.png"
+                  src="/services/cms.jpg"
                   alt="Custom Software"
                   className="w-full h-full object-cover"
                 />
@@ -787,7 +787,54 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* Persistent Legal & Cookie Notice */}
+      <LegalNotice />
     </div >
+  );
+}
+
+function LegalNotice() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Show after a small delay for better UX transition
+    const timer = setTimeout(() => setIsVisible(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-[100] animate-in slide-in-from-bottom-10 fade-in duration-700">
+      <div className="bg-white/95 backdrop-blur-xl border border-gray-200 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-6 ring-1 ring-black/5">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center flex-shrink-0">
+            <Shield className="h-6 w-6 text-blue-600" />
+          </div>
+          <div className="space-y-1">
+            <h4 className="text-lg font-bold text-gray-900 tracking-tight">Terms & Cookie Policy</h4>
+            <p className="text-sm text-gray-500 leading-relaxed font-medium">
+              We use cookies to enhance your experience. By continuing, you agree to our <Link href="/terms" className="text-blue-600 underline font-bold">Terms of Service</Link> and data processing protocols.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex gap-3">
+          <Button
+            onClick={() => setIsVisible(false)}
+            className="flex-1 h-12 rounded-xl bg-gray-900 hover:bg-black text-white font-black uppercase tracking-widest text-[10px]"
+          >
+            I Accept All
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => setIsVisible(false)}
+            className="flex-1 h-12 rounded-xl border-gray-200 text-gray-600 font-bold text-[10px] uppercase tracking-widest hover:bg-gray-50"
+          >
+            Settings
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }

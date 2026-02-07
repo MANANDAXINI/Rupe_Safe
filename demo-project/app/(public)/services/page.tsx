@@ -20,7 +20,7 @@ const SERVICES = [
     title: "Payment Gateway",
     icon: CreditCard,
     highlighted: true,
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
+    image: "/services/payment-gateway.jpg",
     marquee: [CreditCard, Shield, Zap, Lock, Globe, CreditCard, Shield, Zap, Lock, Globe],
     description:
       "India's most advanced payment gateway with instant settlements, 100+ payment methods, and bank-grade security.",
@@ -30,7 +30,7 @@ const SERVICES = [
     id: "web-development",
     title: "Web Development",
     icon: Globe,
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2670&auto=format&fit=crop",
+    image: "/services/web-dev.jpg",
     marquee: [Globe, Code, Server, Database, Layout, Globe, Code, Server, Database, Layout],
     description:
       "We engineer high-performance, scalable web applications using cutting-edge technologies like Next.js and React tailored to your specific business needs.",
@@ -40,7 +40,7 @@ const SERVICES = [
     id: "app-development",
     title: "App Development",
     icon: Smartphone,
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop",
+    image: "/services/app-dev.jpg",
     marquee: [Smartphone, Tablet, Wifi, Bluetooth, Battery, Smartphone, Tablet, Wifi, Bluetooth, Battery],
     description:
       "Create impactful mobile experiences with our native and cross-platform development services. We deliver seamless UX across iOS and Android.",
@@ -50,7 +50,7 @@ const SERVICES = [
     id: "erp-solutions",
     title: "ERP Solutions",
     icon: Database,
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2670&auto=format&fit=crop",
+    image: "/services/erp.jpg",
     marquee: [BarChart3, Users, Building, TrendingUp, PieChart, BarChart3, Users, Building, TrendingUp, PieChart],
     description:
       "Streamline your entire business operation. We unify critical functions like finance, HR, and supply chain into a single, automated ecosystem.",
@@ -60,7 +60,7 @@ const SERVICES = [
     id: "digital-marketing",
     title: "Digital Marketing",
     icon: Megaphone,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    image: "/services/digital-marketing.jpg",
     marquee: [Megaphone, Share2, Search, ThumbsUp, Mail, Megaphone, Share2, Search, ThumbsUp, Mail],
     description:
       "Accelerate brand growth with data-driven strategies. We combine technical SEO, social media management, and targeted PPC campaigns.",
@@ -70,7 +70,7 @@ const SERVICES = [
     id: "custom-software",
     title: "Custom Software",
     icon: Cpu,
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop",
+    image: "/services/cms.jpg",
     marquee: [Cpu, Terminal, Network, Lock, Code, Cpu, Terminal, Network, Lock, Code],
     description:
       "Solve unique business challenges with bespoke software. We build secure, API-first, and highly scalable applications tailored to your workflow.",
@@ -80,7 +80,7 @@ const SERVICES = [
     id: "tech-consultant",
     title: "Tech Consulting",
     icon: Lightbulb,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop",
+    image: "/tech-consultant.png",
     marquee: [Briefcase, GraduationCap, LineChart, Lightbulb, Target, Briefcase, GraduationCap, LineChart, Lightbulb, Target],
     description:
       "Navigate the complex technology landscape. We provide strategic advisory, technical audits, and governance frameworks to align IT with business goals.",
@@ -93,15 +93,17 @@ export default function ServicesPage() {
     <main className="min-h-screen bg-[#f0f2f5] relative overflow-hidden font-sans text-slate-900">
       {/* Background Gradients */}
       <section className="relative pt-40 pb-32 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src="/images/services.jpg"
-            alt="Technology Background"
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+        {/* Background Video - Crystal Clear */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover scale-[1.01]"
+          >
+            <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/486833ab-b502-437b-9f55-5e2ce1ed7269.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
@@ -121,11 +123,7 @@ export default function ServicesPage() {
           </p>
         </div>
       </section>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-50 to-slate-300 opacity-80" />
-        <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-indigo-900/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-purple-900/5 rounded-full blur-[120px]" />
-      </div>
+
 
       <div className="max-w-[1600px] mx-auto px-6 py-20 relative z-10">
 

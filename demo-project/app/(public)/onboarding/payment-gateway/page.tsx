@@ -22,35 +22,92 @@ export default function PaymentGatewayOnboarding() {
     const [currentStep, setCurrentStep] = useState<Step>('basic');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
-        name: '',
+        name: '', // Full Name
+        companyName: '',
         contact: '',
-        acceptOn: 'Website',
+        industryType: '',
+        businessNature: '',
         websiteLink: '',
+        acceptOn: 'Website',
         pan: '',
         termsAccepted: false,
         partnerTermsAccepted: false,
-        aadhaarFront: null as File | null,
-        aadhaarBack: null as File | null,
-        panFile: null as File | null,
     });
 
     const handleNext = () => {
-        if (currentStep === 'basic') setCurrentStep('business');
-        else if (currentStep === 'business') setCurrentStep('kyc');
+        if (currentStep === 'basic') {
+            const mobileRegex = /^[6-9]\d{9}$/;
+            if (!mobileRegex.test(formData.contact)) {
+                toast.error('Please enter a valid 10-digit mobile number starting with 6-9.');
+                return;
+            }
+            if (!formData.name || !formData.companyName) {
+                toast.error('Please fill in your name and company details.');
+                return;
+            }
+            setCurrentStep('business');
+        }
+        else if (currentStep === 'business') {
+            const panRegex = /[A-Z]{5}[0-9]{4}[A-Z]{1}/;
+            if (!panRegex.test(formData.pan)) {
+                toast.error('Please enter a valid PAN number (e.g., ABCDE1234F).');
+                return;
+            }
+            if (!formData.industryType || !formData.businessNature) {
+                toast.error('Please select industry and business nature.');
+                return;
+            }
+            setCurrentStep('kyc');
+        }
     };
 
-    const handleComplete = () => {
+    const handleBack = () => {
+        if (currentStep === 'business') setCurrentStep('basic');
+        else if (currentStep === 'kyc') setCurrentStep('business');
+    };
+
+    const goToStep = (step: Step) => {
+        // Only allow going to 'basic', 'business', or 'kyc' if not on success
+        if (currentStep === 'success') return;
+        setCurrentStep(step);
+    };
+
+    const handleComplete = async () => {
         if (!formData.termsAccepted || !formData.partnerTermsAccepted) {
             toast.error('Please accept all terms and conditions to proceed.');
             return;
         }
+
         setIsSubmitting(true);
-        // Simulate AI-Powered Verification
-        setTimeout(() => {
-            setIsSubmitting(false);
+        try {
+            const response = await fetch('/api/kyc', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fullName: formData.name,
+                    companyName: formData.companyName,
+                    contact: formData.contact,
+                    websiteLink: formData.websiteLink,
+                    industryType: formData.industryType,
+                    businessNature: formData.businessNature,
+                    panNumber: formData.pan,
+                    acceptOn: formData.acceptOn
+                }),
+            });
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.error || 'Submission failed');
+            }
+
             setCurrentStep('success');
-            toast.success('AI Verification Successful!');
-        }, 4000);
+            toast.success('Onboarding details received!');
+        } catch (error: any) {
+            console.error('Submission error:', error);
+            toast.error(error.message || 'Something went wrong. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const updateFormData = (field: string, value: any) => {
@@ -87,11 +144,13 @@ export default function PaymentGatewayOnboarding() {
                             const isCompleted = steps.findIndex(s => s.id === (currentStep === 'success' ? 'kyc' : currentStep)) > index || currentStep === 'success';
 
                             return (
-                                <div
+                                <button
                                     key={step.id}
+                                    onClick={() => goToStep(step.id as Step)}
+                                    disabled={currentStep === 'success'}
                                     className={cn(
-                                        "flex items-center gap-4 p-4 rounded-2xl transition-all duration-500",
-                                        isActive ? "bg-indigo-50 text-indigo-700 shadow-sm border border-indigo-100" : "text-slate-400"
+                                        "w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-500 text-left",
+                                        isActive ? "bg-indigo-50 text-indigo-700 shadow-sm border border-indigo-100" : "text-slate-400 hover:bg-slate-50"
                                     )}
                                 >
                                     <div className={cn(
@@ -110,7 +169,7 @@ export default function PaymentGatewayOnboarding() {
                                             className="ml-auto w-1.5 h-6 bg-indigo-600 rounded-full"
                                         />
                                     )}
-                                </div>
+                                </button>
                             );
                         })}
                     </nav>
@@ -124,13 +183,32 @@ export default function PaymentGatewayOnboarding() {
                             All data is encrypted with AES-256 and transmitted directly to our financial settlement partners through an isolated vault.
                         </p>
                     </div>
+                    <div className="mt-12 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                        <div className="flex items-center gap-2 mb-3">
+                            <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Protocol</span>
+                        </div>
+                        <p className="text-[10px] leading-relaxed text-slate-400 font-bold uppercase tracking-tight">
+                            Your data will be shared with our financial settlement partners who will contact you via email for setup.
+                        </p>
+                    </div>
                 </div>
 
                 <div className="mt-auto pt-8 border-t border-slate-100">
-                    <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-red-500 transition-colors py-2 px-1 group">
-                        <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-                        <span className="text-sm font-semibold">Exit Onboarding</span>
-                    </Link>
+                    {currentStep === 'basic' ? (
+                        <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-red-500 transition-colors py-2 px-1 group">
+                            <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                            <span className="text-sm font-semibold">Exit Onboarding</span>
+                        </Link>
+                    ) : (
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center gap-2 text-slate-400 hover:text-indigo-600 transition-colors py-2 px-1 group"
+                        >
+                            <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                            <span className="text-sm font-semibold uppercase tracking-widest text-[10px]">Back to Previous</span>
+                        </button>
+                    )}
                 </div>
             </div>
 
@@ -163,21 +241,33 @@ export default function PaymentGatewayOnboarding() {
                                         <div className="space-y-2">
                                             <Label className="text-slate-400 text-xs font-bold uppercase tracking-widest pl-1">Mobile Number</Label>
                                             <Input
-                                                placeholder="+91 00000 00000"
+                                                placeholder="Enter 10 digit mobile"
+                                                maxLength={10}
                                                 className="bg-slate-50 border-slate-100 h-16 rounded-2xl px-6 text-xl focus-visible:ring-indigo-600 focus-visible:bg-white transition-all placeholder:text-slate-300 font-semibold text-slate-700"
                                                 value={formData.contact}
-                                                onChange={(e) => updateFormData('contact', e.target.value)}
+                                                onChange={(e) => updateFormData('contact', e.target.value.replace(/\D/g, ''))}
                                             />
                                         </div>
 
-                                        <div className="space-y-2">
-                                            <Label className="text-slate-400 text-xs font-bold uppercase tracking-widest pl-1">Full Name</Label>
-                                            <Input
-                                                placeholder="As per legal documents"
-                                                className="bg-slate-50 border-slate-100 h-16 rounded-2xl px-6 text-xl focus-visible:ring-indigo-600 focus-visible:bg-white transition-all placeholder:text-slate-300 font-semibold text-slate-700"
-                                                value={formData.name}
-                                                onChange={(e) => updateFormData('name', e.target.value)}
-                                            />
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <div className="space-y-2">
+                                                <Label className="text-slate-400 text-xs font-bold uppercase tracking-widest pl-1">Full Name</Label>
+                                                <Input
+                                                    placeholder="As per legal documents"
+                                                    className="bg-slate-50 border-slate-100 h-16 rounded-2xl px-6 text-xl focus-visible:ring-indigo-600 focus-visible:bg-white transition-all placeholder:text-slate-300 font-semibold text-slate-700"
+                                                    value={formData.name}
+                                                    onChange={(e) => updateFormData('name', e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <Label className="text-slate-400 text-xs font-bold uppercase tracking-widest pl-1">Company Name</Label>
+                                                <Input
+                                                    placeholder="Legal Entity Name"
+                                                    className="bg-slate-50 border-slate-100 h-16 rounded-2xl px-6 text-xl focus-visible:ring-indigo-600 focus-visible:bg-white transition-all placeholder:text-slate-300 font-semibold text-slate-700"
+                                                    value={formData.companyName}
+                                                    onChange={(e) => updateFormData('companyName', e.target.value)}
+                                                />
+                                            </div>
                                         </div>
 
                                         <div className="grid md:grid-cols-2 gap-6">
@@ -232,7 +322,36 @@ export default function PaymentGatewayOnboarding() {
                                         <p className="text-slate-500 text-lg font-medium">We require your Personal PAN for business registration.</p>
                                     </div>
 
-                                    <div className="p-12 bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100">
+                                    <div className="p-12 bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 space-y-8">
+                                        <div className="grid md:grid-cols-2 gap-8">
+                                            <div className="space-y-2">
+                                                <Label className="text-slate-400 text-xs font-bold uppercase tracking-widest pl-1">Industry Type</Label>
+                                                <select
+                                                    className="w-full bg-slate-50 border-slate-100 h-16 rounded-2xl px-6 text-xl focus:ring-2 focus:ring-indigo-600 focus:bg-white outline-none transition-all appearance-none cursor-pointer font-semibold text-slate-700"
+                                                    value={formData.industryType}
+                                                    onChange={(e) => updateFormData('industryType', e.target.value)}
+                                                >
+                                                    <option value="">Select Industry</option>
+                                                    <option value="E-commerce">E-commerce</option>
+                                                    <option value="SaaS">SaaS</option>
+                                                    <option value="EdTech">EdTech</option>
+                                                    <option value="FinTech">FinTech</option>
+                                                    <option value="Healthcare">Healthcare</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="space-y-2">
+                                                <Label className="text-slate-400 text-xs font-bold uppercase tracking-widest pl-1">Nature of Business</Label>
+                                                <Input
+                                                    placeholder="e.g. Retail, Consulting"
+                                                    className="bg-slate-50 border-slate-100 h-16 rounded-2xl px-6 text-xl focus-visible:ring-indigo-600 focus-visible:bg-white transition-all placeholder:text-slate-300 font-semibold text-slate-700"
+                                                    value={formData.businessNature}
+                                                    onChange={(e) => updateFormData('businessNature', e.target.value)}
+                                                />
+                                            </div>
+                                        </div>
+
                                         <div className="space-y-4">
                                             <div className="flex items-center justify-between mb-4">
                                                 <Label className="text-slate-700 text-lg font-bold">Personal PAN Card</Label>
@@ -252,13 +371,22 @@ export default function PaymentGatewayOnboarding() {
                                             </p>
                                         </div>
 
-                                        <Button
-                                            className="w-full h-16 text-lg font-bold bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-600/30 rounded-2xl mt-12 transition-all hover:scale-[1.02] active:scale-[0.98]"
-                                            onClick={handleNext}
-                                        >
-                                            Verify PAN Details
-                                            <ChevronRight className="ml-2 h-5 w-5" />
-                                        </Button>
+                                        <div className="flex gap-4 mt-4">
+                                            <Button
+                                                variant="outline"
+                                                className="flex-1 h-16 text-lg font-bold border-slate-200 text-slate-400 hover:bg-slate-50 rounded-2xl transition-all"
+                                                onClick={handleBack}
+                                            >
+                                                Back
+                                            </Button>
+                                            <Button
+                                                className="flex-[2] h-16 text-lg font-bold bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-600/30 rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+                                                onClick={handleNext}
+                                            >
+                                                Save & Continue
+                                                <ChevronRight className="ml-2 h-5 w-5" />
+                                            </Button>
+                                        </div>
                                     </div>
                                 </motion.div>
                             )}
@@ -280,67 +408,33 @@ export default function PaymentGatewayOnboarding() {
                                     </div>
 
                                     <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative">
-                                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full -mr-16 -mt-16 pointer-events-none" />
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full -mr-16 -mt-16 pointer-events-none" />
 
                                         <div className="text-center mb-10">
-                                            <div className="w-20 h-20 bg-indigo-50 rounded-[2rem] flex items-center justify-center mx-auto mb-6 transform rotate-3 shadow-lg shadow-indigo-100">
-                                                <ShieldCheck className="h-10 w-10 text-indigo-600" />
+                                            <div className="w-20 h-20 bg-emerald-50 rounded-[2rem] flex items-center justify-center mx-auto mb-6 transform rotate-3 shadow-lg shadow-emerald-100">
+                                                <ShieldCheck className="h-10 w-10 text-emerald-600" />
                                             </div>
-                                            <h3 className="text-2xl font-black text-slate-900 uppercase">Documents Upload</h3>
+                                            <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter">Review & Confirm</h3>
+                                            <p className="text-slate-400 font-bold text-[10px] mt-2 uppercase tracking-widest">Double check your details before submission</p>
                                         </div>
 
-                                        <div className="space-y-6 mb-10">
-                                            <div className="space-y-3">
-                                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Aadhaar Card (Front)</Label>
-                                                <div className="relative group">
-                                                    <input
-                                                        type="file"
-                                                        accept="image/*,.pdf"
-                                                        onChange={(e) => handleFileChange('aadhaarFront', e)}
-                                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                                                    />
-                                                    <div className="h-16 border-2 border-dashed border-slate-100 rounded-2xl bg-slate-50 flex items-center justify-center gap-3 transition-all group-hover:bg-indigo-50 group-hover:border-indigo-200">
-                                                        <FileCheck className="h-5 w-5 text-indigo-400" />
-                                                        <span className="text-sm font-bold text-slate-500 group-hover:text-indigo-600">
-                                                            {formData.aadhaarFront ? formData.aadhaarFront.name : 'Upload Aadhaar Front'}
-                                                        </span>
-                                                    </div>
+                                        <div className="space-y-4 mb-10">
+                                            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-4">
+                                                <div className="flex justify-between items-center border-b border-white pb-3">
+                                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Business</span>
+                                                    <span className="text-sm font-bold text-slate-700">{formData.companyName}</span>
                                                 </div>
-                                            </div>
-
-                                            <div className="space-y-3">
-                                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Aadhaar Card (Back)</Label>
-                                                <div className="relative group">
-                                                    <input
-                                                        type="file"
-                                                        accept="image/*,.pdf"
-                                                        onChange={(e) => handleFileChange('aadhaarBack', e)}
-                                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                                                    />
-                                                    <div className="h-16 border-2 border-dashed border-slate-100 rounded-2xl bg-slate-50 flex items-center justify-center gap-3 transition-all group-hover:bg-indigo-50 group-hover:border-indigo-200">
-                                                        <FileCheck className="h-5 w-5 text-indigo-400" />
-                                                        <span className="text-sm font-bold text-slate-500 group-hover:text-indigo-600">
-                                                            {formData.aadhaarBack ? formData.aadhaarBack.name : 'Upload Aadhaar Back'}
-                                                        </span>
-                                                    </div>
+                                                <div className="flex justify-between items-center border-b border-white pb-3">
+                                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Industry</span>
+                                                    <span className="text-sm font-bold text-slate-700">{formData.industryType}</span>
                                                 </div>
-                                            </div>
-
-                                            <div className="space-y-3">
-                                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400">PAN Card Image</Label>
-                                                <div className="relative group">
-                                                    <input
-                                                        type="file"
-                                                        accept="image/*,.pdf"
-                                                        onChange={(e) => handleFileChange('panFile', e)}
-                                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                                                    />
-                                                    <div className="h-16 border-2 border-dashed border-slate-100 rounded-2xl bg-slate-50 flex items-center justify-center gap-3 transition-all group-hover:bg-indigo-50 group-hover:border-indigo-200">
-                                                        <Landmark className="h-5 w-5 text-indigo-400" />
-                                                        <span className="text-sm font-bold text-slate-500 group-hover:text-indigo-600">
-                                                            {formData.panFile ? formData.panFile.name : 'Upload PAN Card'}
-                                                        </span>
-                                                    </div>
+                                                <div className="flex justify-between items-center border-b border-white pb-3">
+                                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">PAN Card</span>
+                                                    <span className="text-sm font-bold text-slate-700 font-mono tracking-widest">{formData.pan}</span>
+                                                </div>
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Nature</span>
+                                                    <span className="text-sm font-bold text-slate-700">{formData.businessNature}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -368,25 +462,35 @@ export default function PaymentGatewayOnboarding() {
                                                     className="mt-1 w-5 h-5 rounded border-slate-200 text-indigo-600 focus:ring-indigo-600 cursor-pointer"
                                                 />
                                                 <Label htmlFor="partner-terms" className="text-xs text-slate-500 font-bold leading-relaxed cursor-pointer">
-                                                    I agree to the <Link href="/terms" className="text-indigo-600 underline">Payment Gateway Partner Terms</Link> for high-volume financial transactions.
+                                                    I understand that settlement companies will contact me via email for further verification.
                                                 </Label>
                                             </div>
                                         </div>
 
-                                        <Button
-                                            className="w-full h-20 text-xl font-black bg-indigo-600 hover:bg-indigo-700 shadow-2xl shadow-indigo-600/40 rounded-3xl transition-all disabled:opacity-70 uppercase tracking-widest"
-                                            onClick={handleComplete}
-                                            disabled={isSubmitting}
-                                        >
-                                            {isSubmitting ? (
-                                                <div className="flex flex-col items-center">
-                                                    <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin mb-1" />
-                                                    <span className="text-[10px] font-black">AI VERIFICATION IN PROGRESS</span>
-                                                </div>
-                                            ) : (
-                                                <>Submit for Verification <ArrowRight className="ml-2 h-6 w-6" /></>
-                                            )}
-                                        </Button>
+                                        <div className="flex gap-4">
+                                            <Button
+                                                variant="outline"
+                                                className="h-20 text-xl font-black border-slate-200 text-slate-400 hover:bg-slate-50 rounded-3xl transition-all uppercase tracking-widest w-1/3"
+                                                onClick={handleBack}
+                                                disabled={isSubmitting}
+                                            >
+                                                Back
+                                            </Button>
+                                            <Button
+                                                className="flex-1 h-20 text-xl font-black bg-indigo-600 hover:bg-indigo-700 shadow-2xl shadow-indigo-600/40 rounded-3xl transition-all disabled:opacity-70 uppercase tracking-widest"
+                                                onClick={handleComplete}
+                                                disabled={isSubmitting}
+                                            >
+                                                {isSubmitting ? (
+                                                    <div className="flex flex-col items-center">
+                                                        <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin mb-1" />
+                                                        <span className="text-[10px] font-black">AI VERIFICATION IN PROGRESS</span>
+                                                    </div>
+                                                ) : (
+                                                    <>Submit for Verification <ArrowRight className="ml-2 h-6 w-6" /></>
+                                                )}
+                                            </Button>
+                                        </div>
                                     </div>
                                 </motion.div>
                             )}
@@ -410,17 +514,26 @@ export default function PaymentGatewayOnboarding() {
                                         <div className="absolute top-0 left-0 w-full h-full -z-10 animate-ping bg-emerald-400/20 rounded-full" />
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <h1 className="text-5xl font-black text-slate-900 tracking-tight uppercase">Application Submitted!</h1>
-                                        <p className="text-slate-600 text-xl font-medium max-w-lg mx-auto leading-relaxed">
-                                            Your KYC request has been successfully queued. Our team will verify and activate your account within 24-48 hours.
-                                        </p>
+                                    <div className="space-y-6">
+                                        <h1 className="text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Application Forwarded!</h1>
+                                        <div className="space-y-4 max-w-lg mx-auto">
+                                            <p className="text-slate-600 text-xl font-bold leading-relaxed underline decoration-indigo-200 underline-offset-8">
+                                                YOUR DATA HAS BEEN SECURELY SENT TO OUR PARTNERS.
+                                            </p>
+                                            <p className="text-slate-400 text-sm font-medium leading-relaxed uppercase tracking-widest">
+                                                Our settlement companies will now review your profile. Please keep a close watch on your <span className="text-indigo-600 font-black">Email Inbox</span> for further setup instructions and contact.
+                                            </p>
+                                        </div>
                                     </div>
 
-                                    <div className="pt-8">
-                                        <Button asChild className="h-16 px-12 text-lg font-bold bg-slate-900 hover:bg-slate-800 rounded-2xl shadow-xl transition-all">
-                                            <Link href="/">Back to Dashboard</Link>
+                                    <div className="pt-8 flex flex-col items-center gap-6">
+                                        <Button asChild className="h-16 px-16 text-lg font-black bg-slate-900 hover:bg-slate-800 rounded-2xl shadow-2xl transition-all uppercase tracking-widest hover:scale-105 active:scale-95">
+                                            <Link href="/">Return to Dashboard</Link>
                                         </Button>
+                                        <div className="p-4 bg-amber-50 rounded-xl border border-amber-100 flex items-center gap-3">
+                                            <ShieldCheck className="w-5 h-5 text-amber-500" />
+                                            <span className="text-[10px] font-black text-amber-700 uppercase tracking-widest">No further action is required on this portal.</span>
+                                        </div>
                                     </div>
 
                                     <div className="pt-12 text-slate-400 font-bold text-sm uppercase tracking-widest">
