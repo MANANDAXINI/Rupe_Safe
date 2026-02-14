@@ -92,7 +92,7 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#f0f2f5] relative overflow-hidden font-sans text-slate-900">
       {/* Background Gradients */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      <section className="relative h-[calc(100vh-64px)] flex flex-col justify-center overflow-hidden">
         {/* Background Video - Crystal Clear */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <video
