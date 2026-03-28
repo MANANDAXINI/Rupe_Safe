@@ -1,4 +1,4 @@
-// filepath: d:\Rupesafe-2\project\app\(public)\blogs\[slug]\BlogContent.tsx
+// filepath: d:\Rupexa Private Limited\project\app\(public)\blogs\[slug]\BlogContent.tsx
 'use client';
 
 import { Blog } from '@prisma/client';
@@ -81,7 +81,7 @@ export default function BlogContent({ blog, readingTime }: BlogContentProps) {
                     <div className="flex flex-wrap justify-start items-center gap-x-6 gap-y-4 mb-8 md:mb-12 border-y border-slate-200 py-4">
                         <div className="flex items-center gap-2 text-slate-600">
                             <UserIcon className="w-5 h-5" />
-                            <span className="font-medium text-slate-800">{blog.author?.name || 'Rupesafe Team'}</span>
+                            <span className="font-medium text-slate-800">{blog.author?.name || 'Rupexa Private Limited Team'}</span>
                         </div>
                         <div className="flex items-center gap-2 text-slate-600">
                             <Calendar className="w-5 h-5" />

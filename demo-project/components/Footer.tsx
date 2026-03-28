@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-white text-xl font-bold mb-4">RupeSafe</h3>
+            <h3 className="text-white text-xl font-bold mb-4">Rupexa Private Limited</h3>
             <p className="text-sm mb-4">
               Technology solutions company helping businesses build, grow, and scale in the digital world.
             </p>
@@ -98,7 +98,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
-                <span>info@rupesafe.com</span>
+                <span>info@rupexa.in</span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-          <p>&copy; {currentYear} RupeSafe. All rights reserved.</p>
+          <p>&copy; {currentYear} Rupexa Private Limited. All rights reserved.</p>
         </div>
       </div>
     </footer>

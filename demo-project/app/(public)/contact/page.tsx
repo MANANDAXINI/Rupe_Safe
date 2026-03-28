@@ -36,9 +36,9 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["hello@rupesafe.com", "support@rupesafe.com"],
+      details: ["care@rupexa.in", "info@rupexa.in"],
       delay: 0.1,
-      link: "mailto:hello@rupesafe.com"
+      link: "mailto:care@rupexa.in"
     },
     {
       icon: Phone,

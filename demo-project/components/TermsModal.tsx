@@ -31,7 +31,7 @@ export default function TermsModal() {
         {
             title: "Operational Intermediary",
             icon: FileText,
-            content: "We facilitate data transmission to regulated payment gateway partners. RupeSafe does not hold or manage user funds directly."
+            content: "We facilitate data transmission to regulated payment gateway partners. Rupexa Private Limited does not hold or manage user funds directly."
         },
         {
             title: "Data Authorization",

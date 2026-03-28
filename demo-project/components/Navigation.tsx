@@ -46,7 +46,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-indigo-600">RupeSafe</span>
+              <span className="text-2xl font-bold text-indigo-600">Rupexa Private Limited</span>
             </Link>
           </div>
 

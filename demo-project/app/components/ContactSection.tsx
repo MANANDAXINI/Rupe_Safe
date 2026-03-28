@@ -64,7 +64,7 @@ export default function ContactSection(_: Props) {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">Email</p>
-                  <p className="font-semibold text-slate-900">hello@rupesafe.com</p>
+                  <p className="font-semibold text-slate-900">care@rupexa.in</p>
                 </div>
               </li>
 

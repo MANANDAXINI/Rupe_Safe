@@ -35,35 +35,35 @@ export default function Home() {
 
   const reviews: Review[] = [
     {
-      name: 'John Smith',
-      role: 'CEO, Tech Corp',
-      content: 'RupeSafe transformed our business with innovative solutions. Highly recommended!',
-      rating: 5
+      name: "John Smith",
+      role: "CEO, Tech Corp",
+      content: "Rupexa Private Limited transformed our business with innovative solutions. Highly recommended!",
+      rating: 5,
     },
     {
-      name: 'Sarah Johnson',
-      role: 'CTO, Innovation Labs',
-      content: 'The team is professional, responsive, and delivers exceptional results on time.',
-      rating: 5
+      name: "Sarah Johnson",
+      role: "CTO, Innovation Labs",
+      content: "The team is professional, responsive, and delivers exceptional results on time.",
+      rating: 5,
     },
     {
-      name: 'Michael Chen',
-      role: 'Founder, StartupX',
-      content: 'Best technology partner we could ask for. They truly understand our vision.',
-      rating: 5
+      name: "Michael Chen",
+      role: "Founder, StartupX",
+      content: "Best technology partner we could ask for. They truly understand our vision.",
+      rating: 5,
     },
     {
-      name: 'Emily Davis',
-      role: 'Director, Global Solutions',
-      content: 'Outstanding service and support throughout the entire project lifecycle.',
-      rating: 5
+      name: "Emily Davis",
+      role: "Director, Global Solutions",
+      content: "Outstanding service and support throughout the entire project lifecycle.",
+      rating: 5,
     },
     {
-      name: 'James Wilson',
-      role: 'VP Operations, Enterprise Co',
-      content: 'Their expertise in ERP systems is unmatched. Highly professional team.',
-      rating: 5
-    }
+      name: "James Wilson",
+      role: "VP Operations, Enterprise Co",
+      content: "Their expertise in ERP systems is unmatched. Highly professional team.",
+      rating: 5,
+    },
   ];
 
   const capabilities: Capability[] = [
@@ -558,7 +558,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Why Choose RupeSafe?
+              Why Choose Rupexa Private Limited?
             </h2>
             <p className="text-lg text-gray-600 max-w-5xl mx-auto whitespace-nowrap hidden md:block">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
@@ -704,7 +704,7 @@ export default function Home() {
               Client Reviews
             </h2>
             <p className="text-lg text-gray-600">
-              Hear what our satisfied clients have to say about working with RupeSafe
+              Hear what our satisfied clients have to say about working with Rupexa Private Limited
             </p>
           </div>
 
@@ -769,7 +769,7 @@ export default function Home() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
-            Get in touch with us today and discover how RupeSafe can help you achieve your digital goals.
+            Get in touch with us today and discover how Rupexa Private Limited can help you achieve your digital goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">

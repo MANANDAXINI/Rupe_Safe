@@ -109,7 +109,7 @@ export default function About(): JSX.Element {
         </div>
       </section>
 
-      {/* Our Story - background image Rupesafe-aboutus.png */}
+      {/* Our Story - background image rupexa-aboutus.png */}
       <section
         className="py-24 bg-slate-50 overflow-hidden relative"
       >
@@ -170,7 +170,7 @@ export default function About(): JSX.Element {
           >
             <div className="w-full h-[560px] bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center rounded-3xl overflow-hidden">
               <Image
-                src="/Rupesafe-aboutus.png"
+                src="/images/rupexa-aboutus.png"
                 alt="Gig illustration"
                 width={800}
                 height={700}
@@ -267,21 +267,53 @@ export default function About(): JSX.Element {
           <h3 className="text-4xl md:text-5xl font-extrabold text-blue-600 text-center mb-10">Meet the Team</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ scale: 1.06 }}
-                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
-              >
-                <div className="mx-auto w-28 h-28 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 mb-4" />
-                <div className="font-semibold text-slate-900 text-lg">Member {i + 1}</div>
-                <div className="text-sm text-blue-600 mt-1 font-medium">Role</div>
-                <p className="text-sm text-slate-600 mt-3">Bio describing expertise and interests — adds personality and trust.</p>
-              </motion.div>
-            ))}
+            {/* Roshni Vijay Dwivedi */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.06 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
+            >
+              <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
+                <Image src="/images/roshni.jpeg" alt="Roshni Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
+              </div>
+              <div className="font-semibold text-slate-900 text-lg">Roshni Vijay Dwivedi</div>
+              <div className="text-sm text-blue-600 mt-1 font-medium">Founder & Director</div>
+              <p className="text-sm text-slate-600 mt-3">Visionary leader and founder of Rupexa Private Limited, driving innovation and growth.</p>
+            </motion.div>
+
+            {/* Vedant Vijay Dwivedi */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.06 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
+            >
+              <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
+                <Image src="/images/vedant.jpeg" alt="Vedant Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
+              </div>
+              <div className="font-semibold text-slate-900 text-lg">Vedant Vijay Dwivedi</div>
+              <div className="text-sm text-blue-600 mt-1 font-medium">Technical Department</div>
+              <p className="text-sm text-slate-600 mt-3">Heads the technical department, ensuring robust and scalable technology solutions.</p>
+            </motion.div>
+
+            {/* Vijay Dwivedi */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.06 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
+            >
+              <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
+                <Image src="/images/vijay.jpeg" alt="Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
+              </div>
+              <div className="font-semibold text-slate-900 text-lg">Vijay Dwivedi</div>
+              <div className="text-sm text-blue-600 mt-1 font-medium">Consultant</div>
+              <p className="text-sm text-slate-600 mt-3">Consultant for Rupexa Private Limited, providing strategic guidance and expertise.</p>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -56,7 +56,7 @@ export function AdminSidebar() {
                                 <Settings className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <h1 className="text-base font-bold tracking-tight text-slate-900">RupeSafe</h1>
+                                <h1 className="text-base font-bold tracking-tight text-slate-900">Rupexa Private Limited</h1>
                                 <p className="text-[9px] text-blue-600 font-bold uppercase tracking-widest leading-none mt-1">Admin Panel</p>
                             </div>
                         </div>

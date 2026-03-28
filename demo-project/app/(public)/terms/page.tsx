@@ -10,31 +10,31 @@ export default function TermsAndConditions() {
             title: "1. Common Terms for All Users",
             icon: FileText,
             color: "blue",
-            content: "By accessing RupeSafe, you agree to be bound by these legal terms. RupeSafe acts as an intermediary technology provider. We do not hold funds but facilitate the collection of KYC and financial data to be processed by our regulated payment gateway partners."
+            content: "By accessing Rupexa Private Limited, you agree to be bound by these legal terms. Rupexa Private Limited acts as an intermediary technology provider. We do not hold funds but facilitate the collection of KYC and financial data to be processed by our regulated payment gateway partners."
         },
         {
             title: "2. Financial Responsibility & Compliance",
             icon: Scale,
             color: "indigo",
-            content: "Users and Partners are strictly prohibited from using this platform for any illegal activities, including but not limited to money laundering, fraud, or financing of prohibited activities. RupeSafe reserves the right to terminate access and report suspicious activities to relevant financial authorities immediately."
+            content: "Users and Partners are strictly prohibited from using this platform for any illegal activities, including but not limited to money laundering, fraud, or financing of prohibited activities. Rupexa Private Limited reserves the right to terminate access and report suspicious activities to relevant financial authorities immediately."
         },
         {
             title: "3. Terms for General Users",
             icon: UserCheck,
             color: "emerald",
-            content: "General users agree that the data provided (including Aadhaar, PAN, and Bank details) is authentic. You authorize RupeSafe to share this data with authorized financial partners for the sole purpose of enabling payment services."
+            content: "General users agree that the data provided (including Aadhaar, PAN, and Bank details) is authentic. You authorize Rupexa Private Limited to share this data with authorized financial partners for the sole purpose of enabling payment services."
         },
         {
             title: "4. Terms for Payment Gateway Partners",
             icon: Briefcase,
             color: "violet",
-            content: "Partners agree to strict data security protocols. You must maintain compliance with PCI DSS and all relevant local financial regulations. Any breach of security must be reported to RupeSafe within 2 hours. Partners are liable for any financial discrepancies occurring on their integrated gateways."
+            content: "Partners agree to strict data security protocols. You must maintain compliance with PCI DSS and all relevant local financial regulations. Any breach of security must be reported to Rupexa Private Limited within 2 hours. Partners are liable for any financial discrepancies occurring on their integrated gateways."
         },
         {
             title: "5. Limitation of Liability",
             icon: ShieldAlert,
             color: "red",
-            content: "RupeSafe is a technology facilitator. We shall not be held liable for losses arising from downtime of third-party payment gateways, bank failures, or user-side security breaches. Our maximum liability in any event is limited to the transaction fees collected by RupeSafe."
+            content: "Rupexa Private Limited is a technology facilitator. We shall not be held liable for losses arising from downtime of third-party payment gateways, bank failures, or user-side security breaches. Our maximum liability in any event is limited to the transaction fees collected by Rupexa Private Limited."
         }
     ];
 
@@ -54,7 +54,7 @@ export default function TermsAndConditions() {
                         Terms & <span className="text-indigo-600">Conditions</span>
                     </h1>
                     <p className="text-slate-500 text-xl font-medium max-w-2xl mx-auto">
-                        Strict legal guidelines for users and partners to ensure secure financial operations.
+                        Strict legal guidelines for users and partners to ensure secure financial operations with Rupexa Private Limited.
                     </p>
                 </motion.div>
 
@@ -90,7 +90,9 @@ export default function TermsAndConditions() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
                     <h3 className="text-3xl font-black mb-4 uppercase tracking-tight">Need Legal Clarification?</h3>
                     <p className="text-indigo-100 font-medium mb-8 max-w-lg mx-auto">
-                        Contact our legal department for specific inquiries regarding partner agreements or data usage.
+                        Contact our legal department for specific inquiries regarding partner agreements or data usage.<br />
+                        <b>Contact:</b> +91 9067488273, care@rupexa.in, info@rupexa.in<br />
+                        <b>Address:</b> Block No.101/102, Shriram Tower Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001
                     </p>
                     <button className="px-10 py-5 bg-white text-indigo-900 font-black rounded-2xl hover:bg-slate-50 transition-all uppercase tracking-widest text-sm shadow-xl shadow-black/20">
                         Contact Legal Support

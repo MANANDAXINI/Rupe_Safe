@@ -17,14 +17,14 @@ export default function AdminSettings() {
             <div>
               <label className="block text-sm font-medium mb-2 text-gray-700">Company Name</label>
               <Input
-                defaultValue="RupeSafe"
+                defaultValue="Rupexa Private Limited"
                 className="bg-white border-gray-300 text-gray-900 focus:border-blue-500"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2 text-gray-700">Email</label>
               <Input
-                defaultValue="info@rupesafe.com"
+                defaultValue="info@rupexa.in"
                 className="bg-white border-gray-300 text-gray-900 focus:border-blue-500"
               />
             </div>
