@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, LogOut, User, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -46,7 +47,13 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-indigo-600">Rupexa Private Limited</span>
+              <Image
+                src="/images/RupexaLogo.jpeg"
+                alt="Rupexa Private Limited Logo"
+                width={150}
+                height={50}
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
 
