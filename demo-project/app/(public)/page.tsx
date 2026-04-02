@@ -162,7 +162,7 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/85eb28b5-f3ce-47a0-8e50-1cb4ec8e1ce8.mp4" type="video/mp4" />
+          <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/9785b9dc-8abc-4c60-8bcf-d0967533ad3e.mp4" type="video/mp4" />
         </video>
 
         {/* Overlay */}
@@ -170,15 +170,25 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col h-full">
+          {/* Main Hero Text */}
+          <div className="flex-grow flex flex-col justify-center items-center text-center pt-24">
+            <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight max-w-3xl">
+              Trusted Digital Payments & Fintech Solutions for Every Business
+            </h1>
+            <p className="text-base md:text-xl text-white/90 mt-4 max-w-2xl">
+              Deploy secure, scalable payment infrastructure and services with Rupexa.
+            </p>
+          </div>
+
           {/* Main Action Area - Pushed LOWER but with room for partners */}
           <div className="flex-grow flex flex-col justify-end items-center text-center pb-8">
             <div className="max-w-4xl">
               <div className="flex flex-wrap justify-center gap-6 animate-fade-in-up animation-delay-400">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-[11px] font-black uppercase tracking-widest px-10 h-14 rounded-full shadow-2xl transition-all">
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-[11px] font-semibold uppercase tracking-widest px-10 h-14 rounded-full shadow-2xl transition-all">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-[11px] font-black uppercase tracking-widest px-10 h-14 rounded-full transition-all duration-300">
+                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-[11px] font-semibold uppercase tracking-widest px-10 h-14 rounded-full transition-all duration-300">
                   Digital Services
                 </Button>
               </div>
@@ -198,7 +208,7 @@ export default function Home() {
                   { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
                   { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
                 ]).map((p, i) => (
-                  <span key={i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                  <span key={i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-semibold uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
                     {p.name}
                   </span>
                 ))}
@@ -209,7 +219,7 @@ export default function Home() {
                   { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
                   { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
                 ]).map((p, i) => (
-                  <span key={"d" + i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-black uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                  <span key={"d" + i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-semibold uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
                     {p.name}
                   </span>
                 ))}
