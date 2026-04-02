@@ -116,7 +116,7 @@ export default function BlogsPage() {
                             <span className="text-sm font-semibold text-blue-700">Our Blog</span>
                         </motion.div>
 
-                        <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 max-w-4xl">
+                        <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6 max-w-4xl">
                             Insights, Stories, and <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
                                 Tech Trends

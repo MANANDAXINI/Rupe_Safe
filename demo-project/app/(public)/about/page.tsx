@@ -79,8 +79,19 @@ export default function About(): JSX.Element {
 
   return (
     <main className="font-sans bg-slate-100 text-slate-600 min-h-screen">
-      {/* Hero Section - White with Blue Gradient Accents */}
+      {/* Hero Section - White with Blue Gradient Accents + About Header Image */}
       <section className="relative pt-40 pb-32 overflow-hidden bg-white">
+        {/* Background Image + Overlay */}
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/images/rupexa-aboutus.png"
+            alt="About Us Header"
+            fill
+            className="object-cover object-center opacity-30"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/80" />
+        </div>
         {/* Background Gradients */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-20%] left-[20%] w-[600px] h-[600px] bg-blue-50 rounded-full blur-[100px]" />
@@ -97,7 +108,7 @@ export default function About(): JSX.Element {
               About Us
             </span>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-8 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">
               Empowering Business <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Through Technology</span>
             </h1>
@@ -123,7 +134,7 @@ export default function About(): JSX.Element {
             variants={reveal}
             className="glass-card bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-12 transform transition hover:-translate-y-3"
           >
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Our Story</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Story</h2>
 
             <p className="text-slate-800 leading-relaxed mb-6 text-lg">
               Founded to accelerate digital transformation, we partner with ambitious teams to design, build and operate resilient software systems.
@@ -185,7 +196,7 @@ export default function About(): JSX.Element {
       {/* Our Impact - counters + hover animation */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6" ref={impactRef as React.RefObject<HTMLDivElement>}>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-600 text-center mb-10">Our Impact</h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Our Impact</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -211,7 +222,7 @@ export default function About(): JSX.Element {
                     </div>
 
                     <div>
-                      <div className="text-5xl md:text-6xl font-extrabold text-blue-600 leading-tight">
+                      <div className="text-5xl md:text-6xl font-bold text-blue-600 leading-tight">
                         {counts[i]}
                         {s.suffix}
                       </div>
@@ -228,7 +239,7 @@ export default function About(): JSX.Element {
       {/* Our Values - modern light background, centered blue heading */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-600 text-center mb-10">Our Values</h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Our Values</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {["Innovation", "Integrity", "Excellence"].map((val, idx) => (
@@ -264,7 +275,7 @@ export default function About(): JSX.Element {
       {/* Meet the Team - centered blue header, hover-grow cards */}
       <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-4xl md:text-5xl font-extrabold text-blue-600 text-center mb-10">Meet the Team</h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Meet the Team</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Roshni Vijay Dwivedi */}
@@ -357,7 +368,7 @@ export default function About(): JSX.Element {
       {/* Bottom CTA - attach Get Started to Contact page */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Ready to transform your business?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to transform your business?</h2>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Let&apos;s partner to design and deliver software that moves your business forward.</p>
           <Link href="/contact" className="inline-block">
             <button className="px-12 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 hover:scale-105 transition-all shadow-lg">

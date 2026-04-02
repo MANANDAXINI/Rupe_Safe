@@ -102,7 +102,7 @@ export default function ServicesPage() {
             playsInline
             className="w-full h-full object-cover scale-[1.01]"
           >
-            <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/486833ab-b502-437b-9f55-5e2ce1ed7269.mp4" type="video/mp4" />
+            <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/bb49765f-cc42-4a3b-9a82-c5d68183b28f.mp4" type="video/mp4" />
           </video>
         </div>
 

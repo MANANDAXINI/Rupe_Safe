@@ -128,7 +128,26 @@ export default function Home() {
       }, 30);
     });
 
-    return () => intervals.forEach(interval => clearInterval(interval));
+    const fadeElements = Array.from(document.querySelectorAll('.scroll-fade-in'));
+    let observer: IntersectionObserver | null = null;
+
+    if (fadeElements.length > 0 && typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer?.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      fadeElements.forEach(el => observer?.observe(el));
+    }
+
+    return () => {
+      intervals.forEach(interval => clearInterval(interval));
+      observer?.disconnect();
+    };
   }, []);
 
   // Trusted partners: added more companies
@@ -145,7 +164,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 font-sans text-slate-900">
       {/* Background Moving Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-300/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
@@ -230,9 +249,10 @@ export default function Home() {
       </section>
 
       {/* Payment Gateway Hero Section */}
-      <section className="relative py-32 bg-slate-950 overflow-hidden z-10">
+      <section className="relative py-32 overflow-hidden z-10 service-theme scroll-fade-in bg-gradient-to-br from-slate-900/95 via-indigo-900/90 to-blue-900/95 text-white">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
+          <div className="absolute inset-0 bg-[url('/services/payment-gateway.jpg')] bg-cover bg-center opacity-35"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/40 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 animate-blob animation-delay-2000"></div>
         </div>
 
@@ -256,21 +276,21 @@ export default function Home() {
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-2xl font-bold mb-2">99.9%</div>
-                  <div className="text-xs text-white">Uptime SLA</div>
+                <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl transition-all duration-300 hover:shadow-2xl">
+                  <div className="text-2xl font-bold mb-2 text-white">99.9%</div>
+                  <div className="text-xs text-slate-100">Uptime SLA</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-2xl font-bold mb-2">₹500Cr+</div>
-                  <div className="text-xs text-white">Monthly Volume</div>
+                <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl transition-all duration-300 hover:shadow-2xl">
+                  <div className="text-2xl font-bold mb-2 text-white">₹500Cr+</div>
+                  <div className="text-xs text-slate-100">Monthly Volume</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-2xl font-bold mb-2">50K+</div>
-                  <div className="text-xs text-white">Active Merchants</div>
+                <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl transition-all duration-300 hover:shadow-2xl">
+                  <div className="text-2xl font-bold mb-2 text-white">50K+</div>
+                  <div className="text-xs text-slate-100">Active Merchants</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <div className="text-2xl font-bold mb-2">&lt;2s</div>
-                  <div className="text-xs text-white">Response Time</div>
+                <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl transition-all duration-300 hover:shadow-2xl">
+                  <div className="text-2xl font-bold mb-2 text-white">&lt;2s</div>
+                  <div className="text-xs text-slate-100">Response Time</div>
                 </div>
               </div>
 
@@ -291,9 +311,9 @@ export default function Home() {
 
             {/* Right Content - Features */}
             <div className="space-y-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <Shield className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -303,9 +323,9 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <Zap className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -315,9 +335,9 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <CreditCard className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -327,9 +347,9 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -344,7 +364,7 @@ export default function Home() {
       </section >
 
       {/* Services Section with Enhanced Cards */}
-      < section className="py-20 bg-gradient-to-b from-gray-100 to-gray-50 relative z-10" >
+      <section className="py-20 bg-gradient-to-b from-gray-100 to-gray-50 relative z-10" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -357,7 +377,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Payment Gateway Card - PRIMARY FOCUS */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4">
+            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4 rounded-3xl card-rounded">
               <div className="relative h-full">
                 <img
                   src="/services/payment-gateway.jpg"
@@ -373,7 +393,7 @@ export default function Home() {
 
                 {/* Text Content - Bottom Quarter */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
                     <CreditCard className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">Payment Gateway</h3>
@@ -381,7 +401,7 @@ export default function Home() {
 
                 {/* Sliding Container - Covers 3/4 on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
                     <CreditCard className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Payment Gateway</h3>
@@ -396,7 +416,7 @@ export default function Home() {
             </Card>
 
             {/* Website Development Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
+            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <img
                   src="/services/web-dev.jpg"
@@ -407,7 +427,7 @@ export default function Home() {
 
                 {/* Text Content - Bottom Quarter */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <Code className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">Website Development</h3>
@@ -415,7 +435,7 @@ export default function Home() {
 
                 {/* Sliding Container - Covers 3/4 on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
                     <Code className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Website Development</h3>
@@ -430,7 +450,7 @@ export default function Home() {
             </Card>
 
             {/* App Development Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
+            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <img
                   src="/services/app-dev.jpg"
@@ -440,14 +460,14 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
                     <Smartphone className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">App Development</h3>
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
                     <Smartphone className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">App Development</h3>
@@ -462,7 +482,7 @@ export default function Home() {
             </Card>
 
             {/* Digital Marketing Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
+            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <img
                   src="/services/digital-marketing.jpg"
@@ -472,14 +492,14 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
                     <TrendingUp className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">Digital Marketing</h3>
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
                     <TrendingUp className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Digital Marketing</h3>
@@ -494,7 +514,7 @@ export default function Home() {
             </Card>
 
             {/* ERP Systems Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
+            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <img
                   src="/services/erp.jpg"
@@ -504,14 +524,14 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
                     <Database className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">ERP Systems</h3>
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
                     <Database className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">ERP Systems</h3>
@@ -526,7 +546,7 @@ export default function Home() {
             </Card>
 
             {/* Custom Software Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white">
+            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <img
                   src="/services/cms.jpg"
@@ -536,14 +556,14 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
                     <Boxes className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">Custom Software</h3>
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white">
+                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
                     <Boxes className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Custom Software</h3>
@@ -641,7 +661,7 @@ export default function Home() {
               {counters.map((counter, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-100 rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-in fade-in slide-in-from-bottom-4"
+                  className="bg-white border border-gray-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-in fade-in slide-in-from-bottom-4 card-rounded"
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
@@ -659,7 +679,7 @@ export default function Home() {
       </section>
 
       {/* Core Capabilities Section */}
-      <section className="py-20 bg-white relative z-10 overflow-hidden">
+      <section className="py-20 bg-white relative z-10 overflow-hidden scroll-fade-in">
         {/* Animated Background Bubbles */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-5 w-96 h-96 bg-blue-300/5 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
@@ -690,7 +710,7 @@ export default function Home() {
 
                   <div className="flex flex-col gap-4 relative z-10">
                     <div className="flex items-center justify-start">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
                         <IconComponent className="h-8 w-8 text-white" />
                       </div>
                     </div>
@@ -723,7 +743,7 @@ export default function Home() {
               {[...reviews, ...reviews].map((review, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-8 hover:shadow-2xl transition-shadow duration-300"
+                  className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-lg p-8 hover:shadow-2xl transition-shadow duration-300 card-rounded"
                 >
                   <div className="flex mb-4">
                     {[...Array(review.rating)].map((_, i) => (
@@ -832,14 +852,14 @@ function LegalNotice() {
         <div className="flex gap-3">
           <Button
             onClick={() => setIsVisible(false)}
-            className="flex-1 h-12 rounded-xl bg-gray-900 hover:bg-black text-white font-black uppercase tracking-widest text-[10px]"
+            className="flex-1 h-12 rounded-2xl bg-gray-900 hover:bg-black text-white font-black uppercase tracking-widest text-[10px]"
           >
             I Accept All
           </Button>
           <Button
             variant="outline"
             onClick={() => setIsVisible(false)}
-            className="flex-1 h-12 rounded-xl border-gray-200 text-gray-600 font-bold text-[10px] uppercase tracking-widest hover:bg-gray-50"
+            className="flex-1 h-12 rounded-2xl border-gray-200 text-gray-600 font-bold text-[10px] uppercase tracking-widest hover:bg-gray-50"
           >
             Settings
           </Button>

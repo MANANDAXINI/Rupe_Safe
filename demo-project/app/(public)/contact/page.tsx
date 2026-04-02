@@ -73,7 +73,7 @@ export default function ContactPage() {
               Contact Us
             </span>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-8 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">
               Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Touch</span>
             </h1>
 
