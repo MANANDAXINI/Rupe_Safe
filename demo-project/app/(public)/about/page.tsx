@@ -79,19 +79,8 @@ export default function About(): JSX.Element {
 
   return (
     <main className="font-sans bg-slate-100 text-slate-600 min-h-screen">
-      {/* Hero Section - White with Blue Gradient Accents + About Header Image */}
+      {/* Hero Section - White with Blue Gradient Accents */}
       <section className="relative pt-40 pb-32 overflow-hidden bg-white">
-        {/* Background Image + Overlay */}
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/images/rupexa-aboutus.png"
-            alt="About Us Header"
-            fill
-            className="object-cover object-center opacity-30"
-            priority
-          />
-          <div className="absolute inset-0 bg-white/80" />
-        </div>
         {/* Background Gradients */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-20%] left-[20%] w-[600px] h-[600px] bg-blue-50 rounded-full blur-[100px]" />
@@ -104,16 +93,16 @@ export default function About(): JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 font-bold text-sm uppercase tracking-wider mb-6">
+            <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 font-semibold text-sm uppercase tracking-wider mb-6">
               About Us
             </span>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-semibold text-slate-900 mb-8 tracking-tight">
               Empowering Business <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Through Technology</span>
             </h1>
 
-            <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed">
               We combine strategy, engineering and product design to help companies scale with resilient, modern technology.
             </p>
           </motion.div>
@@ -132,9 +121,16 @@ export default function About(): JSX.Element {
             whileInView="visible"
             viewport={{ once: true }}
             variants={reveal}
-            className="glass-card bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-12 transform transition hover:-translate-y-3"
+            className="glass-card bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-12 transform transition hover:-translate-y-3 relative"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Story</h2>
+            <Image
+              src="/images/RupexaLogo.jpeg"
+              alt="Rupexa logo"
+              width={80}
+              height={80}
+              className="absolute top-5 right-5 w-20 h-20 object-contain rounded-lg shadow-md"
+            />
+            <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">Our Story</h2>
 
             <p className="text-slate-800 leading-relaxed mb-6 text-lg">
               Founded to accelerate digital transformation, we partner with ambitious teams to design, build and operate resilient software systems.
@@ -222,7 +218,7 @@ export default function About(): JSX.Element {
                     </div>
 
                     <div>
-                      <div className="text-5xl md:text-6xl font-bold text-blue-600 leading-tight">
+                      <div className="text-5xl md:text-6xl font-extrabold text-blue-600 leading-tight">
                         {counts[i]}
                         {s.suffix}
                       </div>
@@ -368,7 +364,7 @@ export default function About(): JSX.Element {
       {/* Bottom CTA - attach Get Started to Contact page */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
         <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to transform your business?</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6">Ready to transform your business?</h2>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Let&apos;s partner to design and deliver software that moves your business forward.</p>
           <Link href="/contact" className="inline-block">
             <button className="px-12 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 hover:scale-105 transition-all shadow-lg">

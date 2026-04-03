@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import Link from 'next/link';
@@ -190,14 +191,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col h-full">
           {/* Main Hero Text */}
-          <div className="flex-grow flex flex-col justify-center items-center text-center pt-24">
-            <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight max-w-3xl">
-              Trusted Digital Payments & Fintech Solutions for Every Business
-            </h1>
-            <p className="text-base md:text-xl text-white/90 mt-4 max-w-2xl">
-              Deploy secure, scalable payment infrastructure and services with Rupexa.
-            </p>
-          </div>
+          
 
           {/* Main Action Area - Pushed LOWER but with room for partners */}
           <div className="flex-grow flex flex-col justify-end items-center text-center pb-8">
@@ -249,11 +243,12 @@ export default function Home() {
       </section>
 
       {/* Payment Gateway Hero Section */}
-      <section className="relative py-32 overflow-hidden z-10 service-theme scroll-fade-in bg-gradient-to-br from-slate-900/95 via-indigo-900/90 to-blue-900/95 text-white">
+      <section className="relative py-32 overflow-hidden z-10 service-theme scroll-fade-in text-white">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/services/payment-gateway.jpg')] bg-cover bg-center opacity-35"></div>
-          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/40 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 animate-blob animation-delay-2000"></div>
+          {/* Reduced image brightness and stronger overlay for legibility */}
+          <div className="absolute inset-0 bg-blue-950/95"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/30 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -271,7 +266,7 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-white mb-8 leading-relaxed">
-                India's most advanced payment gateway with instant settlements, 100+ payment methods,
+                India&apos;s most advanced payment gateway with instant settlements, 100+ payment methods,
                 and bank-grade security. Start accepting payments in minutes.
               </p>
 
@@ -367,10 +362,10 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-gray-100 to-gray-50 relative z-10" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-blue-600 mb-4">
               Comprehensive Technology Solutions
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
               We specialize in website and app development, digital marketing, ERP systems, and custom software solutions
             </p>
           </div>
@@ -379,12 +374,16 @@ export default function Home() {
             {/* Payment Gateway Card - PRIMARY FOCUS */}
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4 rounded-3xl card-rounded">
               <div className="relative h-full">
-                <img
-                  src="/services/payment-gateway.jpg"
-                  alt="Payment Gateway"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src="/services/payment-gateway.jpg"
+                    alt="Payment Gateway"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/80 to-indigo-900/80"></div>
+                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0" />
 
                 {/* "Featured" Badge */}
                 <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
@@ -418,11 +417,13 @@ export default function Home() {
             {/* Website Development Card */}
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
-                <img
-                  src="/services/web-dev.jpg"
-                  alt="Website Development"
-                  className="w-full h-full object-cover"
-                />
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src="/services/web-dev.jpg"
+                    alt="Website Development"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 {/* Text Content - Bottom Quarter */}
@@ -452,11 +453,13 @@ export default function Home() {
             {/* App Development Card */}
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
-                <img
-                  src="/services/app-dev.jpg"
-                  alt="App Development"
-                  className="w-full h-full object-cover"
-                />
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src="/services/app-dev.jpg"
+                    alt="App Development"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
@@ -484,11 +487,13 @@ export default function Home() {
             {/* Digital Marketing Card */}
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
-                <img
-                  src="/services/digital-marketing.jpg"
-                  alt="Digital Marketing"
-                  className="w-full h-full object-cover"
-                />
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src="/services/digital-marketing.jpg"
+                    alt="Digital Marketing"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
@@ -516,11 +521,13 @@ export default function Home() {
             {/* ERP Systems Card */}
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
-                <img
-                  src="/services/erp.jpg"
-                  alt="ERP Systems"
-                  className="w-full h-full object-cover"
-                />
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src="/services/erp.jpg"
+                    alt="ERP Systems"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
@@ -548,11 +555,13 @@ export default function Home() {
             {/* Custom Software Card */}
             <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
-                <img
-                  src="/services/cms.jpg"
-                  alt="Custom Software"
-                  className="w-full h-full object-cover"
-                />
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src="/services/cms.jpg"
+                    alt="Custom Software"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
@@ -587,7 +596,7 @@ export default function Home() {
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-600">
               Why Choose Rupexa Private Limited?
             </h2>
             <p className="text-lg text-gray-600 max-w-5xl mx-auto whitespace-nowrap hidden md:block">
@@ -689,7 +698,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold  mb-4 text-blue-600">
               Core Capabilities
             </h2>
           </div>
@@ -730,7 +739,7 @@ export default function Home() {
       <section className="py-20 bg-gray-100 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
               Client Reviews
             </h2>
             <p className="text-lg text-gray-600">
@@ -774,7 +783,7 @@ export default function Home() {
           }
 
           .animate-scroll {
-            animation: scroll 30s linear infinite;
+            animation: scroll 25s linear infinite;
           }
 
           .animate-scroll:hover {

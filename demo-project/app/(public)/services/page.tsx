@@ -107,20 +107,11 @@ export default function ServicesPage() {
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold text-sm uppercase tracking-wider mb-6">
-            Our Expertise
-          </span>
+          
 
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 tracking-tight">
-            Driving Innovation <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-              Through Technology
-            </span>
-          </h1>
+         
 
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Follow our roadmap of digital transformation — strategy, engineering, and delivery that scales your business.
-          </p>
+        
         </div>
       </section>
 
@@ -129,7 +120,7 @@ export default function ServicesPage() {
 
         {/* Added "Our Services" Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">Our Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-600">Our Services</h2>
         </div>
 
         {/* Services Grid - Increased gap from gap-8 to gap-14 */}
