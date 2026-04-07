@@ -9,7 +9,6 @@ import {
   BarChart3, Users, PieChart, TrendingUp, Building,
   Megaphone, Share2, ThumbsUp, Search, Mail,
   Cpu, Terminal, Lock, Network,
-  Lightbulb, Target, Briefcase, GraduationCap, LineChart,
   ArrowRight, Check, CreditCard, Shield, Zap
 } from "lucide-react";
 
@@ -76,16 +75,6 @@ const SERVICES = [
       "Solve unique business challenges with bespoke software. We build secure, API-first, and highly scalable applications tailored to your workflow.",
     features: ["Bespoke Software Design", "Legacy System Modernization", "API Development", "Cloud Migration"],
   },
-  {
-    id: "tech-consultant",
-    title: "Tech Consulting",
-    icon: Lightbulb,
-    image: "/tech-consultant.png",
-    marquee: [Briefcase, GraduationCap, LineChart, Lightbulb, Target, Briefcase, GraduationCap, LineChart, Lightbulb, Target],
-    description:
-      "Navigate the complex technology landscape. We provide strategic advisory, technical audits, and governance frameworks to align IT with business goals.",
-    features: ["Digital Transformation", "IT Infrastructure Audits", "Security Governance", "Product Roadmapping"],
-  },
 ];
 
 export default function ServicesPage() {
@@ -104,6 +93,7 @@ export default function ServicesPage() {
           >
             <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/bb49765f-cc42-4a3b-9a82-c5d68183b28f.mp4" type="video/mp4" />
           </video>
+          <div className="absolute inset-0 bg-black/45" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
@@ -188,7 +178,9 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
           <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-lg shrink-0">
             <service.icon size={24} />
           </div>
-          <h3 className="text-2xl font-bold text-slate-900 leading-tight">{service.title}</h3>
+          <h3 className="text-2xl font-bold text-slate-900 leading-tight">
+            {service.title === "Custom Software" ? <>Custom<br />Software</> : service.title}
+          </h3>
         </div>
 
         {/* Marquee */}
@@ -221,13 +213,13 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
         <div className="mt-auto grid grid-cols-2 gap-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
           <Link
             href={`/services/${service.id}`}
-            className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors"
+            className="flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors"
           >
             Explore Service <ArrowRight size={16} />
           </Link>
           <Link
             href={service.id === 'payment-gateway' ? '/onboarding/payment-gateway' : '/contact'}
-            className="flex items-center justify-center py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0"
+            className="flex items-center justify-center py-3 rounded-2xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0"
           >
             Get Started
           </Link>

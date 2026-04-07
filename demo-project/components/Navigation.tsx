@@ -50,9 +50,9 @@ export default function Navigation() {
               <Image
                 src="/images/RupexaLogo.jpeg"
                 alt="Rupexa Private Limited Logo"
-                width={180}
-                height={60}
-                className="h-16 w-auto"
+                width={220}
+                height={72}
+                className="h-14 md:h-16 w-auto object-contain"
               />
             </Link>
           </div>

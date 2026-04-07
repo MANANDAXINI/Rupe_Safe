@@ -123,13 +123,7 @@ export default function About(): JSX.Element {
             variants={reveal}
             className="glass-card bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-12 transform transition hover:-translate-y-3 relative"
           >
-            <Image
-              src="/images/RupexaLogo.jpeg"
-              alt="Rupexa logo"
-              width={80}
-              height={80}
-              className="absolute top-5 right-5 w-20 h-20 object-contain rounded-lg shadow-md"
-            />
+           
             <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">Our Story</h2>
 
             <p className="text-slate-800 leading-relaxed mb-6 text-lg">
@@ -173,25 +167,25 @@ export default function About(): JSX.Element {
             initial={{ opacity: 0, x: 40, scale: 0.98 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl"
+            className="relative w-full h-[560px] rounded-3xl overflow-hidden shadow-2xl"
           >
-            <div className="w-full h-[560px] bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center rounded-3xl overflow-hidden">
+            <div className="relative w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center rounded-3xl overflow-hidden">
               <Image
                 src="/images/rupexa-aboutus.png"
                 alt="Gig illustration"
-                width={800}
-                height={700}
-                className="object-cover w-full h-full saturate-110 contrast-105"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover saturate-110 contrast-105"
                 priority
               />
-              <div className="absolute inset-0 pointer-events-none flex items-center justify-center sm:justify-start sm:items-start p-5 sm:p-6">
-                <div className="bg-white/85 backdrop-blur-sm border border-white/80 rounded-2xl shadow-lg p-2 sm:p-3">
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center bg-black/15">
+                <div className="w-full h-full flex items-center justify-center">
                   <Image
                     src="/images/RupexaLogo.jpeg"
                     alt="Rupexa platform logo"
-                    width={120}
-                    height={120}
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain rounded-lg"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -205,7 +199,7 @@ export default function About(): JSX.Element {
         <div className="max-w-7xl mx-auto px-6" ref={impactRef as React.RefObject<HTMLDivElement>}>
           <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Our Impact</h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
             {[
               { icon: Trophy, value: 15, label: "Years of Experience", suffix: "+" },
               { icon: Users, value: 50, label: "Team Members", suffix: "+" },
@@ -284,14 +278,14 @@ export default function About(): JSX.Element {
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Meet the Team</h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-wrap justify-center items-stretch gap-8">
             {/* Roshni Vijay Dwivedi */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               whileHover={{ scale: 1.06 }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[320px] max-w-sm bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
             >
               <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
                 <Image src="/images/roshni.jpeg" alt="Roshni Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
@@ -307,7 +301,7 @@ export default function About(): JSX.Element {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               whileHover={{ scale: 1.06 }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[320px] max-w-sm bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
             >
               <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
                 <Image src="/images/vedant.jpeg" alt="Vedant Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
@@ -323,7 +317,7 @@ export default function About(): JSX.Element {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               whileHover={{ scale: 1.06 }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[320px] max-w-sm bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
             >
               <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
                 <Image src="/images/vijay.jpeg" alt="Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />

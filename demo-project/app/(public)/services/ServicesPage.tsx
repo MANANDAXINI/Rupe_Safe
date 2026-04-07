@@ -9,7 +9,6 @@ import {
   BarChart3, Users, PieChart, TrendingUp, Building,
   Megaphone, Share2, ThumbsUp, Search, Mail,
   Cpu, Terminal, Lock, Network,
-  Lightbulb, Target, Briefcase, GraduationCap, LineChart,
   ArrowRight, Check, CreditCard, Shield, Zap
 } from "lucide-react";
 
@@ -75,16 +74,6 @@ const SERVICES = [
       "Solve unique business challenges with bespoke software. We build secure, API-first, and highly scalable applications tailored to your workflow.",
     features: ["Bespoke Software Design", "Legacy System Modernization", "API Development", "Cloud Migration"],
   },
-  {
-    id: "tech-consulting",
-    title: "Tech Consulting",
-    icon: Lightbulb,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop",
-    marquee: [Briefcase, GraduationCap, LineChart, Lightbulb, Target, Briefcase, GraduationCap, LineChart, Lightbulb, Target],
-    description:
-      "Navigate the complex technology landscape. We provide strategic advisory, technical audits, and governance frameworks to align IT with business goals.",
-    features: ["Digital Transformation", "IT Infrastructure Audits", "Security Governance", "Product Roadmapping"],
-  },
 ];
 
 export default function ServicesPage() {
@@ -123,12 +112,12 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mb-20 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto"
+          className="mb-20 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto flex justify-center"
         >
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop"
             alt="Our Services"
-            className="w-full h-[400px] object-cover"
+            className="w-full h-[400px] object-cover object-right transition-transform duration-500 hover:scale-[1.02]"
           />
         </motion.div>
 
@@ -168,7 +157,9 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-lg shrink-0">
             <service.icon size={20} />
           </div>
-          <h3 className="text-xl font-bold text-slate-900 leading-tight">{service.title}</h3>
+          <h3 className="text-xl font-bold text-slate-900 leading-tight">
+            {service.title === "Custom Software" ? <>Custom<br />Software</> : service.title}
+          </h3>
         </div>
 
         <div className="w-full overflow-hidden py-2 border-y border-slate-100 mb-3 relative mask-linear-fade">

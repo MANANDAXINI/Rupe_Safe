@@ -20,6 +20,16 @@ interface Blog {
     };
 }
 
+interface StaticBlogCard {
+    id: string;
+    title: string;
+    slug: string;
+    excerpt: string;
+    coverImage: string;
+    createdAt: string;
+    authorName: string;
+}
+
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -43,6 +53,35 @@ const cardVariants = {
 export default function BlogsPage() {
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [loading, setLoading] = useState(true);
+    const staticCards: StaticBlogCard[] = [
+        {
+            id: 'ui-playbook',
+            title: 'Fintech UI Playbook: Designing for Trust and Speed',
+            slug: 'fintech-ui-playbook-designing-for-trust-and-speed',
+            excerpt: 'Key UI principles to improve conversion, confidence, and accessibility for modern payment products.',
+            coverImage: '/services/payment-gateway.jpg',
+            createdAt: '2026-03-10T00:00:00.000Z',
+            authorName: 'Rupexa Team',
+        },
+        {
+            id: 'merchant-onboarding',
+            title: 'How Better Merchant Onboarding Improves Approval Rates',
+            slug: 'better-merchant-onboarding-improves-approval-rates',
+            excerpt: 'A practical guide to reducing onboarding drop-offs with clearer steps, smarter forms, and progress feedback.',
+            coverImage: '/services/web-dev.jpg',
+            createdAt: '2026-03-25T00:00:00.000Z',
+            authorName: 'Rupexa Editorial',
+        },
+    ];
+    const displayBlogs = [...blogs, ...staticCards.map((s) => ({
+        id: s.id,
+        title: s.title,
+        slug: s.slug,
+        excerpt: s.excerpt,
+        coverImage: s.coverImage,
+        createdAt: s.createdAt,
+        author: { name: s.authorName, email: '' },
+    }))];
 
     useEffect(() => {
         fetchBlogs();
@@ -137,7 +176,7 @@ export default function BlogsPage() {
                         <div className="flex justify-center py-20">
                             <Loader2 className="w-12 h-12 animate-spin text-blue-600" />
                         </div>
-                    ) : blogs.length === 0 ? (
+                    ) : displayBlogs.length === 0 ? (
                         <div className="text-center py-20">
                             <h2 className="text-2xl font-semibold text-gray-700">No blogs published yet.</h2>
                             <p className="text-gray-500 mt-2">Check back soon for new articles!</p>
@@ -149,7 +188,7 @@ export default function BlogsPage() {
                             initial="hidden"
                             animate="visible"
                         >
-                            {blogs.map((blog) => (
+                            {displayBlogs.map((blog) => (
                                 <motion.div key={blog.id} variants={cardVariants}>
                                     <Link href={`/blogs/${blog.slug}`} passHref>
                                         <div className="group bg-white rounded-3xl shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 border border-gray-100 hover:border-blue-500 overflow-hidden flex flex-col h-full min-h-[450px]">

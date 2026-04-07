@@ -117,8 +117,14 @@ export default function Home() {
     fetchPartners();
 
     const targets = [500, 250, 15, 98];
+    setCounters([
+      { label: 'Projects Completed', value: 0, suffix: '+' },
+      { label: 'Happy Clients', value: 0, suffix: '+' },
+      { label: 'Years Experience', value: 0, suffix: '+' },
+      { label: 'Client Satisfaction', value: 0, suffix: '%' }
+    ]);
     const intervals = targets.map((target, index) => {
-      return setInterval(() => {
+      const interval = setInterval(() => {
         setCounters(prev => {
           const updated = [...prev];
           if (updated[index].value < target) {
@@ -127,6 +133,7 @@ export default function Home() {
           return updated;
         });
       }, 30);
+      return interval;
     });
 
     const fadeElements = Array.from(document.querySelectorAll('.scroll-fade-in'));
@@ -599,7 +606,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-600">
               Why Choose Rupexa Private Limited?
             </h2>
-            <p className="text-lg text-gray-600 max-w-5xl mx-auto whitespace-nowrap hidden md:block">
+            <p className="text-lg text-gray-600 max-w-5xl mx-auto hidden md:block">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
             </p>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto md:hidden">
@@ -783,7 +790,7 @@ export default function Home() {
           }
 
           .animate-scroll {
-            animation: scroll 21s linear infinite;
+            animation: scroll 16s linear infinite;
           }
 
           .animate-scroll:hover {
@@ -810,15 +817,15 @@ export default function Home() {
           <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
             Get in touch with us today and discover how Rupexa Private Limited can help you achieve your digital goals.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-sm mx-auto sm:max-w-none">
             <Link href="/contact">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8">
+              <Button size="lg" className="w-full sm:w-auto min-w-[220px] bg-white text-blue-600 hover:bg-gray-100 text-lg px-8">
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link href="/services">
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-500 text-lg px-8 transition-all duration-300">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto min-w-[220px] bg-transparent border-white text-white hover:bg-white hover:text-blue-500 text-lg px-8 transition-all duration-300">
                 View All Services
               </Button>
             </Link>
@@ -870,7 +877,7 @@ function LegalNotice() {
             onClick={() => setIsVisible(false)}
             className="flex-1 h-12 rounded-2xl border-gray-200 text-gray-600 font-bold text-[10px] uppercase tracking-widest hover:bg-gray-50"
           >
-            Settings
+            Read
           </Button>
         </div>
       </div>

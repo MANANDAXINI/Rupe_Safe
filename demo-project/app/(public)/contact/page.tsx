@@ -15,6 +15,7 @@ export default function ContactPage() {
   });
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [imageOffset, setImageOffset] = useState({ x: 0, y: 0 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -59,9 +60,9 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white font-sans selection:bg-blue-100">
       {/* 1. Hero Section */}
-      <section className="relative pt-40 pb-28 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50 rounded-full blur-3xl -mr-40 -mt-40 opacity-70 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gray-100 rounded-full blur-3xl -ml-20 -mb-20 opacity-70 pointer-events-none" />
+      <section className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-3xl -mr-40 -mt-40 opacity-70 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl -ml-20 -mb-20 opacity-70 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <motion.div
@@ -73,11 +74,11 @@ export default function ContactPage() {
               Contact Us
             </span>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">
-              Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Touch</span>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+              Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-white">Touch</span>
             </h1>
 
-            <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-200 font-medium max-w-3xl mx-auto leading-relaxed">
               Ready to discuss your financial needs? We&apos;re here to help you achieve your goals with personalized solutions and expert guidance.
             </p>
           </motion.div>
@@ -111,7 +112,8 @@ export default function ContactPage() {
               </div> */}
 
               <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-                Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400">Transform</span> Your Future?
+                Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400">Transform</span>
+                <br />Your Future?
               </h2>
 
               <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -143,7 +145,7 @@ export default function ContactPage() {
           </div>
 
           {/* Form Container - Centered & Bigger - Light Theme */}
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -276,6 +278,34 @@ export default function ContactPage() {
                     </button>
                   </div>
                 </form>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="rounded-[2rem] overflow-hidden border-2 border-blue-200 shadow-2xl relative group"
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+                const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+                setImageOffset({ x, y });
+              }}
+              onMouseLeave={() => setImageOffset({ x: 0, y: 0 })}
+            >
+              <img
+                src="/services/payment-gateway.jpg"
+                alt="Contact support team"
+                className="w-full h-full min-h-[380px] object-cover object-right transition-transform duration-300 ease-out"
+                style={{ transform: `translate(${imageOffset.x}px, ${imageOffset.y}px) scale(1.03)` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white pointer-events-none">
+                <p className="text-xs uppercase tracking-[0.2em] text-cyan-200 font-bold mb-2">Rupexa Support</p>
+                <h3 className="text-2xl md:text-3xl font-bold">Talk to our team</h3>
+                <p className="text-sm text-slate-100 mt-2 max-w-sm">Strategic guidance and quick response for onboarding, payments, and integrations.</p>
               </div>
             </motion.div>
           </div>

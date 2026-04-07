@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShieldAlert, Scale, Gavel, UserCheck, Briefcase, FileText, ChevronRight } from 'lucide-react';
+import { X, Scale, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function TermsModal() {
@@ -55,15 +55,15 @@ export default function TermsModal() {
                         initial={{ scale: 0.98, opacity: 0, y: 15 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.98, opacity: 0, y: 15 }}
-                        className="relative w-full max-w-xl bg-white shadow-[0_50px_120px_-20px_rgba(0,0,0,0.5)] border border-slate-200"
+                        className="relative w-full max-w-xl bg-white shadow-[0_50px_120px_-20px_rgba(0,0,0,0.5)] border border-slate-200 rounded-3xl overflow-hidden"
                     >
                         {/* Header */}
                         <div className="px-10 py-10 flex items-start justify-between border-b border-slate-100">
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">Terms of Operation</h2>
+                                <h2 className="text-2xl font-bold text-blue-600 tracking-tight mb-2">Terms of Operation</h2>
                                 <div className="flex items-center gap-2">
                                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                    <span className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400">Governance Framework v2.1</span>
+                                    <span className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400">Operational Terms v2.1</span>
                                 </div>
                             </div>
                             <button onClick={() => checks.terms && checks.partner && setIsOpen(false)} className="p-2 text-slate-300 hover:text-slate-900 transition-colors disabled:opacity-0" disabled={!checks.terms || !checks.partner}>
@@ -80,7 +80,7 @@ export default function TermsModal() {
                                         <div key={i} className="flex gap-6">
                                             <Icon className="h-5 w-5 text-slate-300 shrink-0 mt-0.5" />
                                             <div>
-                                                <h4 className="font-bold text-slate-900 text-[10px] uppercase tracking-widest mb-2">{section.title}</h4>
+                                                <h4 className="font-bold text-blue-600 text-[10px] uppercase tracking-widest mb-2">{section.title}</h4>
                                                 <p className="text-slate-500 text-[13px] leading-relaxed">
                                                     {section.content}
                                                 </p>
@@ -120,7 +120,7 @@ export default function TermsModal() {
                         <div className="px-10 py-8 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-4">
                             <button
                                 onClick={() => checks.terms && checks.partner && setIsOpen(false)}
-                                className="text-[10px] font-bold text-slate-400 hover:text-slate-900 transition-colors uppercase tracking-widest disabled:opacity-50"
+                                className="h-12 min-w-[140px] px-5 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 transition-colors text-[10px] font-bold uppercase tracking-widest disabled:opacity-50"
                                 disabled={!checks.terms || !checks.partner}
                             >
                                 Review Later
@@ -128,9 +128,16 @@ export default function TermsModal() {
                             <Button
                                 onClick={handleAccept}
                                 disabled={!checks.terms || !checks.partner}
-                                className="bg-slate-900 hover:bg-black text-white h-12 px-10 rounded-none font-bold uppercase tracking-widest text-[10px] transition-all disabled:opacity-20 shadow-xl shadow-black/10"
+                                className="h-12 min-w-[140px] px-5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-widest text-[10px] transition-all disabled:opacity-20 shadow-xl shadow-black/10"
                             >
-                                Accept & Continue
+                                Accept
+                            </Button>
+                            <Button
+                                onClick={handleAccept}
+                                disabled={!checks.terms || !checks.partner}
+                                className="h-12 min-w-[140px] px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-widest text-[10px] transition-all disabled:opacity-20"
+                            >
+                                Continue
                             </Button>
                         </div>
                     </motion.div>
