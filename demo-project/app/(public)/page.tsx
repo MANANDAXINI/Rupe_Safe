@@ -194,9 +194,9 @@ export default function Home() {
           
 
           {/* Main Action Area - Pushed LOWER but with room for partners */}
-          <div className="flex-grow flex flex-col justify-end items-center text-center pb-8">
+          <div className="flex-grow flex flex-col justify-end items-center text-center pb-4 md:pb-6">
             <div className="max-w-4xl">
-              <div className="flex flex-wrap justify-center gap-6 animate-fade-in-up animation-delay-400">
+              <div className="mt-3 md:mt-4 flex flex-wrap justify-center gap-6 animate-fade-in-up animation-delay-400">
                 <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-[11px] font-semibold uppercase tracking-widest px-10 h-14 rounded-full shadow-2xl transition-all">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -211,7 +211,7 @@ export default function Home() {
           {/* Trusted Partners - Adjusted to fit on screen */}
           <div className="animate-fade-in-up animation-delay-600 pb-20">
             <div className="text-center mb-6">
-              <h3 className="text-[11px] font-black text-white uppercase tracking-[0.4em] drop-shadow-sm">Institutional Partners</h3>
+              <h3 className="text-xs md:text-sm font-black text-white uppercase tracking-[0.32em] drop-shadow-sm">Institutional Partners</h3>
             </div>
             <div className="overflow-hidden marquee-container-hero max-w-7xl mx-auto">
               <div className="flex gap-20 items-center animate-scroll-left w-max">
@@ -221,7 +221,7 @@ export default function Home() {
                   { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
                   { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
                 ]).map((p, i) => (
-                  <span key={i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-semibold uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                  <span key={i} className="px-10 md:px-12 py-4 md:py-5 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-sm md:text-lg font-sans font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-white/20 hover:scale-105 cursor-default shadow-2xl shadow-black/20">
                     {p.name}
                   </span>
                 ))}
@@ -232,7 +232,7 @@ export default function Home() {
                   { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
                   { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
                 ]).map((p, i) => (
-                  <span key={"d" + i} className="px-14 py-6 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-[16px] md:text-[22px] font-semibold uppercase tracking-widest text-white transition-all hover:bg-white/20 hover:scale-110 cursor-default shadow-2xl shadow-black/20">
+                  <span key={"d" + i} className="px-10 md:px-12 py-4 md:py-5 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-sm md:text-lg font-sans font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-white/20 hover:scale-105 cursor-default shadow-2xl shadow-black/20">
                     {p.name}
                   </span>
                 ))}
@@ -305,8 +305,8 @@ export default function Home() {
             </div>
 
             {/* Right Content - Features */}
-            <div className="space-y-4">
-              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div className="space-y-4 md:pl-6 lg:pl-10">
+              <div className="scroll-fade-in bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <Shield className="h-6 w-6 text-white" />
@@ -318,7 +318,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="scroll-fade-in bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 [transition-delay:80ms]">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <Zap className="h-6 w-6 text-white" />
@@ -330,7 +330,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="scroll-fade-in bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 [transition-delay:140ms]">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <CreditCard className="h-6 w-6 text-white" />
@@ -342,7 +342,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="scroll-fade-in bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 [transition-delay:200ms]">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="h-6 w-6 text-white" />
@@ -370,9 +370,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="-mx-4 px-4 md:mx-0 md:px-0 flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-2">
             {/* Payment Gateway Card - PRIMARY FOCUS */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4 rounded-3xl card-rounded">
+            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4 rounded-3xl card-rounded">
               <div className="relative h-full">
                 <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -415,7 +415,7 @@ export default function Home() {
             </Card>
 
             {/* Website Development Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
+            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -451,7 +451,7 @@ export default function Home() {
             </Card>
 
             {/* App Development Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
+            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -485,7 +485,7 @@ export default function Home() {
             </Card>
 
             {/* Digital Marketing Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
+            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -519,7 +519,7 @@ export default function Home() {
             </Card>
 
             {/* ERP Systems Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
+            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -553,7 +553,7 @@ export default function Home() {
             </Card>
 
             {/* Custom Software Card */}
-            <Card className="border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
+            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
               <div className="relative h-full">
                 <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -709,7 +709,7 @@ export default function Home() {
               return (
                 <Card
                   key={index}
-                  className="border-2 border-gray-100 bg-white hover:border-blue-500 hover:shadow-2xl transition-all duration-300 group p-8 animate-in fade-in slide-in-from-bottom-4 relative overflow-hidden"
+                  className="border-2 border-gray-100 bg-white hover:border-blue-500 hover:shadow-2xl transition-all duration-300 group p-8 animate-in fade-in slide-in-from-bottom-4 relative overflow-hidden rounded-3xl card-rounded"
                   style={{
                     animationDelay: `${index * 100}ms`,
                   }}
@@ -783,7 +783,7 @@ export default function Home() {
           }
 
           .animate-scroll {
-            animation: scroll 25s linear infinite;
+            animation: scroll 21s linear infinite;
           }
 
           .animate-scroll:hover {

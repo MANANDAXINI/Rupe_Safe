@@ -184,6 +184,17 @@ export default function About(): JSX.Element {
                 className="object-cover w-full h-full saturate-110 contrast-105"
                 priority
               />
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center sm:justify-start sm:items-start p-5 sm:p-6">
+                <div className="bg-white/85 backdrop-blur-sm border border-white/80 rounded-2xl shadow-lg p-2 sm:p-3">
+                  <Image
+                    src="/images/RupexaLogo.jpeg"
+                    alt="Rupexa platform logo"
+                    width={120}
+                    height={120}
+                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain rounded-lg"
+                  />
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

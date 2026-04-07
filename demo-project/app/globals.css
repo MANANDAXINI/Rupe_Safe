@@ -158,6 +158,17 @@
   opacity: 0;
 }
 
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.scroll-fade-in.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .animation-delay-200 {
   animation-delay: 0.2s;
 }
@@ -350,6 +361,12 @@ html {
   display: inline-flex;
   animation: scroll-left 18s linear infinite;
   will-change: transform;
+}
+
+/* Better touch scrolling for mobile card rails */
+.snap-x {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 /* Tiptap Editor Styles */
