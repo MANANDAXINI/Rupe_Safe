@@ -117,27 +117,13 @@ export default function TermsModal() {
                         </div>
 
                         {/* Footer */}
-                        <div className="px-10 py-8 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-4">
-                            <button
-                                onClick={() => checks.terms && checks.partner && setIsOpen(false)}
-                                className="h-12 min-w-[140px] px-5 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 transition-colors text-[10px] font-bold uppercase tracking-widest disabled:opacity-50"
-                                disabled={!checks.terms || !checks.partner}
-                            >
-                                Review Later
-                            </button>
+                        <div className="px-10 py-8 bg-slate-50 border-t border-slate-100 flex items-center justify-center">
                             <Button
                                 onClick={handleAccept}
                                 disabled={!checks.terms || !checks.partner}
-                                className="h-12 min-w-[140px] px-5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-widest text-[10px] transition-all disabled:opacity-20 shadow-xl shadow-black/10"
+                                className="h-12 min-w-[180px] px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-widest text-[10px] transition-all disabled:opacity-20 shadow-xl shadow-black/10"
                             >
                                 Accept
-                            </Button>
-                            <Button
-                                onClick={handleAccept}
-                                disabled={!checks.terms || !checks.partner}
-                                className="h-12 min-w-[140px] px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-widest text-[10px] transition-all disabled:opacity-20"
-                            >
-                                Continue
                             </Button>
                         </div>
                     </motion.div>

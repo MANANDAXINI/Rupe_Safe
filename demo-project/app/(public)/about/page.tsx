@@ -77,6 +77,12 @@ export default function About(): JSX.Element {
     fetchPartners();
   }, []);
 
+  const valueWords: Record<string, string[]> = {
+    Innovation: ["Creativity", "Progress", "Discovery", "Ingenuity", "Vision"],
+    Integrity: ["Trust", "Honesty", "Ethics", "Accountability", "Transparency"],
+    Excellence: ["Quality", "Precision", "Mastery", "Impact", "Performance"]
+  };
+
   return (
     <main className="font-sans bg-slate-100 text-slate-600 min-h-screen">
       {/* Hero Section - White with Blue Gradient Accents */}
@@ -123,7 +129,15 @@ export default function About(): JSX.Element {
             variants={reveal}
             className="glass-card bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-12 transform transition hover:-translate-y-3 relative"
           >
-           
+            <div className="mb-8 rounded-2xl overflow-hidden border border-blue-100 shadow-lg">
+              <Image
+                src="/images/rupexa-aboutus.png"
+                alt="About Rupexa"
+                width={900}
+                height={420}
+                className="w-full h-48 md:h-56 object-cover object-center"
+              />
+            </div>
             <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">Our Story</h2>
 
             <p className="text-slate-800 leading-relaxed mb-6 text-lg">
@@ -167,29 +181,16 @@ export default function About(): JSX.Element {
             initial={{ opacity: 0, x: 40, scale: 0.98 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="relative w-full h-[560px] rounded-3xl overflow-hidden shadow-2xl"
+            className="relative w-full h-[560px]"
           >
-            <div className="relative w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center rounded-3xl overflow-hidden">
-              <Image
-                src="/images/rupexa-aboutus.png"
-                alt="Gig illustration"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover saturate-110 contrast-105"
-                priority
-              />
-              <div className="absolute inset-0 pointer-events-none flex items-center justify-center bg-black/15">
-                <div className="w-full h-full flex items-center justify-center">
-                  <Image
-                    src="/images/RupexaLogo.jpeg"
-                    alt="Rupexa platform logo"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+            <Image
+              src="/images/rupexa-aboutus.png"
+              alt="Gig illustration"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover saturate-110 contrast-105"
+              priority
+            />
           </motion.div>
         </div>
       </section>
@@ -199,7 +200,7 @@ export default function About(): JSX.Element {
         <div className="max-w-7xl mx-auto px-6" ref={impactRef as React.RefObject<HTMLDivElement>}>
           <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Our Impact</h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
             {[
               { icon: Trophy, value: 15, label: "Years of Experience", suffix: "+" },
               { icon: Users, value: 50, label: "Team Members", suffix: "+" },
@@ -259,8 +260,8 @@ export default function About(): JSX.Element {
 
                 <div className="mt-6 overflow-hidden" style={{ maskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)" }}>
                   <div className="flex gap-6 whitespace-nowrap animate-scroll-left">
-                    {Array.from({ length: 10 }).map((_, i) => (
-                      <span key={i} className="text-sm font-semibold text-blue-600">{val} •</span>
+                    {[...valueWords[val], ...valueWords[val]].map((word, i) => (
+                      <span key={i} className="text-sm font-semibold text-blue-600">{word} •</span>
                     ))}
                   </div>
                 </div>

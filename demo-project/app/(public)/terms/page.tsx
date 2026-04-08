@@ -34,26 +34,26 @@ export default function TermsAndConditions() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 py-24 md:py-28 px-4 sm:px-6 font-sans">
-            <div className="max-w-5xl mx-auto">
+        <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white py-20 md:py-24 px-4 sm:px-6 font-sans">
+            <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center mb-12 md:mb-14"
+                    className="text-center mb-12 md:mb-16"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-100 mb-6 font-black text-red-600 uppercase tracking-widest text-xs">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-6 font-bold text-blue-700 uppercase tracking-wider text-xs">
                         <Gavel className="h-4 w-4" />
-                        Legal Framework
+                        Legal & Compliance
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
-                        Terms & <span className="text-indigo-600">Conditions</span>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
+                        Terms & <span className="text-blue-600">Conditions</span>
                     </h1>
-                    <p className="text-slate-600 text-base md:text-lg font-medium max-w-3xl mx-auto leading-relaxed">
-                        Strict legal guidelines for users and partners to ensure secure financial operations with Rupexa Private Limited.
+                    <p className="text-slate-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                        Please review our operational and compliance terms carefully to ensure secure and transparent usage of Rupexa services.
                     </p>
                 </motion.div>
 
-                <div className="space-y-6 md:space-y-7">
+                <div className="grid gap-5 md:gap-6">
                     {sections.map((section, i) => {
                         const Icon = section.icon;
                         return (
@@ -63,15 +63,15 @@ export default function TermsAndConditions() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="bg-white rounded-3xl p-6 md:p-8 border border-slate-100 shadow-md shadow-slate-200/50 hover:border-indigo-100 transition-colors"
+                                className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all"
                             >
                                 <div className="flex flex-col md:flex-row gap-6 items-start">
-                                    <div className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0 bg-blue-50 text-blue-600">
-                                        <Icon className="h-8 w-8" />
+                                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center shrink-0 bg-blue-50 text-blue-600">
+                                        <Icon className="h-6 w-6 md:h-7 md:w-7" />
                                     </div>
                                     <div>
-                                        <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-3 tracking-tight">{section.title}</h2>
-                                        <p className="text-slate-600 leading-8 font-normal text-base md:text-lg">
+                                        <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-2 tracking-tight">{section.title}</h2>
+                                        <p className="text-slate-600 leading-7 md:leading-8 text-base md:text-lg">
                                             {section.content}
                                         </p>
                                     </div>
@@ -81,18 +81,18 @@ export default function TermsAndConditions() {
                     })}
                 </div>
 
-                <div className="mt-16 p-8 md:p-12 bg-indigo-900 rounded-3xl text-center text-white relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4">Need Legal Clarification?</h3>
-                    <p className="text-indigo-100 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
+                <div className="mt-12 md:mt-14 p-8 md:p-10 bg-blue-600 rounded-2xl md:rounded-3xl text-center text-white relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
+                    <h3 className="text-2xl md:text-3xl font-semibold mb-4">Need Legal Clarification?</h3>
+                    <p className="text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
                         Contact our legal department for specific inquiries regarding partner agreements or data usage.<br />
                         <b>Contact:</b> +91 9067488273, care@rupexa.in, info@rupexa.in<br />
                         <b>Address:</b> Block No.101/102, Shriram Tower Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001
                     </p>
-                    <button className="px-8 py-4 bg-white text-indigo-900 font-semibold rounded-2xl hover:bg-slate-50 transition-all text-sm shadow-xl shadow-black/20">
+                    <button className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-xl hover:bg-slate-50 transition-all text-sm shadow-lg">
                         Contact Legal Support
                     </button>
-                    <p className="mt-8 text-indigo-300 text-xs font-bold uppercase tracking-widest">
+                    <p className="mt-8 text-blue-200 text-xs font-semibold uppercase tracking-wider">
                         Last Updated: February 2026
                     </p>
                 </div>

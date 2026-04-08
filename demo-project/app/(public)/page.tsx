@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Code, Smartphone, TrendingUp, Database, Boxes, CheckCircle, Star, Zap, Shield, Users, Lightbulb, CreditCard } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Counter {
   label: string;
@@ -27,6 +27,8 @@ interface Capability {
 }
 
 export default function Home() {
+  const statsRef = useRef<HTMLDivElement | null>(null);
+  const countersStartedRef = useRef(false);
   const [counters, setCounters] = useState<Counter[]>([
     { label: 'Projects Completed', value: 0, suffix: '+' },
     { label: 'Happy Clients', value: 0, suffix: '+' },
@@ -116,25 +118,45 @@ export default function Home() {
     };
     fetchPartners();
 
-    const targets = [500, 250, 15, 98];
-    setCounters([
-      { label: 'Projects Completed', value: 0, suffix: '+' },
-      { label: 'Happy Clients', value: 0, suffix: '+' },
-      { label: 'Years Experience', value: 0, suffix: '+' },
-      { label: 'Client Satisfaction', value: 0, suffix: '%' }
-    ]);
-    const intervals = targets.map((target, index) => {
-      const interval = setInterval(() => {
-        setCounters(prev => {
-          const updated = [...prev];
-          if (updated[index].value < target) {
-            updated[index].value = Math.min(updated[index].value + Math.ceil(target / 50), target);
+    let intervals: ReturnType<typeof setInterval>[] = [];
+    const startCounters = () => {
+      if (countersStartedRef.current) return;
+      countersStartedRef.current = true;
+      const targets = [500, 250, 15, 98];
+      setCounters([
+        { label: 'Projects Completed', value: 0, suffix: '+' },
+        { label: 'Happy Clients', value: 0, suffix: '+' },
+        { label: 'Years Experience', value: 0, suffix: '+' },
+        { label: 'Client Satisfaction', value: 0, suffix: '%' }
+      ]);
+      intervals = targets.map((target, index) => {
+        const interval = setInterval(() => {
+          setCounters(prev => {
+            const updated = [...prev];
+            if (updated[index].value < target) {
+              updated[index].value = Math.min(updated[index].value + Math.ceil(target / 50), target);
+            }
+            return updated;
+          });
+        }, 30);
+        return interval;
+      });
+    };
+
+    let statsObserver: IntersectionObserver | null = null;
+    if (statsRef.current && typeof IntersectionObserver !== 'undefined') {
+      statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startCounters();
+            statsObserver?.disconnect();
           }
-          return updated;
         });
-      }, 30);
-      return interval;
-    });
+      }, { threshold: 0.25 });
+      statsObserver.observe(statsRef.current);
+    } else {
+      startCounters();
+    }
 
     const fadeElements = Array.from(document.querySelectorAll('.scroll-fade-in'));
     let observer: IntersectionObserver | null = null;
@@ -155,6 +177,7 @@ export default function Home() {
     return () => {
       intervals.forEach(interval => clearInterval(interval));
       observer?.disconnect();
+      statsObserver?.disconnect();
     };
   }, []);
 
@@ -600,6 +623,7 @@ export default function Home() {
 
       <section
         className="relative py-20 bg-gray-50 overflow-hidden"
+        ref={statsRef}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -791,6 +815,12 @@ export default function Home() {
 
           .animate-scroll {
             animation: scroll 16s linear infinite;
+          }
+
+          @media (max-width: 768px) {
+            .animate-scroll {
+              animation: scroll 10s linear infinite;
+            }
           }
 
           .animate-scroll:hover {

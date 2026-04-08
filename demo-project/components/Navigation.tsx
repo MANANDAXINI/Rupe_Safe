@@ -144,90 +144,87 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="pt-2 pb-3 space-y-1">
+      <div className={`md:hidden fixed inset-0 z-[1001] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+        <div
+          className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setIsOpen(false)}
+        />
+        <div className={`absolute right-0 top-0 h-screen w-full bg-blue-700 flex flex-col transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="h-16 px-4 flex items-center justify-between border-b border-white/20">
+            <Image
+              src="/images/RupexaLogo.jpeg"
+              alt="Rupexa Private Limited Logo"
+              width={120}
+              height={40}
+              className="h-9 w-auto object-contain"
+            />
+            <button onClick={() => setIsOpen(false)} className="text-white">
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          <div className="px-4 py-4 flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
-                className={`block pl-3 pr-4 py-2 text-base font-medium ${pathname === link.path
-                  ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
-                  : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                className={`py-3 px-3 text-base rounded-lg border border-transparent transition-all ${pathname === link.path
+                  ? 'text-white bg-white/15 border-white/25'
+                  : 'text-white/95 hover:bg-white/10 hover:border-white/20'
                   }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
+          </div>
 
-            {/* Mobile Auth Section */}
-            <div className="border-t border-gray-200 pt-4 pb-3">
-              {loading ? (
-                <div className="flex justify-center py-4">
-                  <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
-                </div>
-              ) : user ? (
-                <>
-                  {/* User Info */}
-                  <div className="flex items-center px-4 mb-4">
-                    <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
-                      {user.name?.[0]?.toUpperCase() || user.email[0].toUpperCase()}
-                    </div>
-                    <div className="ml-3">
-                      <div className="text-base font-medium text-gray-800">
-                        {user.name || 'User'}
-                      </div>
-                      <div className="text-sm text-gray-500">{user.email}</div>
-                    </div>
-                  </div>
-
-                  {/* Mobile Menu Items */}
-                  <div className="space-y-1">
-                    <Link
-                      href="/profile"
-                      className="flex items-center px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <User className="w-4 h-4 mr-3" />
-                      My Profile
-                    </Link>
-
-                    {/* Admin Dashboard - Mobile */}
-                    {user.isAdmin && (
-                      <Link
-                        href="/admin"
-                        className="flex items-center px-4 py-2 text-base font-medium bg-indigo-50 text-indigo-600 hover:bg-indigo-100"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <Shield className="w-4 h-4 mr-3" />
-                        Admin
-                      </Link>
-                    )}
-
-                    <button
-                      onClick={() => {
-                        handleLogout();
-                        setIsOpen(false);
-                      }}
-                      className="flex items-center w-full text-left px-4 py-2 text-base font-medium text-red-600 hover:bg-red-50"
-                    >
-                      <LogOut className="w-4 h-4 mr-3" />
-                      Logout
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                    Get Started
-                  </Button>
+          <div className="mt-auto px-4 py-4 border-t border-white/20 bg-blue-800/30">
+            {loading ? (
+              <div className="flex justify-start py-2">
+                <div className="w-7 h-7 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              </div>
+            ) : user ? (
+              <div className="space-y-2">
+                <Link
+                  href="/profile"
+                  className="flex items-center gap-2 text-base text-white/95 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <User className="w-4 h-4" />
+                  My Profile
                 </Link>
-              )}
-            </div>
+                {user.isAdmin && (
+                  <Link
+                    href="/admin"
+                    className="flex items-center gap-2 text-base text-cyan-200 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Shield className="w-4 h-4" />
+                    Admin
+                  </Link>
+                )}
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false);
+                  }}
+                  className="flex items-center gap-2 text-base text-red-200 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
+                <Button className="w-full bg-white text-blue-700 hover:bg-blue-50">
+                  Get Started
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

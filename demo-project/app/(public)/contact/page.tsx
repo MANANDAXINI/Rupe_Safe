@@ -2,17 +2,26 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, Clock, MessageSquare, User, AtSign, Hash, FileText, Sparkles } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Clock, MessageSquare, User, AtSign, FileText, Sparkles } from "lucide-react";
 import { toast } from 'sonner';
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    phone: "",
+    countryCode: "+91",
+    phoneNumber: "",
     subject: "",
     message: ""
   });
+  const countryCodes = [
+    { code: "+91", label: "IN", flag: "🇮🇳" },
+    { code: "+1", label: "US", flag: "🇺🇸" },
+    { code: "+44", label: "UK", flag: "🇬🇧" },
+    { code: "+971", label: "UAE", flag: "🇦🇪" },
+    { code: "+65", label: "SG", flag: "🇸🇬" },
+  ];
+  const selectedCountry = countryCodes.find((c) => c.code === formState.countryCode) || countryCodes[0];
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [imageOffset, setImageOffset] = useState({ x: 0, y: 0 });
@@ -20,10 +29,20 @@ export default function ContactPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
+  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const digitsOnly = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+    setFormState((prev) => ({ ...prev, phoneNumber: digitsOnly }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(formState.phoneNumber)) {
+      toast.error("Please enter a valid 10-digit phone number.");
+      return;
+    }
     console.log("Form submitted:", formState);
+    toast.success("Form details captured successfully.");
   };
 
   const contactCards = [
@@ -182,22 +201,45 @@ export default function ContactPage() {
                     </div>
 
                     <div className="space-y-2 group/field">
-                      <label className={`text-sm font-bold tracking-wide uppercase transition-colors duration-300 ${focusedField === 'phone' ? 'text-blue-600' : 'text-slate-500'}`}>
+                      <label className={`text-sm font-bold tracking-wide uppercase transition-colors duration-300 ${focusedField === 'phoneNumber' || focusedField === 'countryCode' ? 'text-blue-600' : 'text-slate-500'}`}>
                         Phone Number
                       </label>
-                      <div className="relative">
-                        <Hash className={`absolute left-5 top-4 w-5 h-5 transition-colors duration-300 ${focusedField === 'phone' ? 'text-blue-600' : 'text-slate-400'}`} />
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formState.phone}
-                          onChange={handleChange}
-                          onFocus={() => setFocusedField('phone')}
-                          onBlur={() => setFocusedField(null)}
-                          placeholder="+1 (555) 000-0000"
-                          className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-slate-300 focus:ring-2 focus:ring-slate-200 focus:bg-white outline-none transition-all duration-300 text-lg"
-                        />
+                      <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3">
+                        <div className="relative flex items-center gap-2 rounded-2xl bg-slate-50 border border-slate-200 px-3">
+                          <span className="text-xl leading-none" aria-hidden="true">{selectedCountry.flag}</span>
+                          <select
+                            name="countryCode"
+                            value={formState.countryCode}
+                            onChange={handleChange}
+                            onFocus={() => setFocusedField('countryCode')}
+                            onBlur={() => setFocusedField(null)}
+                            className="w-full py-4 bg-transparent text-slate-900 focus:outline-none text-base appearance-none cursor-pointer"
+                          >
+                            {countryCodes.map((country) => (
+                              <option key={country.code} value={country.code}>
+                                {country.label} {country.code}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="relative bg-slate-50 border border-slate-200 rounded-2xl">
+                          <input
+                            type="text"
+                            name="phoneNumber"
+                            value={formState.phoneNumber}
+                            onChange={handlePhoneNumberChange}
+                            onFocus={() => setFocusedField('phoneNumber')}
+                            onBlur={() => setFocusedField(null)}
+                            placeholder="10-digit mobile number"
+                            className="w-full px-4 py-4 rounded-2xl bg-transparent text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-slate-200 focus:bg-white outline-none transition-all duration-300 text-lg"
+                            inputMode="numeric"
+                            maxLength={10}
+                            autoComplete="tel-national"
+                            required
+                          />
+                        </div>
                       </div>
+                      <p className="text-xs text-slate-500">Format: country code + 10 digit mobile number</p>
                     </div>
                   </div>
 
