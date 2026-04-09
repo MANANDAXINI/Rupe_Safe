@@ -48,12 +48,12 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center h-16">
             <Link href="/" className="flex-shrink-0 flex items-center h-full gap-2">
-              <div className="rounded-full bg-slate-900 p-1 shadow-sm shadow-slate-950/20">
+              <div className="rounded-full p-1 shadow-sm shadow-slate-950/20">
                 <Image
                   src="/images/RupexaLogo.jpeg"
                   alt="Rupexa Private Limited Logo"
-                  width={36}
-                  height={36}
+                  width={120}
+                  height={120}
                   className="h-9 w-9 rounded-full object-cover"
                   priority
                 />
