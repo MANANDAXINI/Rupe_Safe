@@ -49,7 +49,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: "Head Office",
-      details: ["123 Tech Park, Suite 400", "Innovation City, ST 12345"],
+      details: ["Block No.101/102, Shriram Tower", "Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001"],
       delay: 0,
       link: null
     },
@@ -63,9 +63,9 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      details: ["+91 9067488273"],
       delay: 0.2,
-      link: "tel:+15551234567"
+      link: "tel:+9190674888273"
     },
     {
       icon: Clock,

@@ -47,15 +47,18 @@ export default function Navigation() {
 
           {/* Logo */}
           <div className="flex items-center h-16">
-            <Link href="/" className="flex-shrink-0 flex items-center h-full">
-             <Image
-  src="/images/RupexaLogo.jpeg"
-  alt="Rupexa Private Limited Logo"
-  width={42}
-  height={42}
-  className="object-contain object-left"
-  priority
-/>
+            <Link href="/" className="flex-shrink-0 flex items-center h-full gap-2">
+              <div className="rounded-2xl bg-slate-900/95 border border-slate-700/50 p-2 shadow-sm shadow-slate-950/20">
+                <Image
+                  src="/images/RupexaLogo.jpeg"
+                  alt="Rupexa Private Limited Logo"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 rounded-full object-cover"
+                  priority
+                />
+              </div>
+              <span className="text-white text-sm font-semibold hidden sm:inline">Rupexa</span>
             </Link>
           </div>
 
@@ -155,13 +158,18 @@ export default function Navigation() {
           }`}
         >
           <div className="h-16 px-4 flex items-center justify-between border-b border-slate-700/70">
-            <Image
-              src="/images/RupexaLogo.jpeg"
-              alt="Rupexa Private Limited Logo"
-              width={260}
-              height={64}
-              className="h-full w-48 max-w-full object-contain object-left"
-            />
+            <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
+              <div className="rounded-2xl bg-slate-900/95 border border-slate-700/60 p-2 shadow-sm shadow-slate-950/20">
+                <Image
+                  src="/images/RupexaLogo.jpeg"
+                  alt="Rupexa Private Limited Logo"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 rounded-full object-cover"
+                />
+              </div>
+              <span className="text-slate-100 text-sm font-semibold">Rupexa</span>
+            </Link>
             <button onClick={() => setIsOpen(false)} className="text-slate-100">
               <X className="h-6 w-6" />
             </button>

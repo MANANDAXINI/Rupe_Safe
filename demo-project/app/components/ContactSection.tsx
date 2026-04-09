@@ -54,7 +54,7 @@ export default function ContactSection(_: Props) {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">Phone</p>
-                  <p className="font-semibold text-slate-900">+1 (555) 123-4567</p>
+                  <p className="font-semibold text-slate-900">+91 9067488273</p>
                 </div>
               </li>
 
@@ -74,7 +74,8 @@ export default function ContactSection(_: Props) {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">Visit</p>
-                  <p className="font-semibold text-slate-900">123 Tech Park, City</p>
+                  <p className="font-semibold text-slate-900">Block No.101/102, Shriram Tower</p>
+                  <p className="text-sm text-slate-500">Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001</p>
                 </div>
               </li>
             </ul>

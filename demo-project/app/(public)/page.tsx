@@ -863,54 +863,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Persistent Legal & Cookie Notice */}
-      <LegalNotice />
     </div >
-  );
-}
-
-function LegalNotice() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // Show after a small delay for better UX transition
-    const timer = setTimeout(() => setIsVisible(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!isVisible) return null;
-
-  return (
-    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-[100] animate-in slide-in-from-bottom-10 fade-in duration-700">
-      <div className="bg-white/95 backdrop-blur-xl border border-gray-200 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-6 ring-1 ring-black/5">
-        <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center flex-shrink-0">
-            <Shield className="h-6 w-6 text-blue-600" />
-          </div>
-          <div className="space-y-1">
-            <h4 className="text-lg font-bold text-gray-900 tracking-tight">Terms & Cookie Policy</h4>
-            <p className="text-sm text-gray-500 leading-relaxed font-medium">
-              We use cookies to enhance your experience. By continuing, you agree to our <Link href="/terms" className="text-blue-600 underline font-bold">Terms of Service</Link> and data processing protocols.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex gap-3">
-          <Button
-            onClick={() => setIsVisible(false)}
-            className="flex-1 h-12 rounded-2xl bg-gray-900 hover:bg-black text-white font-black uppercase tracking-widest text-[10px]"
-          >
-            I Accept All
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => setIsVisible(false)}
-            className="flex-1 h-12 rounded-2xl border-gray-200 text-gray-600 font-bold text-[10px] uppercase tracking-widest hover:bg-gray-50"
-          >
-            Read
-          </Button>
-        </div>
-      </div>
-    </div>
   );
 }
