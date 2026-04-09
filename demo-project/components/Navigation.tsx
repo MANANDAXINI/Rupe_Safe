@@ -48,7 +48,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center h-16">
             <Link href="/" className="flex-shrink-0 flex items-center h-full gap-2">
-              <div className="rounded-2xl bg-slate-900/95 border border-slate-700/50 p-2 shadow-sm shadow-slate-950/20">
+              <div className="rounded-full bg-slate-900 p-1 shadow-sm shadow-slate-950/20">
                 <Image
                   src="/images/RupexaLogo.jpeg"
                   alt="Rupexa Private Limited Logo"
@@ -159,7 +159,7 @@ export default function Navigation() {
         >
           <div className="h-16 px-4 flex items-center justify-between border-b border-slate-700/70">
             <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
-              <div className="rounded-2xl bg-slate-900/95 border border-slate-700/60 p-2 shadow-sm shadow-slate-950/20">
+              <div className="rounded-full bg-slate-900 p-1 shadow-sm shadow-slate-950/20">
                 <Image
                   src="/images/RupexaLogo.jpeg"
                   alt="Rupexa Private Limited Logo"
