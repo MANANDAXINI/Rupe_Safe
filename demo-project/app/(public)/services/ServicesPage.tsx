@@ -186,11 +186,11 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
         </ul>
 
         {/* Action Buttons - Fade In & Slide Up on Hover */}
-        <div className="mt-auto grid grid-cols-2 gap-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
-          <Link href={`/services/${service.id}`} className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors">
+        <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+          <Link href={`/services/${service.id}`} className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-900 hover:text-slate-900 transition-colors">
             Explore <ArrowRight size={16} />
           </Link>
-          <Link href={service.id === 'payment-gateway' ? '/onboarding/payment-gateway' : '/contact'} className="py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0 text-center">
+          <Link href={service.id === 'payment-gateway' ? '/onboarding/payment-gateway' : '/contact'} className="w-full flex items-center justify-center py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 hover:-translate-y-0">
             Get Started
           </Link>
         </div>
