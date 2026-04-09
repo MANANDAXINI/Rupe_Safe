@@ -91,7 +91,7 @@ export default function ServicesPage() {
             playsInline
             className="w-full h-full object-cover scale-[1.01]"
           >
-            <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/2a7da001-07b7-4d11-a1f6-faef54751e49.mp4" type="video/mp4" />
+            <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/e374c2fe-d8d9-464f-9039-9b333e150602.mp4" />
           </video>
           <div className="absolute inset-0 bg-black/45" />
         </div>
@@ -128,7 +128,7 @@ export default function ServicesPage() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-white mb-10 max-w-2xl mx-auto">
-            Let's collaborate to build something amazing. Our team is ready to help you achieve your digital goals.
+            Lets collaborate to build something amazing. Our team is ready to help you achieve your digital goals.
           </p>
           <Link
             href="/contact"

@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/components/providers/AuthProvider';
 import { toast } from 'sonner';
+import { px } from 'framer-motion';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -35,25 +36,26 @@ export default function Navigation() {
     toast.success('Logged out successfully');
   };
 
-  // Hide navbar on admin pages and admin signin
   if (pathname?.startsWith('/admin')) {
     return null;
   }
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-slate-950 md:bg-white shadow-md shadow-slate-900/10 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between items-center h-16">
+
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center">
-              <Image
-                src="/images/RupexaLogo.jpeg"
-                alt="Rupexa Private Limited Logo"
-                width={220}
-                height={72}
-                className="h-14 md:h-16 w-auto object-contain"
-              />
+          <div className="flex items-center h-16">
+            <Link href="/" className="flex-shrink-0 flex items-center h-full">
+             <Image
+  src="/images/RupexaLogo.jpeg"
+  alt="Rupexa Private Limited Logo"
+  width={42}
+  height={42}
+  className="object-contain object-left"
+  priority
+/>
             </Link>
           </div>
 
@@ -63,10 +65,11 @@ export default function Navigation() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors ${pathname === link.path
-                  ? 'text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-700 hover:text-blue-600'
-                  }`}
+                className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors ${
+                  pathname === link.path
+                    ? 'text-blue-600 border-b-2 border-blue-600'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
               >
                 {link.name}
               </Link>
@@ -101,7 +104,6 @@ export default function Navigation() {
                     </Link>
                   </DropdownMenuItem>
 
-                  {/* Admin Dashboard Link - Only show if user is admin */}
                   {user.isAdmin && (
                     <>
                       <DropdownMenuSeparator />
@@ -115,10 +117,7 @@ export default function Navigation() {
                   )}
 
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem
-                    onClick={handleLogout}
-                    className="text-red-600 cursor-pointer"
-                  >
+                  <DropdownMenuItem onClick={handleLogout} className="text-red-600 cursor-pointer">
                     <LogOut className="w-4 h-4 mr-2" />
                     Logout
                   </DropdownMenuItem>
@@ -135,11 +134,12 @@ export default function Navigation() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-slate-200 hover:text-white focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
+
         </div>
       </div>
 
@@ -149,16 +149,20 @@ export default function Navigation() {
           className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
           onClick={() => setIsOpen(false)}
         />
-        <div className={`absolute right-0 top-0 h-screen w-full bg-blue-700 flex flex-col transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="h-16 px-4 flex items-center justify-between border-b border-white/20">
+        <div
+          className={`absolute right-0 top-0 h-screen w-full bg-slate-950/95 backdrop-blur-xl shadow-2xl shadow-slate-950/70 flex flex-col transition-transform duration-300 ease-in-out ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="h-16 px-4 flex items-center justify-between border-b border-slate-700/70">
             <Image
               src="/images/RupexaLogo.jpeg"
               alt="Rupexa Private Limited Logo"
-              width={120}
-              height={40}
-              className="h-9 w-auto object-contain"
+              width={260}
+              height={64}
+              className="h-full w-48 max-w-full object-contain object-left"
             />
-            <button onClick={() => setIsOpen(false)} className="text-white">
+            <button onClick={() => setIsOpen(false)} className="text-slate-100">
               <X className="h-6 w-6" />
             </button>
           </div>
@@ -168,10 +172,11 @@ export default function Navigation() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`py-3 px-3 text-base rounded-lg border border-transparent transition-all ${pathname === link.path
-                  ? 'text-white bg-white/15 border-white/25'
-                  : 'text-white/95 hover:bg-white/10 hover:border-white/20'
-                  }`}
+                className={`py-3 px-3 text-base rounded-lg border border-transparent transition-all ${
+                  pathname === link.path
+                    ? 'text-white bg-white/15 border-white/25'
+                    : 'text-slate-100 hover:bg-slate-800/80 hover:text-white hover:border-slate-600'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -179,7 +184,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="mt-auto px-4 py-4 border-t border-white/20 bg-blue-800/30">
+          <div className="mt-auto px-4 py-4 border-t border-slate-700/70 bg-slate-950/90">
             {loading ? (
               <div className="flex justify-start py-2">
                 <div className="w-7 h-7 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -205,10 +210,7 @@ export default function Navigation() {
                   </Link>
                 )}
                 <button
-                  onClick={() => {
-                    handleLogout();
-                    setIsOpen(false);
-                  }}
+                  onClick={() => { handleLogout(); setIsOpen(false); }}
                   className="flex items-center gap-2 text-base text-red-200 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <LogOut className="w-4 h-4" />

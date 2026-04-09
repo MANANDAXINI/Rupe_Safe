@@ -129,15 +129,7 @@ export default function About(): JSX.Element {
             variants={reveal}
             className="glass-card bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-12 transform transition hover:-translate-y-3 relative"
           >
-            <div className="mb-8 rounded-2xl overflow-hidden border border-blue-100 shadow-lg">
-              <Image
-                src="/images/rupexa-aboutus.png"
-                alt="About Rupexa"
-                width={900}
-                height={420}
-                className="w-full h-48 md:h-56 object-cover object-center"
-              />
-            </div>
+            
             <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">Our Story</h2>
 
             <p className="text-slate-800 leading-relaxed mb-6 text-lg">
@@ -181,10 +173,10 @@ export default function About(): JSX.Element {
             initial={{ opacity: 0, x: 40, scale: 0.98 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="relative w-full h-[560px]"
+            className="relative w-full h-[600px]"
           >
             <Image
-              src="/images/rupexa-aboutus.png"
+              src="/images/RupexaLogo.jpeg"
               alt="Gig illustration"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
