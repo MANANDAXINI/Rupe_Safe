@@ -25,7 +25,7 @@ export default function About(): JSX.Element {
   }, []);
 
   return (
-    <div className="bg-gray-100 font-sans text-slate-900 min-h-screen pt-24 pb-20">
+    <div className="bg-gray-100 font-sans text-slate-900 min-h-screen pt-24 pb-0">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 1. About Us Section */}
@@ -127,12 +127,13 @@ export default function About(): JSX.Element {
             <div className="w-12 h-1 bg-blue-600 mb-10" />
 
             <div className="flex flex-col items-start">
-              <p className="text-lg font-bold text-slate-900 mb-2">Bangalore Headquarters</p>
-              <p className="text-md text-slate-600">1st Floor, SJR Cyber, 22, Laskar Hosur Road,</p>
-              <p className="text-md text-slate-600 mb-6">Adugodi, Bangalore, Karnataka - 560030</p>
+              <p className="text-lg font-bold text-slate-900 mb-2">Registered Office</p>
+              <p className="text-md text-slate-600">Block No. 101/102, Shriram Tower,</p>
+              <p className="text-md text-slate-600">Next To NIT Kingsway, Civil Lines,</p>
+              <p className="text-md text-slate-600 mb-6">Sadar, Nagpur, Maharashtra 440001</p>
 
               <a
-                href="https://where.rzp.io/"
+                href="https://maps.google.com/?q=Shriram+Tower+NIT+Kingsway+Nagpur"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
@@ -146,18 +147,19 @@ export default function About(): JSX.Element {
 
       </main>
 
-      {/* 5. Minimal CTA / Perks Block (Reference: footer-signup styled) */}
-      <section className="mt-12 bg-blue-600 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-500 rounded-s-full opacity-50 hidden md:block" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between py-16 relative z-10">
+      {/* 5. Minimal CTA / Perks Block — same bg as homepage 'Ready to Transform' */}
+      <section className="relative py-20 text-white bg-gradient-to-br from-blue-700 to-indigo-800 overflow-hidden z-10">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-indigo-600/30 rounded-s-full hidden md:block" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between relative z-10">
 
           <div className="w-full md:w-1/2 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3 flex-wrap">
-              Supercharge your business with
-
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Supercharge your business with Rupexa
             </h2>
             <div className="w-12 h-1 bg-white mb-6" />
-            <p className="text-blue-50 text-lg mb-8 max-w-md">
+            <p className="text-blue-100 text-lg mb-8 max-w-md">
               Sign up now to experience the future of digital solutions and offer your customers the best experience.
             </p>
 
@@ -177,24 +179,24 @@ export default function About(): JSX.Element {
             </ul>
 
             <Link
-              href="/onboarding/payment-gateway"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-sm font-bold shadow-lg hover:shadow-xl transition-all"
             >
-              Sign Up Now
+              Get In Touch
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
           <div className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
-            {/* Minimal Image representing the signup graphics */}
-            <div className="relative w-full max-w-sm aspect-[4/3]">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center gap-4 border border-white/20">
               <Image
                 src="/images/RupexaLogo.jpeg"
-                alt="Supercharge with Rupexa"
-                fill // This makes it fill the parent container
-                sizes="(max-width: 384px) 100vw, 384px" // Optimization for max-w-sm
-                className="object-cover rounded-xl shadow-2xl mix-blend-multiply opacity-80"
+                alt="Rupexa Logo"
+                width={160}
+                height={80}
+                className="object-contain"
               />
+              <p className="text-white/80 text-sm text-center max-w-[220px]">Digitally empowering businesses across India</p>
             </div>
           </div>
 
