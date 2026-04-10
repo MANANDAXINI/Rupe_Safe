@@ -6,6 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Code, Smartphone, TrendingUp, Database, Boxes, CheckCircle, Star, Zap, Shield, Users, Lightbulb, CreditCard } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import HeroSlider from '@/components/HeroSlider';
+import PartnerMarquee from '@/components/PartnerMarquee';
+import TestimonialTicker from '@/components/TestimonialTicker';
+import FAQSection from '@/components/FAQSection';
 
 interface Counter {
   label: string;
@@ -101,23 +105,7 @@ export default function Home() {
       description: 'Cutting-edge technology and continuous updates to stay ahead'
     }
   ];
-
-  const [partners, setPartners] = useState<any[]>([]);
-
   useEffect(() => {
-    const fetchPartners = async () => {
-      try {
-        const response = await fetch('/api/partners');
-        if (response.ok) {
-          const data = await response.json();
-          setPartners(data);
-        }
-      } catch (error) {
-        console.error('Failed to fetch partners:', error);
-      }
-    };
-    fetchPartners();
-
     let intervals: ReturnType<typeof setInterval>[] = [];
     const startCounters = () => {
       if (countersStartedRef.current) return;
@@ -181,96 +169,13 @@ export default function Home() {
     };
   }, []);
 
-  // Trusted partners: added more companies
-  const TRUSTED = [
-    { name: "Acme Corp", logo: "/logos/acme.svg" },
-    { name: "Globex", logo: "/logos/globex.svg" },
-    { name: "Initech", logo: "/logos/initech.svg" },
-    { name: "Umbrella", logo: "/logos/umbrella.svg" },
-    { name: "Stark Industries", logo: "/logos/stark.svg" },
-    { name: "Wayne Enterprises", logo: "/logos/wayne.svg" },
-    { name: "Hooli", logo: "/logos/hooli.svg" },
-    { name: "Soylent", logo: "/logos/soylent.svg" },
-    // add any additional logos you have under public/logos/
-  ];
-
   return (
     <div className="min-h-screen bg-gray-100 font-sans text-slate-900">
-      {/* Background Moving Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-300/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-300/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-      </div>
+      {/* Hero Section with Slider */}
+      <HeroSlider />
 
-      {/* Hero Section with Video Background */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/9785b9dc-8abc-4c60-8bcf-d0967533ad3e.mp4" type="video/mp4" />
-        </video>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col h-full">
-          {/* Main Hero Text */}
-          
-
-          {/* Main Action Area - Pushed LOWER but with room for partners */}
-          <div className="flex-grow flex flex-col justify-end items-center text-center pb-4 md:pb-6">
-            <div className="max-w-4xl">
-              <div className="mt-3 md:mt-4 flex flex-wrap justify-center gap-6 animate-fade-in-up animation-delay-400">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-[11px] font-semibold uppercase tracking-widest px-10 h-14 rounded-full shadow-2xl transition-all">
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600 text-[11px] font-semibold uppercase tracking-widest px-10 h-14 rounded-full transition-all duration-300">
-                  Digital Services
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Trusted Partners - Adjusted to fit on screen */}
-          <div className="animate-fade-in-up animation-delay-600 pb-20">
-            <div className="text-center mb-6">
-              <h3 className="text-xs md:text-sm font-black text-white uppercase tracking-[0.32em] drop-shadow-sm">Institutional Partners</h3>
-            </div>
-            <div className="overflow-hidden marquee-container-hero max-w-7xl mx-auto">
-              <div className="flex gap-20 items-center animate-scroll-left w-max">
-                {(partners.length > 0 ? partners : [
-                  { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
-                  { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
-                  { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
-                  { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
-                ]).map((p, i) => (
-                  <span key={i} className="px-10 md:px-12 py-4 md:py-5 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-sm md:text-lg font-sans font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-white/20 hover:scale-105 cursor-default shadow-2xl shadow-black/20">
-                    {p.name}
-                  </span>
-                ))}
-                {/* Duplicate for seamless loop */}
-                {(partners.length > 0 ? partners : [
-                  { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
-                  { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
-                  { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
-                  { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
-                ]).map((p, i) => (
-                  <span key={"d" + i} className="px-10 md:px-12 py-4 md:py-5 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full text-sm md:text-lg font-sans font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-white/20 hover:scale-105 cursor-default shadow-2xl shadow-black/20">
-                    {p.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Institution Partners Marquee */}
+      <PartnerMarquee />
 
       {/* Payment Gateway Hero Section */}
       <section className="relative py-32 overflow-hidden z-10 service-theme scroll-fade-in text-white">
@@ -766,68 +671,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Client Reviews Section - Animated Carousel */}
-      <section className="py-20 bg-gray-100 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
-              Client Reviews
-            </h2>
-            <p className="text-lg text-gray-600">
-              Hear what our satisfied clients have to say about working with Rupexa Private Limited
-            </p>
-          </div>
+      <TestimonialTicker />
 
-          <div className="relative overflow-hidden">
-            <div className="flex gap-6 animate-scroll">
-              {[...reviews, ...reviews].map((review, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-lg p-8 hover:shadow-2xl transition-shadow duration-300 card-rounded"
-                >
-                  <div className="flex mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mb-6 line-clamp-4">
-                    &quot;{review.content}&quot;
-                  </p>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-gray-900">{review.name}</p>
-                    <p className="text-sm text-gray-500">{review.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-
-          .animate-scroll {
-            animation: scroll 16s linear infinite;
-          }
-
-          @media (max-width: 768px) {
-            .animate-scroll {
-              animation: scroll 10s linear infinite;
-            }
-          }
-
-          .animate-scroll:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
-      </section>
+      <FAQSection />
 
       {/* Ready to Transform - With Background Image */}
       <section

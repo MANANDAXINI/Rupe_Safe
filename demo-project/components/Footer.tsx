@@ -63,32 +63,25 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <h4 className="text-white font-semibold mb-4">Our Team</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/services#website-development" className="hover:text-blue-400 transition-colors">
-                  Website Development
-                </Link>
+              <li className="text-slate-200">
+                <span className="text-white font-medium">Roshni Vijay Dwivedi</span>
+                <br />
+                <span className="text-slate-400">Founder &amp; Director</span>
               </li>
-              <li>
-                <Link href="/services#app-development" className="hover:text-blue-400 transition-colors">
-                  App Development
-                </Link>
+              <li className="text-slate-200">
+                <span className="text-white font-medium">Vedant Vijay Dwivedi</span>
+                <br />
+                <span className="text-slate-400">Technical Department</span>
               </li>
-              <li>
-                <Link href="/services#digital-marketing" className="hover:text-blue-400 transition-colors">
-                  Digital Marketing
-                </Link>
+              <li className="text-slate-200">
+                <span className="text-white font-medium">Vijay Dwivedi</span>
+                <br />
+                <span className="text-slate-400">Consultant</span>
               </li>
-              <li>
-                <Link href="/services#erp-systems" className="hover:text-blue-400 transition-colors">
-                  ERP Systems
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#custom-software" className="hover:text-blue-400 transition-colors">
-                  Custom Software
-                </Link>
+              <li className="text-slate-500 text-xs mt-2 italic">
+                Partner photos &amp; Rupexa logo coming soon…
               </li>
             </ul>
           </div>
@@ -98,15 +91,19 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
-                <span>info@rupexa.in</span>
+                <span>
+                  care@rupexa.in
+                  <br />
+                  info@rupexa.in
+                </span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 9067488273</span>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
-                <span>123 Tech Avenue, Digital City, DC 12345</span>
+                <span>Block No. 101/102, Shriram Tower, Next To NIT Kingsway, Civil Lines, Sadar, Nagpur, Maharashtra 440001</span>
               </li>
             </ul>
           </div>
