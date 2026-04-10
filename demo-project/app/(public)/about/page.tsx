@@ -1,65 +1,12 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Trophy, Users, Smile, CheckCircle } from "lucide-react";
-
-const reveal = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
-
-function useCountOnView(targetRef: React.RefObject<HTMLElement>, endValues: number[]) {
-  const [values, setValues] = useState<number[]>(endValues.map(() => 0));
-  const startedRef = useRef(false);
-
-  useEffect(() => {
-    const el = targetRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting && !startedRef.current) {
-            startedRef.current = true;
-            // animate counts
-            endValues.forEach((end, idx) => {
-              const duration = 1000 + idx * 250;
-              const start = performance.now();
-              const step = (t: number) => {
-                const p = Math.min(1, (t - start) / duration);
-                const v = Math.floor(p * end);
-                setValues((prev) => {
-                  const copy = [...prev];
-                  copy[idx] = v;
-                  return copy;
-                });
-                if (p < 1) requestAnimationFrame(step);
-                else {
-                  setValues((prev) => {
-                    const copy = [...prev];
-                    copy[idx] = end;
-                    return copy;
-                  });
-                }
-              };
-              requestAnimationFrame(step);
-            });
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [targetRef, endValues]);
-
-  return values;
-}
+import { MapPin, ArrowRight } from "lucide-react";
+import PartnerMarquee from "@/components/PartnerMarquee";
 
 export default function About(): JSX.Element {
-  const impactRef = useRef<HTMLElement | null>(null);
-  const endNumbers = [15, 50, 250, 500];
-  const counts = useCountOnView(impactRef as React.RefObject<HTMLElement>, endNumbers);
-
   const [partners, setPartners] = useState<any[]>([]);
 
   useEffect(() => {
@@ -77,300 +24,183 @@ export default function About(): JSX.Element {
     fetchPartners();
   }, []);
 
-  const valueWords: Record<string, string[]> = {
-    Innovation: ["Creativity", "Progress", "Discovery", "Ingenuity", "Vision"],
-    Integrity: ["Trust", "Honesty", "Ethics", "Accountability", "Transparency"],
-    Excellence: ["Quality", "Precision", "Mastery", "Impact", "Performance"]
-  };
-
   return (
-    <main className="font-sans bg-slate-100 text-slate-600 min-h-screen">
-      {/* Hero Section - White with Blue Gradient Accents */}
-      <section className="relative pt-40 pb-32 overflow-hidden bg-white">
-        {/* Background Gradients */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[20%] w-[600px] h-[600px] bg-blue-50 rounded-full blur-[100px]" />
-          <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-cyan-50 rounded-full blur-[80px]" />
-        </div>
+    <div className="bg-gray-100 font-sans text-slate-900 min-h-screen pt-24 pb-20">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-block py-1 px-3 rounded-full bg-blue-50 border border-blue-100 text-blue-600 font-semibold text-sm uppercase tracking-wider mb-6">
+        {/* 1. About Us Section */}
+        <section className="py-12 md:py-16">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
               About Us
-            </span>
-
-            <h1 className="text-5xl md:text-7xl font-semibold text-slate-900 mb-8 tracking-tight">
-              Empowering Business <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Through Technology</span>
             </h1>
-
-            <p className="text-xl text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed">
-              We combine strategy, engineering and product design to help companies scale with resilient, modern technology.
+            <div className="w-12 h-1 bg-blue-600 mb-6" />
+            <p className="text-lg md:text-xl leading-relaxed text-slate-600">
+              For a long time, we have felt that enabling frictionless business operations is a major problem and nobody seems to be doing it right. We decided to tackle it ourselves. Founded by visionary leaders, Rupexa Private Limited aims to revolutionize digital operations for modern businesses by providing clean, developer-friendly architectures and hassle-free integrations. We offer a fast, affordable and secure way for merchants, startups, ecommerce and large enterprises to scale custom software, deploy holistic ERP systems, and accelerate growth flawlessly.
             </p>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Our Story - background image rupexa-aboutus.png */}
-      <section
-        className="py-24 bg-slate-50 overflow-hidden relative"
-      >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl -mr-48 -mt-48" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl -ml-48 -mb-48" />
-        <div className="max-w-7xl mx-auto px-6 lg:grid lg:grid-cols-2 gap-12 items-start">
-          <motion.article
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={reveal}
-            className="glass-card bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-12 transform transition hover:-translate-y-3 relative"
-          >
-            
-            <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">Our Story</h2>
+        {/* 2. Meet the Team Section */}
+        <section className="py-12 md:py-16 border-t border-gray-200">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
+              Meet the Team
+            </h2>
+            <div className="w-12 h-1 bg-blue-600 mb-10" />
 
-            <p className="text-slate-800 leading-relaxed mb-6 text-lg">
-              Founded to accelerate digital transformation, we partner with ambitious teams to design, build and operate resilient software systems.
-              Our journey began with a small group of engineers and a shared belief: technology should simplify complexity and unlock growth.
-            </p>
-
-            <p className="text-slate-700 leading-relaxed mb-6">
-              Today we blend product strategy, user-centred design and pragmatic engineering to deliver measurable outcomes.
-              From prototype to production, we focus on observability, security and scalable architecture — ensuring solutions that last.
-            </p>
-
-            <div className="grid gap-4 mt-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">01</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
+              {/* Roshni */}
+              <div className="flex flex-col items-center text-center gap-5">
+                <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
+                  <Image
+                    src="/images/roshni.jpeg"
+                    alt="Roshni Vijay Dwivedi"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div>
-                  <div className="font-semibold text-slate-900">Product-led engineering</div>
-                  <div className="text-sm text-slate-600">Ship fast, iterate safely with measurable outcomes.</div>
+                  <h3 className="font-bold text-slate-900 text-lg">Roshni Vijay Dwivedi</h3>
+                  <p className="text-blue-600 font-semibold text-sm mt-1">Founder & Director</p>
+                  <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Visionary leader driving innovation and strategic growth.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">02</div>
+              {/* Vedant */}
+              <div className="flex flex-col items-center text-center gap-5">
+                <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
+                  <Image
+                    src="/images/vedant.jpeg"
+                    alt="Vedant Vijay Dwivedi"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div>
-                  <div className="font-semibold text-slate-900">Cloud-first operations</div>
-                  <div className="text-sm text-slate-600">Secure, observable and cost-optimised platforms.</div>
+                  <h3 className="font-bold text-slate-900 text-lg">Vedant Vijay Dwivedi</h3>
+                  <p className="text-blue-600 font-semibold text-sm mt-1">Technical Department</p>
+                  <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Heads technical solutions, ensuring robust software delivery.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">03</div>
+              {/* Vijay */}
+              <div className="flex flex-col items-center text-center gap-5">
+                <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
+                  <Image
+                    src="/images/vijay.jpeg"
+                    alt="Vijay Dwivedi"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
                 <div>
-                  <div className="font-semibold text-slate-900">Long-term partnerships</div>
-                  <div className="text-sm text-slate-600">We stay to evolve and operate the product with you.</div>
+                  <h3 className="font-bold text-slate-900 text-lg">Vijay Dwivedi</h3>
+                  <p className="text-blue-600 font-semibold text-sm mt-1">Consultant</p>
+                  <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Providing unparalleled strategic guidance and corporate expertise.</p>
                 </div>
               </div>
             </div>
-          </motion.article>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40, scale: 0.98 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative w-full h-[600px]"
-          >
-            <Image
-              src="/images/RupexaLogo.jpeg"
-              alt="Gig illustration"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover saturate-110 contrast-105"
-              priority
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Our Impact - counters + hover animation */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6" ref={impactRef as React.RefObject<HTMLDivElement>}>
-          <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Our Impact</h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
-            {[
-              { icon: Trophy, value: 15, label: "Years of Experience", suffix: "+" },
-              { icon: Users, value: 50, label: "Team Members", suffix: "+" },
-              { icon: Smile, value: 250, label: "Happy Clients", suffix: "+" },
-              { icon: CheckCircle, value: 500, label: "Projects Completed", suffix: "+" },
-            ].map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.04 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 shadow-xl rounded-3xl p-10 hover:shadow-2xl transition-all"
-                >
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                      <Icon className="w-7 h-7 text-blue-600" />
-                    </div>
-
-                    <div>
-                      <div className="text-5xl md:text-6xl font-extrabold text-blue-600 leading-tight">
-                        {counts[i]}
-                        {s.suffix}
-                      </div>
-                      <div className="text-sm md:text-base text-slate-600 mt-1">{s.label}</div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Our Values - modern light background, centered blue heading */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Our Values</h3>
+        {/* 3. Our Backers / Partners Section */}
+        <section className="py-12 md:py-16 border-t border-gray-200 overflow-hidden">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
+              Our Partners
+            </h2>
+            <div className="w-12 h-1 bg-blue-600 mb-10" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {["Innovation", "Integrity", "Excellence"].map((val, idx) => (
-              <motion.div
-                key={val}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.06 }}
-                className="relative rounded-3xl p-10 bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 overflow-hidden transform transition hover:scale-105 hover:shadow-2xl"
+            <div className="-mx-4 sm:-mx-6 lg:-mx-8">
+              <PartnerMarquee />
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Our Workspaces Section */}
+        <section className="py-12 md:py-16 border-t border-gray-200">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">
+              Our Workspaces
+            </h2>
+            <div className="w-12 h-1 bg-blue-600 mb-10" />
+
+            <div className="flex flex-col items-start">
+              <p className="text-lg font-bold text-slate-900 mb-2">Bangalore Headquarters</p>
+              <p className="text-md text-slate-600">1st Floor, SJR Cyber, 22, Laskar Hosur Road,</p>
+              <p className="text-md text-slate-600 mb-6">Adugodi, Bangalore, Karnataka - 560030</p>
+
+              <a
+                href="https://where.rzp.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
               >
-                <h4 className="text-2xl font-bold mb-4 text-slate-900">{val}</h4>
-                <p className="text-slate-700 mb-6">
-                  We prioritise {val.toLowerCase()} in everything we build — from architecture to culture.
-                </p>
-
-                <div className="mt-6 overflow-hidden" style={{ maskImage: "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)" }}>
-                  <div className="flex gap-6 whitespace-nowrap animate-scroll-left">
-                    {[...valueWords[val], ...valueWords[val]].map((word, i) => (
-                      <span key={i} className="text-sm font-semibold text-blue-600">{word} •</span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-blue-200/30 blur-3xl pointer-events-none" />
-                <div className="absolute -left-20 -bottom-20 w-72 h-72 rounded-full bg-purple-200/30 blur-3xl pointer-events-none" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Meet the Team - centered blue header, hover-grow cards */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-10">Meet the Team</h3>
-
-          <div className="flex flex-wrap justify-center items-stretch gap-8">
-            {/* Roshni Vijay Dwivedi */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.06 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="w-full sm:w-[calc(50%-1rem)] lg:w-[320px] max-w-sm bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
-            >
-              <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
-                <Image src="/images/roshni.jpeg" alt="Roshni Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
-              </div>
-              <div className="font-semibold text-slate-900 text-lg">Roshni Vijay Dwivedi</div>
-              <div className="text-sm text-blue-600 mt-1 font-medium">Founder & Director</div>
-              <p className="text-sm text-slate-600 mt-3">Visionary leader and founder of Rupexa Private Limited, driving innovation and growth.</p>
-            </motion.div>
-
-            {/* Vedant Vijay Dwivedi */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.06 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="w-full sm:w-[calc(50%-1rem)] lg:w-[320px] max-w-sm bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
-            >
-              <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
-                <Image src="/images/vedant.jpeg" alt="Vedant Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
-              </div>
-              <div className="font-semibold text-slate-900 text-lg">Vedant Vijay Dwivedi</div>
-              <div className="text-sm text-blue-600 mt-1 font-medium">Technical Department</div>
-              <p className="text-sm text-slate-600 mt-3">Heads the technical department, ensuring robust and scalable technology solutions.</p>
-            </motion.div>
-
-            {/* Vijay Dwivedi */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.06 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="w-full sm:w-[calc(50%-1rem)] lg:w-[320px] max-w-sm bg-white rounded-2xl p-8 text-center shadow-lg border border-blue-100 transform transition hover:shadow-2xl hover:-translate-y-2"
-            >
-              <div className="mx-auto w-28 h-28 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 mb-4">
-                <Image src="/images/vijay.jpeg" alt="Vijay Dwivedi" width={112} height={112} className="object-cover w-full h-full" />
-              </div>
-              <div className="font-semibold text-slate-900 text-lg">Vijay Dwivedi</div>
-              <div className="text-sm text-blue-600 mt-1 font-medium">Consultant</div>
-              <p className="text-sm text-slate-600 mt-3">Consultant for Rupexa Private Limited, providing strategic guidance and expertise.</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trusted Partners Section */}
-      <section className="py-20 bg-slate-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Trusted By Partners</h3>
-            <p className="text-slate-500 font-medium">Companies that trust us with their digital transformation</p>
-          </div>
-
-          <div className="overflow-hidden marquee-container">
-            <div className="flex gap-8 items-center animate-scroll-left w-max">
-              {(partners.length > 0 ? partners : [
-                { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
-                { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
-                { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
-                { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
-              ]).map((p, i) => (
-                <span key={i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
-                  {p.name}
-                </span>
-              ))}
-              {/* Duplicate for seamless loop */}
-              {(partners.length > 0 ? partners : [
-                { name: "Acme Corp" }, { name: "Bluewave" }, { name: "Cloudify" },
-                { name: "DataForge" }, { name: "InfraWorks" }, { name: "Nimbus" },
-                { name: "Stark Industries" }, { name: "Wayne Ent" }, { name: "Globex" },
-                { name: "Initech" }, { name: "Umbrella" }, { name: "Hooli" }
-              ]).map((p, i) => (
-                <span key={"d" + i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
-                  {p.name}
-                </span>
-              ))}
+                View on Maps
+                <MapPin className="w-4 h-4" />
+              </a>
             </div>
           </div>
+        </section>
+
+      </main>
+
+      {/* 5. Minimal CTA / Perks Block (Reference: footer-signup styled) */}
+      <section className="mt-12 bg-blue-600 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-500 rounded-s-full opacity-50 hidden md:block" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between py-16 relative z-10">
+
+          <div className="w-full md:w-1/2 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3 flex-wrap">
+              Supercharge your business with
+
+            </h2>
+            <div className="w-12 h-1 bg-white mb-6" />
+            <p className="text-blue-50 text-lg mb-8 max-w-md">
+              Sign up now to experience the future of digital solutions and offer your customers the best experience.
+            </p>
+
+            <ul className="space-y-4 mb-10 font-medium text-white/95">
+              <li className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400" /> Quick onboarding
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400" /> Access to entire product suite
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400" /> API access
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400" /> 24x7 support
+              </li>
+            </ul>
+
+            <Link
+              href="/onboarding/payment-gateway"
+              className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-sm font-bold shadow-lg hover:shadow-xl transition-all"
+            >
+              Sign Up Now
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+
+          <div className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
+            {/* Minimal Image representing the signup graphics */}
+            <div className="relative w-full max-w-sm aspect-[4/3]">
+              <Image
+                src="/images/RupexaLogo.jpeg"
+                alt="Supercharge with Rupexa"
+                fill // This makes it fill the parent container
+                sizes="(max-width: 384px) 100vw, 384px" // Optimization for max-w-sm
+                className="object-cover rounded-xl shadow-2xl mix-blend-multiply opacity-80"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* Bottom CTA - attach Get Started to Contact page */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
-        <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6">Ready to transform your business?</h2>
-          <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Let&apos;s partner to design and deliver software that moves your business forward.</p>
-          <Link href="/contact" className="inline-block">
-            <button className="px-12 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 hover:scale-105 transition-all shadow-lg">
-              Contact Us
-            </button>
-          </Link>
-        </div>
-      </section>
-    </main>
+    </div>
   );
 }
