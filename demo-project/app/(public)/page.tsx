@@ -8,6 +8,7 @@ import { ArrowRight, Code, Smartphone, TrendingUp, Database, Boxes, CheckCircle,
 import { useEffect, useRef, useState } from 'react';
 import HeroSlider from '@/components/HeroSlider';
 import PartnerMarquee from '@/components/PartnerMarquee';
+import ProductFoldSection from '@/components/ProductFoldSection';
 import TestimonialTicker from '@/components/TestimonialTicker';
 import FAQSection from '@/components/FAQSection';
 
@@ -176,6 +177,9 @@ export default function Home() {
 
       {/* Institution Partners Marquee */}
       <PartnerMarquee />
+
+      {/* All-in-one Platform Section */}
+      <ProductFoldSection />
 
       {/* Payment Gateway Hero Section */}
       <section className="relative py-32 overflow-hidden z-10 service-theme scroll-fade-in text-white">
