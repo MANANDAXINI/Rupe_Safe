@@ -100,21 +100,78 @@ export default function ServicesPage() {
       {/* ─── OUR SERVICES (scroll-animated, backend-driven) ─── */}
       <ServicesScrollSection />
 
-      {/* ─── CTA SECTION ─── */}
-      <section className="py-24 bg-blue-500 relative z-10 border-t border-slate-100">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-white mb-10 max-w-2xl mx-auto">
-            Let&apos;s collaborate to build something amazing. Our team is ready to help you achieve your digital goals.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-black transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-blue-500 hover:scale-105 hover:shadow-blue-400/30"
-          >
-            Contact Us
-          </Link>
+      {/* ─── BOTTOM CTA BANNER ─── */}
+      <section className="w-full bg-[#0b0f1a] relative overflow-hidden z-10">
+        {/* Ambient glow blobs */}
+        <div className="absolute top-[-20%] left-[-5%] w-[600px] h-[600px] bg-[#305eff]/20 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-[-20%] right-[10%] w-[400px] h-[400px] bg-[#48d08c]/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+            {/* ── Left: text + CTAs ── */}
+            <div className="flex-1 text-center lg:text-left">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-[#48d08c] text-[12px] font-[600] tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
+                <span className="w-1.5 h-1.5 bg-[#48d08c] rounded-full animate-pulse" />
+                Get Started Free
+              </div>
+
+              <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-[700] leading-[1.12] text-white mb-5">
+                One platform.<br />
+                <span className="text-[#305eff]">Every solution</span> your
+                <br className="hidden sm:block" /> business needs.
+              </h2>
+
+              <p className="text-[16px] text-[#8fa3bc] leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
+                Join thousands of businesses using Rupexa to accept payments, build software, and scale faster — all in one place.
+              </p>
+
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Link
+                  href="/auth/signup"
+                  className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-600 text-white text-[15px] font-[600] px-6 py-3 rounded-[4px] transition-all hover:shadow-lg hover:shadow-blue-500/30"
+                >
+                  Sign Up — It&apos;s Free
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-[15px] font-[500] px-6 py-3 rounded-[4px] transition-all hover:bg-white/5"
+                >
+                  Talk to Sales
+                </Link>
+              </div>
+
+              {/* Trust strip */}
+              <p className="mt-6 text-[13px] text-[#8fa3bc]">
+                No credit card required &nbsp;·&nbsp; Setup in minutes &nbsp;·&nbsp; Cancel anytime
+              </p>
+            </div>
+
+            {/* ── Right: dashboard screenshot ── */}
+            <div className="flex-shrink-0 w-full lg:w-[480px] xl:w-[520px] relative">
+              {/* Glow behind card */}
+              <div className="absolute inset-0 bg-[#305eff]/20 blur-[60px] rounded-2xl" />
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img
+                  src="https://framerusercontent.com/images/thXZ310oT4r1GGftr6YZcfoKis8.png"
+                  alt="Rupexa Dashboard"
+                  className="w-full h-full object-cover object-top mix-blend-lighten opacity-90"
+                  loading="lazy"
+                />
+              </div>
+              {/* Floating stat chip */}
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-4 py-3 shadow-xl flex items-center gap-3">
+                <div className="w-8 h-8 bg-[#e6f9f1] rounded-full flex items-center justify-center text-[#009e5c] text-lg">✓</div>
+                <div>
+                  <p className="text-[11px] text-slate-400 font-[500]">Payments Processed</p>
+                  <p className="text-[15px] font-[700] text-[#192839]">₹4.2 Cr+ this month</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
