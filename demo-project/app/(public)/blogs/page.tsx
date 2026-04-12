@@ -293,7 +293,7 @@ export default function BlogsPage() {
             </div>
             <Link
               href="/contact"
-              className="flex-shrink-0 inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] transition-all group rounded-full"
+              className="flex-shrink-0 inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] transition-all group max-md:rounded-xl md:rounded-full max-md:w-fit max-md:max-w-[min(100%,220px)] max-md:justify-center"
             >
               Get In Touch <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"/>
             </Link>

@@ -229,14 +229,14 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/onboarding/payment-gateway">
-                  <Button size="sm" className="bg-[#305eff] text-white hover:bg-blue-700 text-sm px-6 rounded-full w-full sm:w-auto">
+                <Link href="/onboarding/payment-gateway" className="max-md:w-fit max-md:max-w-[min(100%,220px)]">
+                  <Button size="sm" className="bg-[#305eff] text-white hover:bg-blue-700 text-sm px-6 max-md:rounded-xl md:rounded-full w-full sm:w-auto max-md:w-full">
                     Explore Payment Gateway
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/onboarding/payment-gateway">
-                  <Button size="sm" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 w-full sm:w-auto transition-all duration-300 rounded-full">
+                <Link href="/onboarding/payment-gateway" className="max-md:w-fit max-md:max-w-[min(100%,220px)]">
+                  <Button size="sm" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 w-full sm:w-auto transition-all duration-300 max-md:rounded-xl md:rounded-full max-md:w-full">
                     Get Started Free
                   </Button>
                 </Link>
@@ -693,15 +693,15 @@ export default function Home() {
           <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
             Get in touch with us today and discover how Rupexa Private Limited can help you achieve your digital goals.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-sm mx-auto sm:max-w-none">
-            <Link href="/contact">
-              <Button size="sm" className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-sm px-6 rounded-full">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-sm mx-auto sm:max-w-none max-md:max-w-[min(100%,220px)] max-md:mx-auto">
+            <Link href="/contact" className="max-md:w-full">
+              <Button size="sm" className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-sm px-6 max-md:rounded-xl md:rounded-full">
                 Contact Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/services">
-              <Button size="sm" variant="outline" className="w-full sm:w-auto bg-transparent border-white text-white hover:bg-white hover:text-blue-500 text-sm px-6 transition-all duration-300 rounded-full">
+            <Link href="/services" className="max-md:w-full">
+              <Button size="sm" variant="outline" className="w-full sm:w-auto bg-transparent border-white text-white hover:bg-white hover:text-blue-500 text-sm px-6 transition-all duration-300 max-md:rounded-xl md:rounded-full">
                 View All Services
               </Button>
             </Link>

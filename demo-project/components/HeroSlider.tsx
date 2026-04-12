@@ -166,16 +166,16 @@ export default function HeroSlider() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start">
-                  <Link href={slides[index % slides.length]?.primaryLink || "#"} className="w-fit mx-auto lg:mx-0">
-                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center gap-2 group">
+                  <Link href={slides[index % slides.length]?.primaryLink || "#"} className="w-fit max-md:max-w-[min(100%,220px)] mx-auto lg:mx-0">
+                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-5 py-2 sm:px-6 sm:py-2.5 max-md:rounded-xl md:rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center gap-2 group w-full max-md:w-fit max-md:max-w-full">
                       {slides[index % slides.length]?.primaryCta}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </Link>
 
                   {slides[index % slides.length]?.secondaryCta && slides[index % slides.length]?.secondaryLink && (
-                    <Link href={slides[index % slides.length]?.secondaryLink || "#"} className="w-fit mx-auto lg:mx-0">
-                      <button className="bg-transparent hover:bg-blue-50 text-[#2950da] hover:text-[#1839b0] px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center border border-[#2950da]/20">
+                    <Link href={slides[index % slides.length]?.secondaryLink || "#"} className="w-fit max-md:max-w-[min(100%,220px)] mx-auto lg:mx-0">
+                      <button className="bg-transparent hover:bg-blue-50 text-[#2950da] hover:text-[#1839b0] px-5 py-2 sm:px-6 sm:py-2.5 max-md:rounded-xl md:rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center border border-[#2950da]/20 w-full max-md:w-fit max-md:max-w-full">
                         {slides[index % slides.length]?.secondaryCta}
                       </button>
                     </Link>
@@ -187,7 +187,7 @@ export default function HeroSlider() {
 
           {/* Right: massive bleeding transparent images natively blending right */}
           {/* Changed col-span to 5 so it occupies LESS width, giving more room to the left text. */}
-          <div className="lg:col-span-5 xl:col-span-5 relative h-[450px] sm:h-[550px] lg:h-[700px] xl:h-[750px] w-full order-1 lg:order-2 pointer-events-none overflow-visible flex items-center justify-center lg:justify-end">
+          <div className="hidden md:flex lg:col-span-5 xl:col-span-5 relative h-[450px] sm:h-[550px] lg:h-[700px] xl:h-[750px] w-full order-1 lg:order-2 pointer-events-none overflow-visible items-center justify-center lg:justify-end">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`img-${index}`}

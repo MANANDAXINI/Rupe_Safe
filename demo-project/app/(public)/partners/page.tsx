@@ -241,13 +241,13 @@ export default function PartnersPage() {
               innovation and boost your business revenue, reach, and retention.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/contact" className="w-auto">
-                <button className="bg-[#305eff] hover:bg-blue-700 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all rounded-full whitespace-nowrap" >
+              <Link href="/contact" className="w-auto max-md:w-[min(100%,220px)] max-md:max-w-[220px]">
+                <button className="bg-[#305eff] hover:bg-blue-700 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all max-md:rounded-xl md:rounded-full whitespace-nowrap w-full max-md:w-full md:w-auto flex items-center justify-center" >
                   Become a Partner
                 </button>
               </Link>
-              <Link href="/auth/signin" className="w-auto">
-                <button className="border border-[#305eff] text-[#2950da] hover:bg-blue-50 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all bg-transparent inline-flex items-center gap-1.5 rounded-full whitespace-nowrap" >
+              <Link href="/auth/signin" className="w-auto max-md:w-[min(100%,220px)] max-md:max-w-[220px]">
+                <button className="border border-[#305eff] text-[#2950da] hover:bg-blue-50 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all bg-transparent inline-flex items-center justify-center gap-1.5 max-md:rounded-xl md:rounded-full whitespace-nowrap w-full max-md:w-full md:w-auto" >
                   Login <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </Link>
@@ -369,14 +369,14 @@ export default function PartnersPage() {
                   <h3 className="text-[20px] font-semibold text-white mb-2 leading-snug whitespace-pre-line">{pt.title}</h3>
                   {/* ✅ text-white/80 for body on dark overlay */}
                   <p className="text-[13px] text-white/80 leading-relaxed mb-5">{pt.desc}</p>
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <Link href="/contact" className="w-auto">
-                      <button className="bg-[#305eff] hover:bg-blue-700 text-white font-medium px-4 py-1.5 sm:px-5 sm:py-2 text-[12px] sm:text-[13px] transition-all rounded-full whitespace-nowrap">
+                  <div className="flex items-center gap-3 flex-wrap max-md:max-w-[220px]">
+                    <Link href="/contact" className="w-auto max-md:w-full">
+                      <button className="bg-[#305eff] hover:bg-blue-700 text-white font-medium px-4 py-1.5 sm:px-5 sm:py-2 text-[12px] sm:text-[13px] transition-all max-md:rounded-xl md:rounded-full whitespace-nowrap w-full max-md:w-full md:w-auto flex items-center justify-center">
                         Become a Partner
                       </button>
                     </Link>
-                    <Link href="/contact" className="w-auto">
-                      <button className="border border-white/50 hover:bg-white/10 text-white font-medium text-[12px] sm:text-[13px] px-4 py-1.5 sm:px-5 sm:py-2 inline-flex items-center gap-1 bg-transparent rounded-full whitespace-nowrap">
+                    <Link href="/contact" className="w-auto max-md:w-full">
+                      <button className="border border-white/50 hover:bg-white/10 text-white font-medium text-[12px] sm:text-[13px] px-4 py-1.5 sm:px-5 sm:py-2 inline-flex items-center justify-center gap-1 bg-transparent max-md:rounded-xl md:rounded-full whitespace-nowrap w-full max-md:w-full md:w-auto">
                         Learn More <ArrowRight className="w-3 h-3" />
                       </button>
                     </Link>
@@ -613,18 +613,18 @@ export default function PartnersPage() {
             <motion.p variants={fadeUp} className="text-[15px] text-blue-100 mb-9 max-w-lg mx-auto leading-relaxed">
               Join hundreds of partners already leveraging Rupexa&apos;s platform to deliver more value and scale their practice.
             </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/contact" className="w-auto">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-md:max-w-[min(100%,220px)] max-md:mx-auto">
+              <Link href="/contact" className="w-auto max-md:w-full">
                 <motion.button
                   whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}
-                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] inline-flex items-center gap-2 group transition-colors rounded-full whitespace-nowrap"
+                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] inline-flex items-center justify-center gap-2 group transition-colors max-md:rounded-xl md:rounded-full whitespace-nowrap w-full max-md:w-full md:w-auto"
                 >
                   Become a Partner — It&apos;s Free
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </motion.button>
               </Link>
-              <Link href="/contact" className="w-auto">
-                <button className="border border-white/40 hover:border-white/70 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all rounded-full whitespace-nowrap">
+              <Link href="/contact" className="w-auto max-md:w-full">
+                <button className="border border-white/40 hover:border-white/70 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all max-md:rounded-xl md:rounded-full whitespace-nowrap w-full max-md:w-full md:w-auto flex items-center justify-center">
                   Talk to Sales
                 </button>
               </Link>

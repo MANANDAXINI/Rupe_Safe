@@ -40,7 +40,7 @@ export default function Navigation() {
     return null;
   }
 
-  return (
+  return (  
     <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-100 transition-all font-sans">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">

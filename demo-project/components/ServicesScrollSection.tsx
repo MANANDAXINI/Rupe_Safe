@@ -144,7 +144,7 @@ function ServiceSection({
             <Link
               href={getStartedRoute(service.title)}
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[14px] font-[600] px-5 py-2.5 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[14px] font-[600] px-5 py-2.5 max-md:rounded-xl md:rounded-lg transition-colors max-md:w-fit max-md:max-w-[min(100%,200px)] justify-center"
             >
               Get Started
               <ArrowRight className="w-3.5 h-3.5" />
@@ -152,7 +152,7 @@ function ServiceSection({
             <Link
               href={`/services/${slug}`}
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-2 text-[14px] font-[600] text-[#2950da] hover:text-[#1839b0] transition-colors"
+              className="inline-flex items-center gap-2 text-[14px] font-[600] text-[#2950da] hover:text-[#1839b0] transition-colors max-md:w-fit max-md:max-w-[min(100%,200px)]"
             >
               Explore Service
               <ArrowRight className="w-3 h-3" />
@@ -299,7 +299,7 @@ export default function ServicesScrollSection() {
             <div className="ml-auto flex-shrink-0 pl-4 py-2">
               <Link
                 href="/auth/signup"
-                className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 max-md:rounded-xl md:rounded-lg transition-colors whitespace-nowrap max-md:max-w-[min(100%,200px)] max-md:justify-center"
               >
                 Get Started Now
               </Link>

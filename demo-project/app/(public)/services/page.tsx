@@ -55,8 +55,8 @@ export default function ServicesPage() {
 
                 {/* CTA */}
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                  <Link href="/services/payment-gateway" className="w-auto">
-                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center gap-2 group w-auto shadow-lg shadow-blue-200 whitespace-nowrap">
+                  <Link href="/services/payment-gateway" className="w-auto max-md:max-w-[min(100%,220px)]">
+                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-2.5 max-md:rounded-xl md:rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center gap-2 group w-auto max-md:w-full shadow-lg shadow-blue-200 whitespace-nowrap">
                       Explore Services
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -125,14 +125,14 @@ export default function ServicesPage() {
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                 <Link
                   href="/auth/signup"
-                  className="w-auto inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-600 text-white text-[13px] font-[600] px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/30 whitespace-nowrap"
+                  className="w-auto max-md:w-fit max-md:max-w-[min(100%,220px)] inline-flex items-center justify-center gap-2 bg-[#305eff] hover:bg-blue-600 text-white text-[13px] font-[600] px-4 py-2 sm:px-5 sm:py-2.5 max-md:rounded-xl md:rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/30 whitespace-nowrap"
                 >
                   Sign Up — It&apos;s Free
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="w-auto inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-[13px] font-[500] px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all hover:bg-white/5 whitespace-nowrap"
+                  className="w-auto max-md:w-fit max-md:max-w-[min(100%,220px)] inline-flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white text-[13px] font-[500] px-4 py-2 sm:px-5 sm:py-2.5 max-md:rounded-xl md:rounded-full transition-all hover:bg-white/5 whitespace-nowrap"
                 >
                   Talk to Sales
                 </Link>
@@ -187,18 +187,18 @@ export default function ServicesPage() {
             <p className="text-[15px] text-blue-100 mb-9 max-w-lg mx-auto leading-relaxed">
               Get in touch with us today and discover how Rupexa can help you achieve your digital goals.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/contact" className="w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-md:max-w-[min(100%,220px)] max-md:mx-auto">
+              <Link href="/contact" className="w-auto max-md:w-full">
                 <button
-                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] inline-flex items-center gap-2 group transition-colors rounded-full whitespace-nowrap"
+                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] inline-flex items-center justify-center gap-2 group transition-colors max-md:rounded-xl md:rounded-full whitespace-nowrap w-full sm:w-auto"
                 >
                   Get in Touch
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </Link>
-              <Link href="/services" className="w-auto">
+              <Link href="/services" className="w-auto max-md:w-full">
                 <button
-                  className="border border-white/40 hover:border-white/70 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all rounded-full whitespace-nowrap"
+                  className="border border-white/40 hover:border-white/70 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all max-md:rounded-xl md:rounded-full whitespace-nowrap w-full sm:w-auto"
                 >
                   View All Services
                 </button>

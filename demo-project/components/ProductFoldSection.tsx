@@ -243,7 +243,7 @@ function ProductCard({ card }: { card: ProductCard }) {
         <div className="flex items-center gap-3">
           <Link
             href={card.learnLink}
-            className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 max-md:w-fit max-md:max-w-[min(100%,200px)] max-md:rounded-xl md:rounded-lg transition-colors justify-center"
           >
             Know More
             <ArrowRight className="w-3.5 h-3.5" />
@@ -335,7 +335,7 @@ export default function ProductFoldSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1.5 rounded-full text-[13px] font-[600] transition-all border ${activeTab === tab.id
+                className={`px-3 py-1.5 rounded-xl text-[13px] font-[600] transition-all border w-fit max-w-[min(100%,200px)] ${activeTab === tab.id
                     ? "bg-[#305eff] text-white border-[#305eff]"
                     : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
                   }`}

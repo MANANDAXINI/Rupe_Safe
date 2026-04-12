@@ -180,7 +180,7 @@ export default function About(): JSX.Element {
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-sm font-bold shadow-lg hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 max-md:rounded-xl md:rounded-sm font-bold shadow-lg hover:shadow-xl transition-all max-md:w-fit max-md:max-w-[min(100%,220px)]"
             >
               Get In Touch
               <ArrowRight className="w-5 h-5" />
