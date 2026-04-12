@@ -69,10 +69,10 @@ export default function BlogContent({ blog, readingTime }: BlogContentProps) {
                 <article>
                     {/* Header Section */}
                     <header className="mb-8 md:mb-12 text-left">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-600 leading-tight mb-4">
+                        <h1 className="text-4xl md:text-5xl font-semibold text-[#192839] leading-tight mb-4">
                             {blog.title}
                         </h1>
-                        <p className="text-lg md:text-xl text-slate-600 mt-4 max-w-4xl">
+                            <p className="text-[16px] text-[#40566d] mt-4 max-w-4xl leading-relaxed">
                             {blog.excerpt}
                         </p>
                     </header>
@@ -128,60 +128,51 @@ export default function BlogContent({ blog, readingTime }: BlogContentProps) {
                     />
                 </article>
 
-                {/* --- NEW: Action Section --- */}
-                <section className="mt-16 pt-12 border-t-2 border-dashed">
-                    <div className="bg-slate-50 rounded-2xl p-8 text-center">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <section className="mt-16 relative bg-gradient-to-br from-blue-700 to-indigo-800 rounded-2xl p-12 overflow-hidden">
+                    <div className="absolute -top-10 -left-10 w-48 h-48 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="relative z-10 text-center">
+                        <h3 className="text-[24px] font-semibold text-white mb-3">
                             Thanks for reading!
                         </h3>
-                        <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+                        <p className="text-blue-100 text-[15px] mb-8 max-w-xl mx-auto">
                             If you enjoyed this article, check out our other posts or get in touch with us.
                         </p>
-                        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                            <Button onClick={copyToClipboard} variant="outline" size="lg">
-                                <Copy className="w-5 h-5 mr-2" />
-                                Copy Link
-                            </Button>
+                        <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
                             <Link href="/blogs" passHref>
-                                <Button size="lg" className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6">
-                                    <ArrowLeft className="w-5 h-5 mr-2" />
+                                <button className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] transition-colors rounded-lg">
+                                    <ArrowLeft className="w-4 h-4" />
                                     View All Blogs
-                                </Button>
+                                </button>
                             </Link>
+                            <button
+                                onClick={copyToClipboard}
+                                className="inline-flex items-center gap-2 border border-white/40 hover:border-white/70 text-white font-medium px-6 py-2.5 text-[14px] transition-all rounded-lg"
+                            >
+                                <Copy className="w-4 h-4" />
+                                Copy Link
+                            </button>
                             <Link href="/contact" passHref>
-                                <Button variant="outline" size="lg">
-                                    <Send className="w-5 h-5 mr-2" />
+                                <button className="inline-flex items-center gap-2 border border-white/40 hover:border-white/70 text-white font-medium px-6 py-2.5 text-[14px] transition-all rounded-lg">
+                                    <Send className="w-4 h-4" />
                                     Contact Us
-                                </Button>
+                                </button>
                             </Link>
                         </div>
                     </div>
                 </section>
             </main>
 
-            {/* Trusted Partners Section */}
-            <section className="py-20 bg-slate-50 overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-12">
-                        <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Trusted By Partners</h3>
-                        <p className="text-slate-500 font-medium">Companies that trust us with their digital transformation</p>
-                    </div>
-
-                    <div className="overflow-hidden marquee-container">
-                        <div className="flex gap-8 items-center animate-scroll-left w-max">
-                            {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
-                                <span key={i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
-                                    {p}
-                                </span>
-                            ))}
-                            {/* Duplicate for seamless loop */}
-                            {["Acme Corp", "Bluewave", "Cloudify", "DataForge", "InfraWorks", "Nimbus", "Stark Industries", "Wayne Ent", "Globex", "Initech", "Umbrella", "Hooli"].map((p, i) => (
-                                <span key={"d" + i} className="mx-4 px-8 py-3 bg-white border border-blue-50 rounded-2xl shadow-sm text-sm font-semibold text-slate-700 transition-all hover:shadow-md hover:border-blue-200">
-                                    {p}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
+            {/* Bottom CTA Strip */}
+            <section className="relative bg-gradient-to-br from-blue-700 to-indigo-800 py-14 overflow-hidden">
+                <div className="absolute -top-16 -left-16 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                    <h3 className="text-[22px] font-semibold text-white mb-2">Ready to transform your business?</h3>
+                    <p className="text-blue-100 text-[14px] mb-7">Connect with the Rupexa team and discover how we can help you grow.</p>
+                    <Link href="/contact" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] transition-colors rounded-lg">
+                        Get In Touch <ArrowLeft className="w-4 h-4 rotate-180" />
+                    </Link>
                 </div>
             </section>
         </div>

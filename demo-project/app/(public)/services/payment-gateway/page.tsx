@@ -176,7 +176,7 @@ export default function PaymentGatewayPage() {
                             <span className="text-sm font-semibold text-white">Trusted by 50,000+ Merchants</span>
                         </motion.div>
 
-                        <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 max-w-5xl mx-auto">
+                        <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-[1.1] mb-6 max-w-5xl mx-auto">
                             Accept Payments <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
                                 Faster, Safer, Smarter
@@ -235,10 +235,10 @@ export default function PaymentGatewayPage() {
             <section className="py-24 bg-gradient-to-b from-white to-gray-50">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
+                        <h2 className="text-[30px] md:text-[42px] font-semibold text-[#192839] mb-4">
                             Why Choose Our Payment Gateway?
                         </h2>
-                        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                        <p className="text-[16px] text-[#40566d] max-w-3xl mx-auto">
                             Built for modern businesses with features that help you grow faster and serve customers better.
                         </p>
                     </div>
@@ -257,8 +257,8 @@ export default function PaymentGatewayPage() {
                                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/20">
                                     <feature.icon className="w-7 h-7 text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                                <h3 className="text-[17px] font-semibold text-[#192839] mb-3">{feature.title}</h3>
+                                <p className="text-[14px] text-[#40566d] leading-relaxed">{feature.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -269,10 +269,10 @@ export default function PaymentGatewayPage() {
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
+                        <h2 className="text-[30px] md:text-[42px] font-semibold text-[#192839] mb-4">
                             Get Started in <span className="text-blue-600">4 Simple Steps</span>
                         </h2>
-                        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                        <p className="text-[16px] text-[#40566d] max-w-3xl mx-auto">
                             Integration made simple. Go live in hours with our developer-friendly APIs and comprehensive documentation.
                         </p>
                     </div>
@@ -320,10 +320,10 @@ export default function PaymentGatewayPage() {
             <section id="pricing" className="py-24 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
+                        <h2 className="text-[30px] md:text-[42px] font-semibold text-[#192839] mb-4">
                             Simple, Transparent Pricing
                         </h2>
-                        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                        <p className="text-[16px] text-[#40566d] max-w-3xl mx-auto">
                             No hidden fees. No setup costs. Pay only for successful transactions.
                         </p>
                     </div>
@@ -381,35 +381,29 @@ export default function PaymentGatewayPage() {
             </section>
 
             {/* 6. CTA Section */}
-            <section className="py-24 bg-white">
-                <div className="max-w-6xl mx-auto px-6">
+            <section className="relative bg-gradient-to-br from-blue-700 to-indigo-800 py-20 overflow-hidden">
+                <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-[2.5rem] p-12 md:p-20 text-center overflow-hidden shadow-2xl"
+                        transition={{ duration: 0.5 }}
                     >
-                        {/* Decorative Elements */}
-                        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
-
-                        <div className="relative z-10">
-                            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                                Ready to Transform Your Payment Experience?
-                            </h2>
-                            <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                                Join thousands of businesses already using our payment gateway. Start accepting payments in minutes.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <Link href="/onboarding/payment-gateway" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
-                                    Start Free Trial <ArrowRight className="w-5 h-5" />
-                                </Link>
-                                <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors">
-                                    Talk to Sales
-                                </Link>
-                            </div>
+                        <h2 className="text-[30px] sm:text-[44px] font-semibold text-white mb-4 leading-snug">
+                            Ready to Transform Your Payment Experience?
+                        </h2>
+                        <p className="text-blue-100 text-[15px] max-w-2xl mx-auto mb-9 leading-relaxed">
+                            Join thousands of businesses already using our payment gateway. Start accepting payments in minutes.
+                        </p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-3">
+                            <Link href="/onboarding/payment-gateway" className="inline-flex items-center justify-center gap-2 px-7 py-2.5 text-[14px] bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                                Start Free Trial <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-2.5 text-[14px] border border-white/40 hover:border-white/70 text-white font-medium rounded-lg transition-colors">
+                                Talk to Sales
+                            </Link>
                         </div>
                     </motion.div>
                 </div>

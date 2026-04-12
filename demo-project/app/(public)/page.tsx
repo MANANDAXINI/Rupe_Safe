@@ -171,7 +171,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans text-slate-900">
+    <div className="min-h-screen bg-[#f1f5fa] font-sans text-[#192839]">
       {/* Hero Section with Slider */}
       <HeroSlider />
 
@@ -298,13 +298,13 @@ export default function Home() {
       </section >
 
       {/* Services Section with Enhanced Cards */}
-      <section className="py-20 bg-gradient-to-b from-gray-100 to-gray-50 relative z-10" >
+      <section className="py-20 bg-[#f1f5fa] relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-blue-600 mb-4">
+            <h2 className="text-2xl md:text-4xl font-[800] text-[#192839] mb-4">
               Comprehensive Technology Solutions
             </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="text-lg text-[#40566d] max-w-3xl mx-auto">
               We specialize in website and app development, digital marketing, ERP systems, and custom software solutions
             </p>
           </div>
@@ -531,18 +531,18 @@ export default function Home() {
       </section >
 
       <section
-        className="relative py-20 bg-gray-50 overflow-hidden"
+        className="relative py-20 bg-[#f1f5fa] overflow-hidden"
         ref={statsRef}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-600">
+            <h2 className="text-3xl md:text-4xl font-[800] mb-4 text-[#192839]">
               Why Choose Rupexa Private Limited?
             </h2>
-            <p className="text-lg text-gray-600 max-w-5xl mx-auto hidden md:block">
+            <p className="text-lg text-[#40566d] max-w-5xl mx-auto hidden md:block">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
             </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto md:hidden">
+            <p className="text-lg text-[#40566d] max-w-3xl mx-auto md:hidden">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
             </p>
           </div>
@@ -556,8 +556,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900">Expert Team</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg font-[700] mb-2 text-[#192839]">Expert Team</h3>
+                  <p className="text-[#40566d]">
                     Skilled professionals with years of industry experience in cutting-edge technologies.
                   </p>
                 </div>
@@ -570,8 +570,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900">Proven Results</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg font-[700] mb-2 text-[#192839]">Proven Results</h3>
+                  <p className="text-[#40566d]">
                     Track record of successful projects across industries with measurable ROI.
                   </p>
                 </div>
@@ -584,8 +584,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900">End-to-End Support</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg font-[700] mb-2 text-[#192839]">End-to-End Support</h3>
+                  <p className="text-[#40566d]">
                     From concept to deployment and beyond with continuous support and maintenance.
                   </p>
                 </div>
@@ -598,8 +598,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900">Scalable Solutions</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-lg font-[700] mb-2 text-[#192839]">Scalable Solutions</h3>
+                  <p className="text-[#40566d]">
                     Technology that grows with your business and adapts to changing needs.
                   </p>
                 </div>
@@ -619,7 +619,7 @@ export default function Home() {
                     {counter.value}
                     <span className="text-blue-400">{counter.suffix}</span>
                   </div>
-                  <div className="text-gray-500 text-sm font-medium">{counter.label}</div>
+                  <div className="text-[#40566d] text-sm font-[500]">{counter.label}</div>
                 </div>
               ))}
             </div>
@@ -638,7 +638,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold  mb-4 text-blue-600">
+            <h2 className="text-3xl md:text-5xl font-[900] mb-4 text-[#192839]">
               Core Capabilities
             </h2>
           </div>
@@ -665,8 +665,8 @@ export default function Home() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">{capability.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{capability.description}</p>
+                        <h3 className="text-xl font-[700] text-[#192839] mb-3">{capability.title}</h3>
+                        <p className="text-[#40566d] leading-relaxed">{capability.description}</p>
                       </div>
                     </div>
                   </Card>
@@ -681,16 +681,10 @@ export default function Home() {
 
       <FAQSection />
 
-      {/* Ready to Transform - With Background Image */}
-      <section
-        className="relative py-20 text-white bg-gradient-to-br from-blue-700 to-indigo-800 overflow-hidden z-10"
-      // style={{
-      //   backgroundImage: 'url(/footersection-1.png)',
-      //   backgroundSize: 'cover',
-      //   backgroundPosition: 'center',
-      // }}
-      >
-        <div className="absolute inset-0 "></div>
+      {/* Ready to Transform */}
+      <section className="relative py-20 text-white bg-gradient-to-br from-blue-700 to-indigo-800 overflow-hidden z-10">
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">

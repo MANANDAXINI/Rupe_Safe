@@ -11,7 +11,7 @@ import ServicesScrollSection from "@/components/ServicesScrollSection";
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#f8faff] relative overflow-hidden font-sans text-slate-900">
+    <main className="min-h-screen bg-[#f1f5fa] relative overflow-hidden font-sans text-[#192839]">
 
       {/* ─── HERO SECTION ─── */}
       <section
@@ -167,6 +167,47 @@ export default function ServicesPage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ── BOTTOM CTA ── */}
+      <section className="relative bg-gradient-to-br from-blue-700 to-indigo-800 py-20 overflow-hidden">
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-[760px] mx-auto px-4 sm:px-6 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-[30px] sm:text-[44px] font-semibold text-white mb-4 leading-snug">
+              Ready to transform your business?
+            </h2>
+            <p className="text-[15px] text-blue-100 mb-9 max-w-lg mx-auto leading-relaxed">
+              Get in touch with us today and discover how Rupexa can help you achieve your digital goals.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Link href="/contact">
+                <button
+                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-7 py-2.5 text-[14px] inline-flex items-center gap-2 group transition-colors rounded-lg"
+                >
+                  Get in Touch
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </Link>
+              <Link href="/services">
+                <button
+                  className="border border-white/40 hover:border-white/70 text-white font-medium px-7 py-2.5 text-[14px] transition-all rounded-lg"
+                >
+                  View All Services
+                </button>
+              </Link>
+            </div>
+            <p className="text-[12px] text-blue-200/60 mt-5">
+              No credit card required &nbsp;·&nbsp; Setup in minutes &nbsp;·&nbsp; Cancel anytime
+            </p>
+          </motion.div>
         </div>
       </section>
 

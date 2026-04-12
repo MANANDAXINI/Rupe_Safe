@@ -283,14 +283,21 @@ export default function BlogsPage() {
         )}
 
         {/* ── CTA STRIP ───────────────────────────────────────────── */}
-        <section className="mt-4 bg-gradient-to-br from-blue-700 to-indigo-800 px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-white text-xl font-bold mb-1">Ready to transform your business?</h3>
-            <p className="text-blue-100 text-sm">Connect with the Rupexa team and discover how we can help you grow.</p>
+        <section className="mt-4 relative bg-gradient-to-br from-blue-700 to-indigo-800 px-8 py-16 overflow-hidden">
+          <div className="absolute -top-16 -left-16 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-white text-[22px] font-semibold mb-2">Ready to transform your business?</h3>
+              <p className="text-blue-100 text-[14px] max-w-lg">Connect with the Rupexa team and discover how we can help you grow.</p>
+            </div>
+            <Link
+              href="/contact"
+              className="flex-shrink-0 inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] transition-all group rounded-lg"
+            >
+              Get In Touch <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"/>
+            </Link>
           </div>
-          <Link href="/contact" className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-5 py-2.5 text-sm hover:shadow-lg transition-all">
-            Get In Touch <ArrowRight className="w-4 h-4"/>
-          </Link>
         </section>
 
       </div>

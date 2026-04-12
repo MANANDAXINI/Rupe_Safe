@@ -87,7 +87,6 @@ export default function AppDevelopmentPage() {
       
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Decorative Blobs */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50 rounded-full blur-3xl -mr-40 -mt-40 opacity-70 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gray-100 rounded-full blur-3xl -ml-20 -mb-20 opacity-70 pointer-events-none" />
 
@@ -106,22 +105,22 @@ export default function AppDevelopmentPage() {
               <span className="text-sm font-semibold text-blue-700">Mobile-First Innovation</span>
             </motion.div>
 
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 max-w-4xl">
+            <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-semibold text-[#192839] tracking-tight leading-[1.1] mb-6 max-w-4xl">
               We build mobile apps that <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
                 users love to use
               </span>
             </motion.h1>
 
-            <motion.p variants={fadeInUp} className="text-xl text-slate-600 max-w-2xl mb-10 leading-relaxed">
+            <motion.p variants={fadeInUp} className="text-[16px] text-[#40566d] max-w-2xl mb-10 leading-relaxed">
               From native iOS and Android apps to powerful cross-platform solutions, we deliver mobile experiences that drive engagement.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg shadow-blue-600/20 hover:bg-blue-700 hover:shadow-blue-600/30 transition-all transform hover:-translate-y-1">
+              <Link href="/contact" className="px-7 py-2.5 bg-blue-600 text-white font-medium text-[14px] rounded-lg shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all">
                 Start Your App
               </Link>
-              <Link href="#process" className="px-8 py-4 bg-white text-slate-700 font-bold rounded-full border border-slate-200 hover:border-blue-200 hover:bg-blue-50 transition-all">
+              <Link href="#process" className="px-7 py-2.5 bg-white text-[#192839] font-medium text-[14px] rounded-lg border border-gray-200 hover:border-blue-200 hover:bg-blue-50 transition-all">
                 View Portfolio
               </Link>
             </motion.div>
@@ -133,8 +132,8 @@ export default function AppDevelopmentPage() {
       <section className="py-24 bg-blue-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Expertise</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">End-to-end mobile development services tailored to your business goals.</p>
+            <h2 className="text-[28px] md:text-[36px] font-semibold text-[#192839] mb-4">Our Expertise</h2>
+            <p className="text-[15px] text-[#40566d] max-w-2xl mx-auto">End-to-end mobile development services tailored to your business goals.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -151,27 +150,26 @@ export default function AppDevelopmentPage() {
                 <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="w-7 h-7 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{service.description}</p>
+                <h3 className="text-[17px] font-semibold text-[#192839] mb-3">{service.title}</h3>
+                <p className="text-[14px] text-[#40566d] leading-relaxed">{service.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. Process Timeline (Sticky Layout) */}
+      {/* 3. Process Timeline */}
       <section id="process" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="lg:grid lg:grid-cols-2 gap-16">
             
-            {/* Left Side (Sticky) */}
             <div className="mb-12 lg:mb-0">
               <div className="sticky top-32">
-                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                <h2 className="text-[30px] md:text-[42px] font-semibold text-[#192839] mb-6 leading-tight">
                   From Concept to <br />
                   <span className="text-blue-600">App Store</span>
                 </h2>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                <p className="text-[15px] text-[#40566d] mb-8 leading-relaxed">
                   We follow a rigorous development process to ensure your app is built to the highest standards of quality and performance.
                 </p>
                 
@@ -182,7 +180,7 @@ export default function AppDevelopmentPage() {
                     "99.9% Crash-Free Sessions",
                     "Secure Data Handling"
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                    <li key={i} className="flex items-center gap-3 text-[#192839] font-medium">
                       <CheckCircle2 className="w-5 h-5 text-blue-600" />
                       {item}
                     </li>
@@ -191,7 +189,6 @@ export default function AppDevelopmentPage() {
               </div>
             </div>
 
-            {/* Right Side (Scrollable Timeline) */}
             <div className="relative pl-8 border-l-2 border-slate-100 space-y-12">
               {processSteps.map((step, index) => (
                 <motion.div
@@ -202,12 +199,10 @@ export default function AppDevelopmentPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative"
                 >
-                  {/* Timeline Dot */}
                   <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-white border-4 border-blue-600" />
-                  
                   <span className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-2 block">Step {step.step}</span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                  <h3 className="text-[20px] font-semibold text-[#192839] mb-3">{step.title}</h3>
+                  <p className="text-[14px] text-[#40566d] leading-relaxed">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -231,35 +226,29 @@ export default function AppDevelopmentPage() {
       </section>
 
       {/* 5. CTA Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
+      <section className="relative bg-gradient-to-br from-blue-700 to-indigo-800 py-20 overflow-hidden">
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-[2.5rem] p-12 md:p-20 text-center overflow-hidden shadow-2xl"
+            transition={{ duration: 0.5 }}
           >
-            {/* Decorative Orbs */}
-            <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
-
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Got an app idea?
-              </h2>
-              <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-                Let's turn it into a reality. We help startups and enterprises build world-class mobile applications.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/25">
-                  Get a Quote <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-slate-700 text-white font-bold rounded-full hover:bg-slate-800 transition-colors">
-                  Book Consultation
-                </Link>
-              </div>
+            <h2 className="text-[30px] sm:text-[44px] font-semibold text-white mb-4 leading-snug">
+              Got an app idea?
+            </h2>
+            <p className="text-blue-100 text-[15px] max-w-2xl mx-auto mb-9 leading-relaxed">
+              Let's turn it into a reality. We help startups and enterprises build world-class mobile applications.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-2.5 text-[14px] bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                Get a Quote <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-2.5 text-[14px] border border-white/40 hover:border-white/70 text-white font-medium rounded-lg transition-colors">
+                Book Consultation
+              </Link>
             </div>
           </motion.div>
         </div>

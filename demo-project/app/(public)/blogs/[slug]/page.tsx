@@ -86,7 +86,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
             </span>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 leading-tight mb-6">
+            <h1 className="text-3xl md:text-4xl font-semibold text-[#192839] leading-tight mb-6">
               {seed.title}
             </h1>
             <div className="w-12 h-1 bg-blue-600 mb-6" />
@@ -112,15 +112,28 @@ export default async function BlogPage({ params }: BlogPageProps) {
           </div>
         </article>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Link href="/blogs" className="inline-flex items-center gap-2 bg-blue-600 text-white font-bold px-6 py-3 text-sm hover:bg-blue-700 transition-colors">
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <Link href="/blogs" className="inline-flex items-center gap-2 bg-blue-600 text-white font-medium px-6 py-2.5 text-sm hover:bg-blue-700 transition-colors rounded-lg">
             <ArrowLeft className="w-4 h-4" /> Back to All Articles
           </Link>
-          <Link href="/contact" className="inline-flex items-center gap-2 border border-blue-600 text-blue-600 font-bold px-6 py-3 text-sm hover:bg-blue-50 transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 border border-[#192839]/20 text-[#192839] font-medium px-6 py-2.5 text-sm hover:bg-gray-50 transition-colors rounded-lg">
             Contact Rupexa Team
           </Link>
         </div>
+
+        {/* Bottom gradient CTA */}
       </div>
+      <section className="relative bg-gradient-to-br from-blue-700 to-indigo-800 py-14 overflow-hidden">
+        <div className="absolute -top-16 -left-16 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-[760px] mx-auto px-4 sm:px-6 text-center relative z-10">
+          <h2 className="text-[26px] font-semibold text-white mb-3">Ready to transform your business?</h2>
+          <p className="text-blue-100 text-[14px] mb-7">Connect with the Rupexa team and discover how we can help you grow.</p>
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] transition-colors rounded-lg">
+            Get In Touch <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

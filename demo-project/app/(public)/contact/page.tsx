@@ -414,10 +414,9 @@ export default function ContactPage() {
       </section>
 
       {/* ── 6. CTA STRIP ───────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-blue-700 to-indigo-800 py-14 relative overflow-hidden">
-        {/* Animated blobs */}
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
-        <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
+      <section className="relative bg-gradient-to-br from-blue-700 to-indigo-800 py-16 overflow-hidden">
+        <div className="absolute -top-16 -left-16 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -427,8 +426,8 @@ export default function ContactPage() {
               viewport={{ once:true }}
               transition={{ duration:0.5 }}
             >
-              <h2 className="text-white text-2xl font-bold mb-1">Contact Immediately</h2>
-              <p className="text-blue-100 text-sm max-w-lg">
+              <h2 className="text-white text-[22px] font-semibold mb-2">Contact Immediately</h2>
+              <p className="text-blue-100 text-[14px] max-w-lg">
                 Need urgent assistance? Our support team is available 24/7 to help you with your queries.
               </p>
             </motion.div>
@@ -439,9 +438,9 @@ export default function ContactPage() {
               whileInView={{ opacity:1, x:0 }}
               viewport={{ once:true }}
               transition={{ duration:0.5, delay:0.1 }}
-              whileHover={{ scale:1.04, boxShadow:"0 8px 24px rgba(0,0,0,0.2)" }}
+              whileHover={{ scale:1.03, y:-2 }}
               whileTap={{ scale:0.97 }}
-              className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-6 py-3 rounded-full shadow-md text-sm flex-shrink-0 group"
+              className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] flex-shrink-0 group transition-colors rounded-lg"
             >
               <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
               Call Now
