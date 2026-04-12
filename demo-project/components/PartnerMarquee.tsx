@@ -38,8 +38,8 @@ export default function PartnerMarquee() {
 
   return (
     <section className="w-full py-10 bg-white border-b border-gray-100 flex flex-col items-center justify-center overflow-hidden">
-      <p className="text-[17px] text-[#40566d] font-[500] mb-8 tracking-wide uppercase">
-        Trusted by Financial Institutions & Networks
+      <p className="text-[17px] text-[#40566d] font-[500] mb-8 tracking-wide uppercase text-center">
+        Trusted by Financial Institutions &amp; Networks
       </p>
       
       <div 

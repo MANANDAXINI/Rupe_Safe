@@ -57,7 +57,7 @@ export default function AboutUsPage(): JSX.Element {
               <span className="w-1.5 h-1.5 bg-[#48d08c] rounded-full animate-pulse" />
               About Rupexa
             </motion.div>
-            <motion.h1 variants={fadeUp} className="text-[40px] sm:text-[56px] lg:text-[68px] font-[900] leading-[1.05] text-white mb-6 max-w-4xl mx-auto">
+            <motion.h1 variants={fadeUp} className="text-[36px] sm:text-[52px] lg:text-[64px] font-semibold leading-[1.05] text-white mb-6 max-w-4xl mx-auto">
               Empowering Business{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#305eff] via-blue-400 to-purple-400">Through Technology</span>
             </motion.h1>
@@ -85,8 +85,8 @@ export default function AboutUsPage(): JSX.Element {
                 Today we serve 250+ clients across India, powering their payroll, payments, web presence and enterprise operations — all under one roof.
               </motion.p>
               <motion.div variants={fadeUp}>
-                <Link href="/contact">
-                  <button className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white font-[700] px-7 py-3 rounded-full text-[14px] transition-all shadow-lg shadow-blue-200 group">
+                <Link href="/contact" className="w-auto">
+                  <button className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] transition-all shadow-lg shadow-blue-200 group whitespace-nowrap">
                     Work with Us
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -199,10 +199,10 @@ export default function AboutUsPage(): JSX.Element {
             <motion.p variants={fadeUp} className="text-[15px] text-blue-100 mb-9 max-w-lg mx-auto leading-relaxed">
               Let&apos;s build something great together. Reach out and our team will help you get started.
             </motion.p>
-            <motion.div variants={fadeUp}>
-              <Link href="/contact">
+            <motion.div variants={fadeUp} className="flex justify-center">
+              <Link href="/contact" className="w-auto">
                 <button
-                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-8 py-2.5 text-[14px] inline-flex items-center gap-2 group transition-colors rounded-lg"
+                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] inline-flex items-center gap-2 group transition-colors rounded-full whitespace-nowrap"
                 >
                   Get in Touch
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

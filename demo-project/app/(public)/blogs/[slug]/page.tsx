@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import BlogContent from './BlogContent';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const prisma = new PrismaClient();
 export const dynamic = 'force-dynamic';

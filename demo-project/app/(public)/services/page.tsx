@@ -16,7 +16,7 @@ export default function ServicesPage() {
       {/* ─── HERO SECTION ─── */}
       <section
         id="hero"
-        className="relative w-full min-h-screen bg-white font-sans flex items-center overflow-hidden pt-20 pb-10"
+        className="relative w-full min-h-screen bg-white font-sans flex items-center overflow-hidden pt-28 sm:pt-20 pb-10"
       >
         {/* Soft ambient glows */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -55,8 +55,8 @@ export default function ServicesPage() {
 
                 {/* CTA */}
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                  <Link href="/services/payment-gateway" className="w-full sm:w-auto">
-                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-[15px] font-[600] transition-all flex items-center justify-center gap-3 group w-full sm:w-auto shadow-lg shadow-blue-200">
+                  <Link href="/services/payment-gateway" className="w-auto">
+                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center gap-2 group w-auto shadow-lg shadow-blue-200 whitespace-nowrap">
                       Explore Services
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -65,8 +65,8 @@ export default function ServicesPage() {
               </motion.div>
             </div>
 
-            {/* Right – Product screenshot */}
-            <div className="lg:col-span-5 relative h-[420px] sm:h-[520px] lg:h-[680px] xl:h-[720px] w-full order-1 lg:order-2 pointer-events-none overflow-visible flex items-center justify-center lg:justify-end">
+            {/* Right – Product screenshot — hidden on mobile */}
+            <div className="hidden sm:flex lg:col-span-5 relative h-[420px] sm:h-[520px] lg:h-[680px] xl:h-[720px] w-full order-1 lg:order-2 pointer-events-none overflow-visible items-center justify-center lg:justify-end">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -125,14 +125,14 @@ export default function ServicesPage() {
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                 <Link
                   href="/auth/signup"
-                  className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-600 text-white text-[13px] font-[600] px-5 py-2.5 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/30"
+                  className="w-auto inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-600 text-white text-[13px] font-[600] px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/30 whitespace-nowrap"
                 >
                   Sign Up — It&apos;s Free
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-[13px] font-[500] px-5 py-2.5 rounded-lg transition-all hover:bg-white/5"
+                  className="w-auto inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-[13px] font-[500] px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all hover:bg-white/5 whitespace-nowrap"
                 >
                   Talk to Sales
                 </Link>
@@ -144,8 +144,8 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            {/* ── Right: dashboard screenshot ── */}
-            <div className="flex-shrink-0 w-full lg:w-[480px] xl:w-[520px] relative">
+            {/* ── Right: dashboard screenshot — hidden on mobile ── */}
+            <div className="hidden lg:flex flex-shrink-0 w-full lg:w-[480px] xl:w-[520px] relative">
               {/* Glow behind card */}
               <div className="absolute inset-0 bg-[#305eff]/20 blur-[60px] rounded-2xl" />
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
@@ -188,17 +188,17 @@ export default function ServicesPage() {
               Get in touch with us today and discover how Rupexa can help you achieve your digital goals.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/contact">
+              <Link href="/contact" className="w-auto">
                 <button
-                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-7 py-2.5 text-[14px] inline-flex items-center gap-2 group transition-colors rounded-lg"
+                  className="bg-white hover:bg-gray-100 text-blue-600 font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] inline-flex items-center gap-2 group transition-colors rounded-full whitespace-nowrap"
                 >
                   Get in Touch
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </Link>
-              <Link href="/services">
+              <Link href="/services" className="w-auto">
                 <button
-                  className="border border-white/40 hover:border-white/70 text-white font-medium px-7 py-2.5 text-[14px] transition-all rounded-lg"
+                  className="border border-white/40 hover:border-white/70 text-white font-medium px-4 py-2 sm:px-6 sm:py-2.5 text-[13px] sm:text-[14px] transition-all rounded-full whitespace-nowrap"
                 >
                   View All Services
                 </button>

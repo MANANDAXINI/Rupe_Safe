@@ -120,7 +120,7 @@ export default function HeroSlider() {
   const slidePrev = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative w-full min-h-screen bg-white font-sans flex items-center overflow-hidden pt-20 pb-10">
+    <section className="relative w-full min-h-screen bg-white font-sans flex items-center overflow-hidden pt-28 sm:pt-20 pb-10">
 
       {/* Immersive Razorpay Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -157,25 +157,25 @@ export default function HeroSlider() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <h1 className="text-[40px] sm:text-[50px] lg:text-[52px] xl:text-[58px] 2xl:text-[64px] font-[650] leading-[1.1] mb-5">
+                <h1 className="text-[30px] sm:text-[42px] lg:text-[52px] xl:text-[58px] 2xl:text-[64px] font-[650] leading-[1.1] mb-5">
                   {slides[index % slides.length]?.titleHTML}
                 </h1>
 
-                <p className="text-[17px] sm:text-[19px] lg:text-[20px] text-[#40566d] font-[500] leading-snug mb-8 max-w-2xl mx-auto lg:mx-0">
+                <p className="text-[15px] sm:text-[17px] lg:text-[20px] text-[#40566d] font-[500] leading-snug mb-8 max-w-2xl mx-auto lg:mx-0">
                   {slides[index % slides.length]?.subtitleHTML}
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                  <Link href={slides[index % slides.length]?.primaryLink || "#"} className="w-full sm:w-auto">
-                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-7 py-3.5 rounded-full text-[15px] font-[600] transition-all flex items-center justify-center gap-2 group w-full sm:w-auto">
+                <div className="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start">
+                  <Link href={slides[index % slides.length]?.primaryLink || "#"} className="w-fit mx-auto lg:mx-0">
+                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center gap-2 group">
                       {slides[index % slides.length]?.primaryCta}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </Link>
 
                   {slides[index % slides.length]?.secondaryCta && slides[index % slides.length]?.secondaryLink && (
-                    <Link href={slides[index % slides.length]?.secondaryLink || "#"} className="w-full sm:w-auto">
-                      <button className="bg-transparent hover:bg-blue-50 text-[#2950da] hover:text-[#1839b0] px-7 py-3.5 rounded-lg text-[15px] font-[600] transition-all w-full sm:w-auto flex items-center justify-center">
+                    <Link href={slides[index % slides.length]?.secondaryLink || "#"} className="w-fit mx-auto lg:mx-0">
+                      <button className="bg-transparent hover:bg-blue-50 text-[#2950da] hover:text-[#1839b0] px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-[13px] sm:text-[14px] font-[600] transition-all flex items-center justify-center border border-[#2950da]/20">
                         {slides[index % slides.length]?.secondaryCta}
                       </button>
                     </Link>
