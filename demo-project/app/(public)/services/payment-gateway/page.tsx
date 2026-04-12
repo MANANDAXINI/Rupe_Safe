@@ -189,10 +189,10 @@ export default function PaymentGatewayPage() {
                         </motion.p>
 
                         <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                            <Link href="/onboarding/payment-gateway" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:shadow-blue-600/40 transition-all transform hover:-translate-y-1 text-center">
+                            <Link href="/onboarding/payment-gateway" className="px-7 py-3.5 text-sm bg-blue-600 text-white font-bold rounded-lg shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:shadow-blue-600/40 transition-all transform hover:-translate-y-1 text-center">
                                 Start Onboarding Now
                             </Link>
-                            <Link href="#pricing" className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all">
+                            <Link href="#pricing" className="px-7 py-3.5 text-sm bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg border-2 border-white/30 hover:bg-white/20 transition-all">
                                 View Pricing
                             </Link>
                         </motion.div>
@@ -309,7 +309,7 @@ export default function PaymentGatewayPage() {
                     </div>
 
                     <div className="text-center mt-12">
-                        <Link href="/onboarding/payment-gateway" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25">
+                        <Link href="/onboarding/payment-gateway" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25">
                             Go to Onboarding Flow <ChevronRight className="w-5 h-5" />
                         </Link>
                     </div>
@@ -403,10 +403,10 @@ export default function PaymentGatewayPage() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <Link href="/onboarding/payment-gateway" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+                                <Link href="/onboarding/payment-gateway" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
                                     Start Free Trial <ArrowRight className="w-5 h-5" />
                                 </Link>
-                                <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-colors">
+                                <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors">
                                     Talk to Sales
                                 </Link>
                             </div>

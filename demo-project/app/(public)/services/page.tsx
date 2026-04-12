@@ -55,15 +55,10 @@ export default function ServicesPage() {
 
                 {/* CTA */}
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                  <Link href="/auth/signup" className="w-full sm:w-auto">
-                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-8 py-4 rounded-[4px] text-[15px] font-[600] transition-all flex items-center justify-center gap-3 group w-full sm:w-auto shadow-lg shadow-blue-200">
-                      Sign up
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </Link>
                   <Link href="/services/payment-gateway" className="w-full sm:w-auto">
-                    <button className="bg-transparent hover:bg-blue-50 text-[#305eff] hover:text-[#1839b0] border border-[#305eff] px-8 py-4 rounded-[4px] text-[15px] font-[600] transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-[15px] font-[600] transition-all flex items-center justify-center gap-3 group w-full sm:w-auto shadow-lg shadow-blue-200">
                       Explore Services
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </Link>
                 </div>
@@ -130,14 +125,14 @@ export default function ServicesPage() {
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                 <Link
                   href="/auth/signup"
-                  className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-600 text-white text-[15px] font-[600] px-6 py-3 rounded-[4px] transition-all hover:shadow-lg hover:shadow-blue-500/30"
+                  className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-600 text-white text-[13px] font-[600] px-5 py-2.5 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/30"
                 >
                   Sign Up — It&apos;s Free
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-[15px] font-[500] px-6 py-3 rounded-[4px] transition-all hover:bg-white/5"
+                  className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white text-[13px] font-[500] px-5 py-2.5 rounded-lg transition-all hover:bg-white/5"
                 >
                   Talk to Sales
                 </Link>

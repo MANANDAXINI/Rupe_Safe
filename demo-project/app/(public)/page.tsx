@@ -230,13 +230,13 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/onboarding/payment-gateway">
-                  <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 w-full sm:w-auto">
+                  <Button size="sm" className="bg-[#305eff] text-white hover:bg-blue-700 text-sm px-6 rounded-lg w-full sm:w-auto">
                     Explore Payment Gateway
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link href="/onboarding/payment-gateway">
-                  <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 w-full sm:w-auto transition-all duration-300">
+                  <Button size="sm" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 w-full sm:w-auto transition-all duration-300 rounded-lg">
                     Get Started Free
                   </Button>
                 </Link>
@@ -699,13 +699,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-sm mx-auto sm:max-w-none">
             <Link href="/contact">
-              <Button size="lg" className="w-full sm:w-auto min-w-[220px] bg-white text-blue-600 hover:bg-gray-100 text-lg px-8">
+              <Button size="sm" className="w-full sm:w-auto min-w-[160px] bg-white text-blue-600 hover:bg-gray-100 text-sm px-6 rounded-lg">
                 Contact Us
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link href="/services">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto min-w-[220px] bg-transparent border-white text-white hover:bg-white hover:text-blue-500 text-lg px-8 transition-all duration-300">
+              <Button size="sm" variant="outline" className="w-full sm:w-auto min-w-[160px] bg-transparent border-white text-white hover:bg-white hover:text-blue-500 text-sm px-6 transition-all duration-300 rounded-lg">
                 View All Services
               </Button>
             </Link>

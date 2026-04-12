@@ -32,23 +32,23 @@ const ICON_MAP: Record<string, React.ElementType> = {
 };
 
 const IMAGE_MAP: Record<string, string> = {
-  "Payment Gateway":   "https://framerusercontent.com/images/PzYQcqcos30Qy4f3PfwbxMw1c.webp?width=568&height=600",
-  "Web Development":   "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=568&h=600&fit=crop",
-  "App Development":   "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=568&h=600&fit=crop",
-  "ERP Solutions":     "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=568&h=600&fit=crop",
+  "Payment Gateway": "https://framerusercontent.com/images/PzYQcqcos30Qy4f3PfwbxMw1c.webp?width=568&height=600",
+  "Web Development": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=568&h=600&fit=crop",
+  "App Development": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=568&h=600&fit=crop",
+  "ERP Solutions": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=568&h=600&fit=crop",
   "Digital Marketing": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=568&h=600&fit=crop",
-  "Custom Software":   "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=568&h=600&fit=crop",
-  "Tech Consulting":   "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=568&h=600&fit=crop",
+  "Custom Software": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=568&h=600&fit=crop",
+  "Tech Consulting": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=568&h=600&fit=crop",
 };
 
 const SLUG_MAP: Record<string, string> = {
-  "Payment Gateway":   "payment-gateway",
-  "Web Development":   "web-development",
-  "App Development":   "app-development",
-  "ERP Solutions":     "erp-solutions",
+  "Payment Gateway": "payment-gateway",
+  "Web Development": "web-development",
+  "App Development": "app-development",
+  "ERP Solutions": "erp-solutions",
   "Digital Marketing": "digital-marketing",
-  "Custom Software":   "custom-software",
-  "Tech Consulting":   "tech-consultant",
+  "Custom Software": "custom-software",
+  "Tech Consulting": "tech-consultant",
 };
 
 const getStartedRoute = (title: string) =>
@@ -87,11 +87,10 @@ function ServiceSection({
       onClick={onClick}
       animate={{ scale, opacity, y: translateY }}
       transition={{ type: "spring", stiffness: 280, damping: 30 }}
-      className={`relative w-full rounded-[4px] overflow-hidden border cursor-pointer select-none ${
-        isActive
+      className={`relative w-full rounded-[4px] overflow-hidden border cursor-pointer select-none ${isActive
           ? "border-[rgba(121,135,156,0.3)] shadow-[rgba(49,49,51,0.14)_0px_4px_32px_0px]"
           : "border-[rgba(121,135,156,0.14)] shadow-[rgba(49,49,51,0.06)_0px_2px_12px_0px]"
-      }`}
+        }`}
       style={{ transformOrigin: "top center" }}
     >
       {/* ── Layout: image left / text right (desktop), stacked (mobile) ── */}
@@ -180,9 +179,8 @@ function TabBtn({
   return (
     <button
       onClick={onClick}
-      className={`relative flex-shrink-0 px-4 py-3 text-[14px] font-[600] transition-colors whitespace-nowrap ${
-        active ? "text-[#192839]" : "text-[#768ea7] hover:text-[#192839]"
-      }`}
+      className={`relative flex-shrink-0 px-4 py-3 text-[14px] font-[600] transition-colors whitespace-nowrap ${active ? "text-[#192839]" : "text-[#768ea7] hover:text-[#192839]"
+        }`}
     >
       {label}
       {active && (
@@ -217,7 +215,7 @@ export default function ServicesScrollSection() {
           setServices(data);
         }
       })
-      .catch(() => {})
+      .catch(() => { })
       .finally(() => setLoading(false));
   }, []);
 

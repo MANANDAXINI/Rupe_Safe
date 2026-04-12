@@ -10,12 +10,12 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 ───────────────────────────────────────────── */
 
 const TABS = [
-  { id: "accept-payments",    label: "Accept Payments" },
-  { id: "web-development",    label: "Build Websites" },
-  { id: "app-development",    label: "Develop Apps" },
-  { id: "erp-solutions",      label: "ERP Solutions" },
-  { id: "digital-marketing",  label: "Digital Marketing" },
-  { id: "custom-software",    label: "Custom Software" },
+  { id: "accept-payments", label: "Accept Payments" },
+  { id: "web-development", label: "Build Websites" },
+  { id: "app-development", label: "Develop Apps" },
+  { id: "erp-solutions", label: "ERP Solutions" },
+  { id: "digital-marketing", label: "Digital Marketing" },
+  { id: "custom-software", label: "Custom Software" },
 ];
 
 interface ProductCard {
@@ -242,17 +242,11 @@ function ProductCard({ card }: { card: ProductCard }) {
         {/* Buttons */}
         <div className="flex items-center gap-3">
           <Link
-            href={card.signupLink}
-            className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 rounded-[4px] transition-colors"
-          >
-            Sign Up
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-          <Link
             href={card.learnLink}
-            className="text-[13px] font-[600] text-[#2950da] hover:text-[#1839b0] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 rounded-lg transition-colors"
           >
             Know More
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </div>
@@ -341,11 +335,10 @@ export default function ProductFoldSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1.5 rounded-full text-[13px] font-[600] transition-all border ${
-                  activeTab === tab.id
+                className={`px-3 py-1.5 rounded-full text-[13px] font-[600] transition-all border ${activeTab === tab.id
                     ? "bg-[#305eff] text-white border-[#305eff]"
                     : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -359,11 +352,10 @@ export default function ProductFoldSection() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex-shrink-0 px-4 py-3 text-[14px] font-[600] transition-colors whitespace-nowrap pb-[14px] ${
-                activeTab === tab.id
+              className={`relative flex-shrink-0 px-4 py-3 text-[14px] font-[600] transition-colors whitespace-nowrap pb-[14px] ${activeTab === tab.id
                   ? "text-[#192839]"
                   : "text-[#768ea7] hover:text-[#192839]"
-              }`}
+                }`}
             >
               {tab.label}
               {activeTab === tab.id && (
@@ -380,7 +372,7 @@ export default function ProductFoldSection() {
           <div className="ml-auto flex-shrink-0 pl-4">
             <Link
               href="/auth/signup"
-              className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[14px] font-[600] px-5 py-2.5 rounded-[4px] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[14px] font-[600] px-5 py-2.5 rounded-lg transition-colors"
             >
               Get Started Now
             </Link>

@@ -137,8 +137,8 @@ export default function AboutUsPage(): JSX.Element {
       <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl font-extrabold text-white mb-4">Ready to transform your business?</h2>
-          <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg">
-            Get Started
+          <button className="px-6 py-2.5 text-sm bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg">
+            Get in Touch
           </button>
         </div>
       </section>
