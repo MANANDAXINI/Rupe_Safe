@@ -150,9 +150,9 @@ export default function ServicesPage() {
               <div className="absolute inset-0 bg-[#305eff]/20 blur-[60px] rounded-2xl" />
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="https://framerusercontent.com/images/thXZ310oT4r1GGftr6YZcfoKis8.png"
-                  alt="Rupexa Dashboard"
-                  className="w-full h-full object-cover object-top mix-blend-lighten opacity-90"
+                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&q=80"
+                  alt="Rupexa Payment Platform"
+                  className="w-full h-full object-cover object-center opacity-90"
                   loading="lazy"
                 />
               </div>

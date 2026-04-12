@@ -441,7 +441,7 @@ export default function ContactPage() {
               transition={{ duration:0.5, delay:0.1 }}
               whileHover={{ scale:1.04, boxShadow:"0 8px 24px rgba(0,0,0,0.2)" }}
               whileTap={{ scale:0.97 }}
-              className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-6 py-3 rounded-sm shadow-md text-sm flex-shrink-0 group"
+              className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-6 py-3 rounded-full shadow-md text-sm flex-shrink-0 group"
             >
               <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
               Call Now

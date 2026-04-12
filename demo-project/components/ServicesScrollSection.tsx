@@ -144,7 +144,7 @@ function ServiceSection({
             <Link
               href={getStartedRoute(service.title)}
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[14px] font-[600] px-5 py-2.5 rounded-[4px] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[14px] font-[600] px-5 py-2.5 rounded-lg transition-colors"
             >
               Get Started
               <ArrowRight className="w-3.5 h-3.5" />
@@ -299,7 +299,7 @@ export default function ServicesScrollSection() {
             <div className="ml-auto flex-shrink-0 pl-4 py-2">
               <Link
                 href="/auth/signup"
-                className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 rounded-[4px] transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-[#305eff] hover:bg-blue-700 text-white text-[13px] font-[600] px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
               >
                 Get Started Now
               </Link>

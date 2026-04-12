@@ -159,7 +159,7 @@ export default function Navigation() {
                   Login
                 </Link>
                 <Link href="/auth/signup">
-                  <button className="bg-[#305eff] hover:bg-blue-700 text-white font-[600] px-5 py-[10px] rounded-lg shadow-sm text-[14px] flex items-center gap-2 tracking-tight transition-all">
+                  <button className="bg-[#305eff] hover:bg-blue-700 text-white font-[600] px-5 py-[10px] rounded-full shadow-sm text-[14px] flex items-center gap-2 tracking-tight transition-all">
                     Sign Up
                     <ArrowRight className="w-4 h-4" />
                   </button>
@@ -255,7 +255,7 @@ export default function Navigation() {
                   </Button>
                 </Link>
                 <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-[#305eff] hover:bg-blue-700 text-white h-12 font-semibold rounded-lg">
+                  <Button className="w-full bg-[#305eff] hover:bg-blue-700 text-white h-12 font-semibold rounded-full">
                     Sign Up
                   </Button>
                 </Link>

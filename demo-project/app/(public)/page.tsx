@@ -647,28 +647,30 @@ export default function Home() {
             {capabilities.map((capability, index) => {
               const IconComponent = capability.icon;
               return (
-                <Card
+                <div
                   key={index}
-                  className="border-2 border-gray-100 bg-white hover:border-blue-500 hover:shadow-2xl transition-all duration-300 group p-8 animate-in fade-in slide-in-from-bottom-4 relative overflow-hidden rounded-3xl card-rounded"
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                  }}
+                  className="relative p-[2px] rounded-3xl group transition-all duration-300 bg-gray-100 hover:bg-gradient-to-br hover:from-pink-400 hover:via-purple-500 hover:to-blue-500 animate-in fade-in slide-in-from-bottom-4"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Moving gradient background on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-br from-blue-400 via-transparent to-blue-400 transition-opacity duration-500"></div>
+                  <Card
+                    className="border-0 bg-white hover:shadow-2xl transition-all duration-300 p-8 relative overflow-hidden rounded-[22px]"
+                  >
+                    {/* Moving gradient background on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-pink-400 via-purple-500 to-blue-400 transition-opacity duration-500"></div>
 
-                  <div className="flex flex-col gap-4 relative z-10">
-                    <div className="flex items-center justify-start">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
-                        <IconComponent className="h-8 w-8 text-white" />
+                    <div className="flex flex-col gap-4 relative z-10">
+                      <div className="flex items-center justify-start">
+                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg group-hover:from-pink-500 group-hover:to-purple-600">
+                          <IconComponent className="h-8 w-8 text-white" />
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">{capability.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">{capability.description}</p>
                       </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{capability.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{capability.description}</p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </div>
               );
             })}
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Cloud, Server, Trophy, Users, Smile, CheckCircle, Zap, Heart, Shield } from "lucide-react";
+import { Trophy, Users, Smile, CheckCircle } from "lucide-react";
 
 export default function AboutUsPage(): JSX.Element {
   return (
@@ -38,23 +38,15 @@ export default function AboutUsPage(): JSX.Element {
             </p>
           </motion.div>
 
-          {/* Visual - orbit animation */}
+          {/* Visual - Clean image replacing orbit rings */}
           <div className="relative flex items-center justify-center mt-8 lg:mt-0">
-            <div className="w-64 h-64 rounded-full bg-blue-100 flex items-center justify-center relative">
-              <div className="absolute inset-0 animate-spin-slow rounded-full border border-blue-200 opacity-60" />
-              <div className="absolute inset-8 rounded-full bg-white shadow-lg" />
-              {/* orbit rings with icons */}
-              <div className="absolute w-44 h-44 rounded-full border border-blue-200 animate-spin-slow">
-                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center left-1/2 top-4 transform -translate-x-1/2 shadow-md">
-                  <Code className="w-4 h-4 text-blue-600" />
-                </div>
-                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center right-4 top-1/2 transform -translate-y-1/2 shadow-md">
-                  <Cloud className="w-4 h-4 text-blue-600" />
-                </div>
-                <div className="absolute w-10 h-10 rounded-full bg-white flex items-center justify-center left-4 bottom-6 shadow-md">
-                  <Server className="w-4 h-4 text-blue-600" />
-                </div>
-              </div>
+            <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border border-blue-100">
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&q=80"
+                alt="Our team collaborating"
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent rounded-2xl pointer-events-none" />
             </div>
           </div>
         </div>
@@ -134,10 +126,10 @@ export default function AboutUsPage(): JSX.Element {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
+      <section className="py-6 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Ready to transform your business?</h2>
-          <button className="px-6 py-2.5 text-sm bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg">
+          <h2 className="text-2xl font-extrabold text-white mb-3">Ready to transform your business?</h2>
+          <button className="px-6 py-2 text-sm bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg">
             Get in Touch
           </button>
         </div>

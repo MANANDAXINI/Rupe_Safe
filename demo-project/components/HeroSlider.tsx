@@ -167,7 +167,7 @@ export default function HeroSlider() {
 
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                   <Link href={slides[index % slides.length]?.primaryLink || "#"} className="w-full sm:w-auto">
-                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-7 py-3.5 rounded-lg text-[15px] font-[600] transition-all flex items-center justify-center gap-2 group w-full sm:w-auto">
+                    <button className="bg-[#305eff] hover:bg-blue-700 text-white px-7 py-3.5 rounded-full text-[15px] font-[600] transition-all flex items-center justify-center gap-2 group w-full sm:w-auto">
                       {slides[index % slides.length]?.primaryCta}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
