@@ -47,7 +47,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-[72px]">
 
           {/* Logo Left Side */}
-          <div className="flex items-center h-full">
+          <div className="hidden lg:flex items-center h-full">
             <Link href="/" className="flex-shrink-0 flex items-center h-full group relative w-[130px]">
               <Image
                 src="/images/RupexaLogo.jpeg"
@@ -58,6 +58,18 @@ export default function Navigation() {
                 priority
               />
             </Link>
+          </div>
+
+          {/* Mobile Brand (same row as hamburger) */}
+          <div className="lg:hidden flex items-center min-w-0 gap-2">
+            <Image
+              src={rupexaMobileLogo}
+              alt="Rupexa Mark"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-md object-contain flex-shrink-0"
+            />
+            <span className="text-[#1a2f63] text-[18px] font-semibold leading-none truncate">Rupexa</span>
           </div>
 
           {/* Desktop Navigation (Centered) */}
@@ -208,23 +220,44 @@ export default function Navigation() {
             </button>
           </div>
 
-          <div className="px-4 py-4 flex flex-col gap-1 overflow-y-auto">
-            {navLinks.map((link) => (
+          <div className="px-4 py-4 overflow-y-auto">
+            <div className="border-t border-blue-100" />
+
+            <div className="mt-1">
+            {navLinks.map((link, index) => (
               <Link
                 key={link.path}
                 href={link.path}
-                className={`py-3 px-3 text-base font-medium rounded-lg transition-all ${pathname === link.path
-                  ? 'text-blue-600 bg-blue-50'
-                  : 'text-[#192839] hover:bg-gray-50 hover:text-blue-600'
+                className={`flex items-center justify-between py-3 px-2 text-[15px] font-semibold border-b border-blue-100/90 transition-all duration-200 ${pathname === link.path
+                  ? 'text-[#1f4ed8] bg-blue-50/70'
+                  : 'text-[#24427a] hover:text-[#1d4ed8] hover:bg-blue-50/50 hover:translate-x-0.5'
                   }`}
                 onClick={() => setIsOpen(false)}
+                style={{ transitionDelay: isOpen ? `${index * 30}ms` : '0ms' }}
               >
-                {link.name}
+                <span>{link.name}</span>
+                <ArrowRight className={`w-4 h-4 transition-all duration-200 ${pathname === link.path ? 'opacity-100 translate-x-0.5' : 'opacity-50'}`} />
               </Link>
             ))}
+            </div>
+
+            {!loading && !user && (
+              <div className="pt-4 mt-3 border-t border-blue-100/90 flex flex-col gap-2">
+                <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
+                  <Button variant="outline" className="w-full text-[#1f4ed8] border-blue-300 hover:bg-blue-50 h-11 font-semibold rounded-xl">
+                    Login
+                  </Button>
+                </Link>
+                <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full bg-[#305eff] hover:bg-blue-700 text-white h-11 font-semibold rounded-xl">
+                    Sign Up
+                  </Button>
+                </Link>
+              </div>
+            )}
           </div>
 
-          <div className="mt-auto px-4 py-6 border-t border-gray-100 bg-gray-50/50">
+          <div className="mt-auto px-4 py-5 border-t border-blue-100 bg-blue-50/30">
             {loading ? (
               <div className="flex justify-center py-2">
                 <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
@@ -233,7 +266,7 @@ export default function Navigation() {
               <div className="space-y-2">
                 <Link
                   href="/profile"
-                  className="flex items-center gap-3 text-base font-medium text-[#192839] px-3 py-3 rounded-lg hover:bg-white transition-colors border border-transparent hover:border-gray-200"
+                  className="flex items-center gap-3 text-base font-semibold text-[#24427a] px-3 py-3 rounded-lg hover:bg-white transition-colors border border-transparent hover:border-blue-200"
                   onClick={() => setIsOpen(false)}
                 >
                   <User className="w-5 h-5 text-gray-500" />
@@ -257,20 +290,7 @@ export default function Navigation() {
                   Logout
                 </button>
               </div>
-            ) : (
-              <div className="flex flex-col gap-3">
-                <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
-                  <Button variant="outline" className="w-full text-blue-700 border-blue-200 hover:bg-blue-50 h-12 font-semibold">
-                    Login
-                  </Button>
-                </Link>
-                <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-[#305eff] hover:bg-blue-700 text-white h-12 font-semibold rounded-full">
-                    Sign Up
-                  </Button>
-                </Link>
-              </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
