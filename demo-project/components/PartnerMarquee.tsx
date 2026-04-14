@@ -8,7 +8,7 @@ const fallbackPartners = [
   { name: 'Mastercard', logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" },
   { name: 'RuPay', logo: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" },
   { name: 'UPI', logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" },
-  { name: 'HDFC Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/HDFC_Bank_Logo.svg" },
+  { name: 'HDFC Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" },
   { name: 'ICICI Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" },
   { name: 'SBI', logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/SBI-logo.svg" },
   { name: 'Axis Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Axis_Bank_Logo.svg" },
