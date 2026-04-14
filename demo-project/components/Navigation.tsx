@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import rupexaMobileLogo from '@/app/(public)/images/rupexamobileview.jpeg';
 import { Menu, X, ChevronDown, LogOut, User, Shield, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -192,7 +193,16 @@ export default function Navigation() {
             }`}
         >
           <div className="h-[72px] px-4 flex items-center justify-between border-b border-gray-100">
-            <span className="text-[#192839] text-xl font-bold">Rupexa</span>
+            <div className="flex items-center gap-2 min-w-0">
+              <Image
+                src={rupexaMobileLogo}
+                alt="Rupexa Mark"
+                width={38}
+                height={38}
+                className="h-10 w-10 rounded-md object-contain flex-shrink-0"
+              />
+              <span className="text-[#192839] text-xl font-bold leading-none truncate">Rupexa</span>
+            </div>
             <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:bg-gray-100 p-2 rounded-md">
               <X className="h-6 w-6" />
             </button>
