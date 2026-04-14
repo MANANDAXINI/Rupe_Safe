@@ -231,8 +231,8 @@ export default function PartnersPage() {
             <motion.p variants={fadeUp} className="text-[13px] font-medium tracking-wide text-[#768ea7] mb-5">
               Rupexa Partners
             </motion.p>
-            <motion.h1 variants={fadeUp} className="text-[28px] sm:text-[44px] lg:text-[62px] font-semibold leading-[1.1] text-[#192839] mb-6 max-w-4xl mx-auto">
-              Join the Rupexa<br />
+            <motion.h1 variants={fadeUp} className="text-[28px] sm:text-[44px] lg:text-[62px] font-semibold leading-[1.02] text-[#192839] mb-5 max-w-4xl mx-auto">
+              Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">Rupexa</span><br />
               Partner Network:<br />
               Let&apos;s grow together
             </motion.h1>
@@ -292,7 +292,7 @@ export default function PartnersPage() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14">
             <motion.h2 variants={fadeUp} className="text-[28px] sm:text-[36px] font-semibold text-[#192839] mb-3">
-              <strong>Business Finance Stack</strong> for You and Your Clients
+              <strong className="text-[#305eff]">Business Finance Stack</strong> for You and Your Clients
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[14px] text-[#40566d]">
               Power seamless payments for businesses of all sizes
@@ -311,16 +311,18 @@ export default function PartnersPage() {
                   initial="rest" whileHover="hover" animate="rest"
                   // @ts-ignore
                   variants={cardHover}
-                  className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col cursor-default"
+                  className="relative p-[2px] rounded-xl bg-gradient-to-br from-pink-400 via-purple-500 to-blue-500"
                 >
-                  <div className="w-10 h-10 bg-[#f0f4ff] rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#305eff]" />
+                  <div className="bg-white rounded-[10px] p-6 flex flex-col h-full cursor-default hover:bg-gradient-to-br hover:from-white hover:to-[#f8f5ff] transition-colors duration-300">
+                    <div className="w-10 h-10 bg-[#f0f4ff] rounded-lg flex items-center justify-center mb-4">
+                      <Icon className="w-5 h-5 text-[#305eff]" />
+                    </div>
+                    <h3 className="text-[16px] font-semibold text-[#192839] mb-2">{p.title}</h3>
+                    <p className="text-[13px] text-[#40566d] leading-relaxed flex-1 whitespace-pre-line">{p.desc}</p>
+                    <Link href={p.link} className="mt-4 inline-flex items-center gap-1 text-[13px] font-medium text-[#2950da] hover:text-blue-700 transition-colors group">
+                      Learn More <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
                   </div>
-                  <h3 className="text-[16px] font-semibold text-[#192839] mb-2">{p.title}</h3>
-                  <p className="text-[13px] text-[#40566d] leading-relaxed flex-1 whitespace-pre-line">{p.desc}</p>
-                  <Link href={p.link} className="mt-4 inline-flex items-center gap-1 text-[13px] font-medium text-[#2950da] hover:text-blue-700 transition-colors group">
-                    Learn More <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
                 </motion.div>
               );
             })}
@@ -333,10 +335,10 @@ export default function PartnersPage() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14">
             <motion.h2 variants={fadeUp} className="text-[28px] sm:text-[36px] font-semibold text-[#192839] mb-3">
-              Types of Partner Programs
+              Types of <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">Partner Programs</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[14px] text-[#40566d]">
-              Range of partner programs tailored for businesses of all types &amp; sizes
+              Range of <span className="text-pink-500 font-medium">partner programs</span> tailored for businesses of all types &amp; sizes
             </motion.p>
           </motion.div>
 

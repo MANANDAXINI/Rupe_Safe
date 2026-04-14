@@ -63,25 +63,22 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Our Team</h4>
+            <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
-              <li className="text-slate-200">
-                <span className="text-white font-medium">Roshni Vijay Dwivedi</span>
-                <br />
-                <span className="text-slate-400">Founder &amp; Director</span>
+              <li>
+                <Link href="/blogs" className="hover:text-blue-400 transition-colors">
+                  Blogs
+                </Link>
               </li>
-              <li className="text-slate-200">
-                <span className="text-white font-medium">Vedant Vijay Dwivedi</span>
-                <br />
-                <span className="text-slate-400">Technical Department</span>
+              <li>
+                <Link href="/partners" className="hover:text-blue-400 transition-colors">
+                  Partners
+                </Link>
               </li>
-              <li className="text-slate-200">
-                <span className="text-white font-medium">Vijay Dwivedi</span>
-                <br />
-                <span className="text-slate-400">Consultant</span>
-              </li>
-              <li className="text-slate-500 text-xs mt-2 italic">
-                Partner photos &amp; Rupexa logo coming soon…
+              <li>
+                <Link href="/services" className="hover:text-blue-400 transition-colors">
+                  Core Capabilities
+                </Link>
               </li>
             </ul>
           </div>

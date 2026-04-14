@@ -46,7 +46,7 @@ export default function TestimonialTicker() {
     <section className="py-24 bg-gray-50 overflow-hidden relative font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <h2 className="text-[32px] md:text-[40px] font-bold text-[#000912] leading-[1.2]">
-          Rupexa grows with <span className="text-[#305eff]">you!</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">Rupexa</span> grows with <span className="text-[#305eff]">you!</span>
         </h2>
         <p className="text-[20px] font-bold mt-2 text-[#40566d]">
           500+ Businesses Trust Us

@@ -81,7 +81,7 @@ export default function BlogContent({ blog, readingTime }: BlogContentProps) {
                     <div className="flex flex-wrap justify-start items-center gap-x-6 gap-y-4 mb-8 md:mb-12 border-y border-slate-200 py-4">
                         <div className="flex items-center gap-2 text-slate-600">
                             <UserIcon className="w-5 h-5" />
-                            <span className="font-medium text-slate-800">{blog.author?.name || 'Rupexa Private Limited Team'}</span>
+                            <span className="font-medium text-slate-800">{blog.author?.name || 'Rupexa Team'}</span>
                         </div>
                         <div className="flex items-center gap-2 text-slate-600">
                             <Calendar className="w-5 h-5" />
@@ -169,7 +169,7 @@ export default function BlogContent({ blog, readingTime }: BlogContentProps) {
                 <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none" />
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
                     <h3 className="text-[22px] font-semibold text-white mb-2">Ready to transform your business?</h3>
-                    <p className="text-blue-100 text-[14px] mb-7">Connect with the Rupexa team and discover how we can help you grow.</p>
+                    <p className="text-blue-100 text-[14px] mb-7">Connect with Rupexa and discover how we can help you grow.</p>
                     <Link href="/contact" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-2.5 text-[14px] transition-colors rounded-lg">
                         Get In Touch <ArrowLeft className="w-4 h-4 rotate-180" />
                     </Link>

@@ -9,7 +9,7 @@ const slides = [
   {
     titleHTML: (
       <>
-        <span className="text-[#305eff]">AI-native payments for the</span><br />
+        <span className="text-[#305eff]">AI-native payments for the </span>
         <span className="text-[#000912]">next generation of disruptors</span>
       </>
     ),
@@ -187,7 +187,7 @@ export default function HeroSlider() {
 
           {/* Right: massive bleeding transparent images natively blending right */}
           {/* Changed col-span to 5 so it occupies LESS width, giving more room to the left text. */}
-          <div className="hidden md:flex lg:col-span-5 xl:col-span-5 relative h-[450px] sm:h-[550px] lg:h-[700px] xl:h-[750px] w-full order-1 lg:order-2 pointer-events-none overflow-visible items-center justify-center lg:justify-end">
+          <div className="flex lg:col-span-5 xl:col-span-5 relative h-[450px] sm:h-[550px] lg:h-[700px] xl:h-[750px] w-full order-1 lg:order-2 pointer-events-none overflow-visible items-center justify-center lg:justify-end">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`img-${index}`}

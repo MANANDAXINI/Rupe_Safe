@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -259,6 +259,26 @@ function ProductCard({ card }: { card: ProductCard }) {
 ───────────────────────────────────────────── */
 function CardCarousel({ cards }: { cards: ProductCard[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (!isMobile) return;
+
+    const interval = setInterval(() => {
+      const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+      const atEnd = scroller.scrollLeft >= maxScrollLeft - 8;
+
+      scroller.scrollTo({
+        left: atEnd ? 0 : scroller.scrollLeft + 300,
+        behavior: "smooth",
+      });
+    }, 2800);
+
+    return () => clearInterval(interval);
+  }, [cards]);
 
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;

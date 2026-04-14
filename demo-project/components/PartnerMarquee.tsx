@@ -38,8 +38,10 @@ export default function PartnerMarquee() {
 
   return (
     <section className="w-full py-10 bg-white border-b border-gray-100 flex flex-col items-center justify-center overflow-hidden">
-      <p className="text-[17px] text-[#40566d] font-[500] mb-8 tracking-wide uppercase text-center">
-        Trusted by Financial Institutions &amp; Networks
+      <p className="text-[17px] text-[#40566d] font-[500] mb-8 tracking-wide uppercase text-center leading-relaxed">
+        Trusted by Financial Institutions
+        <br />
+        &amp; Networks
       </p>
       
       <div 
@@ -72,9 +74,6 @@ export default function PartnerMarquee() {
         }
         .animate-partner-scroll {
           animation: partnerScroll 40s linear infinite;
-        }
-        .animate-partner-scroll:hover {
-          animation-play-state: paused;
         }
       `}</style>
     </section>

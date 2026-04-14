@@ -40,7 +40,7 @@ export default function Navigation() {
     return null;
   }
 
-  return (  
+  return (
     <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-100 transition-all font-sans">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
@@ -68,7 +68,6 @@ export default function Navigation() {
                 className="flex items-center h-full px-2 text-[14px] font-[500] tracking-tight text-[#192839] hover:text-blue-600 transition-colors relative group"
               >
                 {link.name}
-                {/* Subtle highlight bar */}
                 <span className="absolute bottom-0 left-0 w-full h-[3px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-t-sm"></span>
               </Link>
             ))}
@@ -185,11 +184,11 @@ export default function Navigation() {
       {/* Mobile Navigation */}
       <div className={`lg:hidden fixed inset-0 z-[1001] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
         <div
-          className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-transparent transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
           onClick={() => setIsOpen(false)}
         />
         <div
-          className={`absolute right-0 top-0 h-screen w-full sm:w-80 bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute right-0 top-0 h-screen w-full bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
         >
           <div className="h-[72px] px-4 flex items-center justify-between border-b border-gray-100">

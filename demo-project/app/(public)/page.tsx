@@ -297,239 +297,6 @@ export default function Home() {
         </div>
       </section >
 
-      {/* Services Section with Enhanced Cards */}
-      <section className="py-20 bg-[#f1f5fa] relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-[800] text-[#192839] mb-4">
-              Comprehensive Technology Solutions
-            </h2>
-            <p className="text-lg text-[#40566d] max-w-3xl mx-auto">
-              We specialize in website and app development, digital marketing, ERP systems, and custom software solutions
-            </p>
-          </div>
-
-          <div className="-mx-4 px-4 md:mx-0 md:px-0 flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-2">
-            {/* Payment Gateway Card - PRIMARY FOCUS */}
-            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white ring-2 ring-blue-500 ring-offset-4 rounded-3xl card-rounded">
-              <div className="relative h-full">
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src="/services/payment-gateway.jpg"
-                    alt="Payment Gateway"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/80 to-indigo-900/80"></div>
-                <div className="absolute inset-0 bg-black/50"></div>
-                <div className="absolute inset-0" />
-
-                {/* "Featured" Badge */}
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                  ⭐ FEATURED
-                </div>
-
-                {/* Text Content - Bottom Quarter */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
-                    <CreditCard className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">Payment Gateway</h3>
-                </div>
-
-                {/* Sliding Container - Covers 3/4 on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
-                    <CreditCard className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">Payment Gateway</h3>
-                  <p className="mb-4 text-sm leading-relaxed">
-                    Secure, fast, and reliable payment processing solutions. Accept payments seamlessly with industry-leading security standards.
-                  </p>
-                  <Link href="/onboarding/payment-gateway" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </Card>
-
-            {/* Website Development Card */}
-            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
-              <div className="relative h-full">
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src="/services/web-dev.jpg"
-                    alt="Website Development"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-
-                {/* Text Content - Bottom Quarter */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <Code className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">Website Development</h3>
-                </div>
-
-                {/* Sliding Container - Covers 3/4 on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
-                    <Code className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">Website Development</h3>
-                  <p className="mb-4 text-sm leading-relaxed">
-                    Build stunning, responsive websites that engage users and drive results with cutting-edge technology.
-                  </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </Card>
-
-            {/* App Development Card */}
-            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
-              <div className="relative h-full">
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src="/services/app-dev.jpg"
-                    alt="App Development"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
-                    <Smartphone className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">App Development</h3>
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
-                    <Smartphone className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">App Development</h3>
-                  <p className="mb-4 text-sm leading-relaxed">
-                    Create powerful mobile and web applications for iOS and Android platforms with seamless performance.
-                  </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </Card>
-
-            {/* Digital Marketing Card */}
-            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
-              <div className="relative h-full">
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src="/services/digital-marketing.jpg"
-                    alt="Digital Marketing"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
-                    <TrendingUp className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">Digital Marketing</h3>
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
-                    <TrendingUp className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">Digital Marketing</h3>
-                  <p className="mb-4 text-sm leading-relaxed">
-                    Grow your online presence with strategic marketing solutions that drive engagement and conversions.
-                  </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </Card>
-
-            {/* ERP Systems Card */}
-            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
-              <div className="relative h-full">
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src="/services/erp.jpg"
-                    alt="ERP Systems"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
-                    <Database className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">ERP Systems</h3>
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
-                    <Database className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">ERP Systems</h3>
-                  <p className="mb-4 text-sm leading-relaxed">
-                    Streamline operations with integrated enterprise resource planning solutions for your business.
-                  </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </Card>
-
-            {/* Custom Software Card */}
-            <Card className="min-w-[85%] sm:min-w-[70%] md:min-w-0 snap-center border-0 overflow-hidden h-96 hover:shadow-2xl transition-all duration-300 group hover:h-[450px] bg-white rounded-3xl card-rounded">
-              <div className="relative h-full">
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src="/services/cms.jpg"
-                    alt="Custom Software"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white h-1/4 flex flex-col justify-center bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="bg-white w-12 h-12 rounded-3xl flex items-center justify-center mb-4">
-                    <Boxes className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">Custom Software</h3>
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-700 transform translate-y-full group-hover:translate-y-1/4 transition-transform duration-500 ease-out flex flex-col p-6 text-white">
-                  <div className="bg-white/20 w-12 h-12 rounded-3xl flex items-center justify-center mb-4 text-white">
-                    <Boxes className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">Custom Software</h3>
-                  <p className="mb-4 text-sm leading-relaxed">
-                    Tailored software solutions designed specifically for your unique business needs and challenges.
-                  </p>
-                  <Link href="/services" className="text-white font-medium inline-flex items-center hover:underline mt-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </Card>
-
-
-          </div>
-        </div>
-      </section >
-
       <section
         className="relative py-20 bg-[#f1f5fa] overflow-hidden"
         ref={statsRef}
@@ -537,7 +304,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-[800] mb-4 text-[#192839]">
-              Why Choose Rupexa Private Limited?
+              Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">Rupexa</span>?
             </h2>
             <p className="text-lg text-[#40566d] max-w-5xl mx-auto hidden md:block">
               We combine technical expertise with business insight to deliver solutions that truly make a difference.
@@ -606,20 +373,20 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 items-stretch">
               {counters.map((counter, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-100 rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-in fade-in slide-in-from-bottom-4 card-rounded"
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                  }}
+                  className="rounded-3xl p-[2px] bg-gradient-to-br from-pink-400 via-purple-500 to-blue-500 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-in fade-in slide-in-from-bottom-4 card-rounded h-full"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold mb-2 text-blue-600">
-                    {counter.value}
-                    <span className="text-blue-400">{counter.suffix}</span>
+                  <div className="bg-white rounded-3xl p-8 text-center h-full flex flex-col justify-center">
+                    <div className="text-4xl md:text-5xl font-bold mb-2 text-blue-600">
+                      {counter.value}
+                      <span className="text-blue-400">{counter.suffix}</span>
+                    </div>
+                    <div className="text-[#40566d] text-sm font-[500]">{counter.label}</div>
                   </div>
-                  <div className="text-[#40566d] text-sm font-[500]">{counter.label}</div>
                 </div>
               ))}
             </div>
@@ -649,7 +416,7 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className="relative p-[2px] rounded-3xl group transition-all duration-300 bg-gray-100 hover:bg-gradient-to-br hover:from-pink-400 hover:via-purple-500 hover:to-blue-500 animate-in fade-in slide-in-from-bottom-4"
+                  className="relative p-[2px] rounded-3xl group transition-all duration-300 bg-gradient-to-br from-pink-400 via-purple-500 to-blue-500 animate-in fade-in slide-in-from-bottom-4"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <Card

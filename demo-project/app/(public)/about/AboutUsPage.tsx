@@ -124,7 +124,11 @@ export default function AboutUsPage(): JSX.Element {
             {stats.map((s) => {
               const Icon = s.icon;
               return (
-                <motion.div key={s.label} variants={fadeUp} className="bg-[#f1f5fa] rounded-2xl p-7 border border-gray-100 hover:border-[#305eff]/30 hover:shadow-lg transition-all group">
+                <motion.div
+                  key={s.label}
+                  variants={fadeUp}
+                  className={`${s.label === "Happy Clients" ? "bg-transparent" : "bg-[#f1f5fa]"} rounded-2xl p-7 border border-gray-100 hover:border-[#305eff]/30 hover:shadow-lg transition-all group`}
+                >
                   <div className="w-11 h-11 bg-[#eef1ff] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#305eff] transition-colors">
                     <Icon className="w-5 h-5 text-[#305eff] group-hover:text-white transition-colors" />
                   </div>

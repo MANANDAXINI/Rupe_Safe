@@ -125,7 +125,7 @@ export default function BlogsPage() {
 
         {/* ── PAGE HEADER ─────────────────────────────────────────── */}
         <div className="py-10 border-b border-gray-300 mb-10">
-          <h1 className="text-4xl font-bold text-blue-600 mb-2">Rupexa Blog</h1>
+          <h1 className="text-4xl font-bold mb-2"><span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">Rupexa</span> Corner</h1>
           <div className="w-12 h-1 bg-blue-600 mb-4" />
           <p className="text-slate-500 text-base max-w-2xl">
             Insights, guides and customer stories from the Rupexa team — helping businesses grow smarter with technology and payments.

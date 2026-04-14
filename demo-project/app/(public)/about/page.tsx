@@ -187,7 +187,7 @@ export default function About(): JSX.Element {
             </Link>
           </div>
 
-          <div className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
+          <div className="hidden md:flex w-full md:w-1/2 mt-12 md:mt-0 justify-center md:justify-end">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center gap-4 border border-white/20">
               <Image
                 src="/images/RupexaLogo.jpeg"
