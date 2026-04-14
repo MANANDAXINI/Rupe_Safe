@@ -15,8 +15,11 @@ const fallbackPartners = [
   { name: 'Yes Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/Yes_Bank_Logo.svg" }
 ];
 
+const INVALID_PARTNER_NAME = /(test|demo|sample|dummy|temp)/i;
+
 export default function PartnerMarquee() {
   const [partners, setPartners] = useState(fallbackPartners);
+  const [hiddenLogos, setHiddenLogos] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     async function fetchPartners() {
@@ -26,7 +29,13 @@ export default function PartnerMarquee() {
           const data = await res.json();
           // Replace fallback if backend has registered partners
           if (data && data.length > 0) {
-            setPartners(data.map((p: any) => ({ name: p.name, logo: p.logo })));
+            const normalized = data
+              .map((p: any) => ({ name: (p?.name || '').trim(), logo: (p?.logo || '').trim() }))
+              .filter((p: { name: string }) => p.name.length > 0 && !INVALID_PARTNER_NAME.test(p.name));
+
+            if (normalized.length > 0) {
+              setPartners(normalized);
+            }
           }
         }
       } catch (err) {
@@ -53,12 +62,22 @@ export default function PartnerMarquee() {
       >
         <div className="flex gap-16 sm:gap-24 items-center animate-partner-scroll whitespace-nowrap transition-all duration-500">
           {[...partners, ...partners].map((partner, index) => (
-            <img 
-              key={index} 
-              src={partner.logo} 
-              alt={partner.name} 
-              className="h-8 sm:h-10 w-auto object-contain flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300" 
-            />
+            <div key={index} className="flex-shrink-0">
+              {partner.logo && !hiddenLogos[`${partner.name}-${index}`] ? (
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-8 sm:h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  onError={() =>
+                    setHiddenLogos((prev) => ({ ...prev, [`${partner.name}-${index}`]: true }))
+                  }
+                />
+              ) : (
+                <div className="px-4 py-2 rounded-lg border border-gray-200 bg-white text-[#40566d] text-[13px] font-medium">
+                  {partner.name}
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>

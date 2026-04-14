@@ -85,10 +85,24 @@ const typeMetrics = [
   { value: 30,  suffix: "+", label: "Technology\nPartners" },
 ];
 
-const FALLBACK_LOGOS = [
-  "KPMG", "Deloitte", "EY", "PwC", "BDO", "Grant Thornton",
-  "Accenture", "Infosys", "TCS", "Wipro", "HCL", "Freshworks", "Zoho", "PayU",
+type PartnerLogo = { name: string; logo?: string };
+
+const FALLBACK_LOGOS: PartnerLogo[] = [
+  { name: "Visa", logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" },
+  { name: "Mastercard", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" },
+  { name: "RuPay", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" },
+  { name: "UPI", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" },
+  { name: "HDFC Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/HDFC_Bank_Logo.svg" },
+  { name: "ICICI Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" },
+  { name: "SBI", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/SBI-logo.svg" },
+  { name: "Axis Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Axis_Bank_Logo.svg" },
+  { name: "Yes Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/Yes_Bank_Logo.svg" },
+  { name: "Paytm", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png" },
+  { name: "PhonePe", logo: "https://upload.wikimedia.org/wikipedia/commons/7/71/PhonePe_Logo.svg" },
+  { name: "Razorpay", logo: "https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg" },
 ];
+
+const INVALID_PARTNER_NAME = /(test|demo|sample|dummy|temp)/i;
 
 const testimonials = [
   { quote: "Rupexa's interface is very user-friendly, and the support staff is outstanding. Startups who want to make their life easy, please start using Rupexa right away.", name: "Rahul Sharma",       role: "Co-Founder, StartUp Movers Pvt. Ltd.",     initials: "RS", color: "bg-blue-600"    },
@@ -138,14 +152,18 @@ function AnimatedCounter({ to, suffix }: { to: number; suffix: string }) {
    LOGO MARQUEE — fetches from /api/partners with fallback
 ───────────────────────────────────────── */
 function LogoMarquee() {
-  const [logos, setLogos] = useState<string[]>(FALLBACK_LOGOS);
+  const [logos, setLogos] = useState<PartnerLogo[]>(FALLBACK_LOGOS);
+  const [hiddenLogos, setHiddenLogos] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     fetch("/api/partners")
       .then((r) => r.json())
       .then((data: Array<{ name: string; logo?: string }>) => {
         if (Array.isArray(data) && data.length > 0) {
-          setLogos(data.map((p) => p.name));
+          const items = data
+            .map((p) => ({ name: (p?.name || "").trim(), logo: (p?.logo || "").trim() }))
+            .filter((p) => p.name.length > 0 && !INVALID_PARTNER_NAME.test(p.name));
+          if (items.length > 0) setLogos(items);
         }
       })
       .catch(() => {}); // silently keep fallback
@@ -155,12 +173,23 @@ function LogoMarquee() {
   return (
     <div className="overflow-hidden w-full relative">
       <div className="flex gap-8 w-max" style={{ animation: "marquee 30s linear infinite" }}>
-        {doubled.map((l, i) => (
+        {doubled.map((partner, i) => (
           <div
             key={i}
-            className="flex-shrink-0 px-5 py-2.5 bg-white rounded border border-gray-200 text-[13px] font-medium text-[#40566d] whitespace-nowrap"
+            className="flex-shrink-0 px-5 py-2.5 bg-white rounded border border-gray-200"
           >
-            {l}
+            {partner.logo && !hiddenLogos[`${partner.name}-${i}`] ? (
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="h-7 w-auto object-contain"
+                onError={() =>
+                  setHiddenLogos((prev) => ({ ...prev, [`${partner.name}-${i}`]: true }))
+                }
+              />
+            ) : (
+              <span className="text-[13px] font-medium text-[#40566d] whitespace-nowrap">{partner.name}</span>
+            )}
           </div>
         ))}
       </div>
