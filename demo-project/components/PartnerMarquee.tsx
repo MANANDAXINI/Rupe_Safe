@@ -1,59 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-// Fallback hardcoded list for fintech/payment gateways with legible names
-const clientPartners = [
+const partners = [
   { name: '1Pay', logo: '/images/1Pay.png' },
   { name: 'BankU', logo: '/images/BankU.png' },
 ];
 
-const fallbackPartners = [
-  ...clientPartners,
-  { name: 'Visa', logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" },
-  { name: 'Mastercard', logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" },
-  { name: 'RuPay', logo: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" },
-  { name: 'UPI', logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" },
-  { name: 'HDFC Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" },
-  { name: 'ICICI Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" },
-  { name: 'SBI', logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/SBI-logo.svg" },
-  { name: 'Axis Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Axis_Bank_Logo.svg" },
-  { name: 'Yes Bank', logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/Yes_Bank_Logo.svg" }
-];
-
-const INVALID_PARTNER_NAME = /(test|demo|sample|dummy|temp)/i;
-
 export default function PartnerMarquee() {
-  const [partners, setPartners] = useState(fallbackPartners);
   const [hiddenLogos, setHiddenLogos] = useState<Record<string, boolean>>({});
-
-  useEffect(() => {
-    async function fetchPartners() {
-      try {
-        const res = await fetch('/api/partners');
-        if (res.ok) {
-          const data = await res.json();
-          // Replace fallback if backend has registered partners
-          if (data && data.length > 0) {
-            const normalized = data
-              .map((p: any) => ({ name: (p?.name || '').trim(), logo: (p?.logo || '').trim() }))
-              .filter((p: { name: string }) => p.name.length > 0 && !INVALID_PARTNER_NAME.test(p.name));
-
-            if (normalized.length > 0) {
-              const withoutClients = normalized.filter(
-                (p: { name: string }) =>
-                  !clientPartners.some((c) => c.name.toLowerCase() === p.name.toLowerCase())
-              );
-              setPartners([...clientPartners, ...withoutClients]);
-            }
-          }
-        }
-      } catch (err) {
-        console.error('Failed to fetch partners:', err);
-      }
-    }
-    fetchPartners();
-  }, []);
 
   return (
     <section className="w-full py-10 bg-white border-b border-gray-100 flex flex-col items-center justify-center overflow-hidden">
@@ -71,7 +26,7 @@ export default function PartnerMarquee() {
         }}
       >
         <div className="flex gap-16 sm:gap-24 items-center animate-partner-scroll whitespace-nowrap transition-all duration-500">
-          {[...partners, ...partners].map((partner, index) => (
+          {[...partners, ...partners, ...partners, ...partners, ...partners, ...partners].map((partner, index) => (
             <div key={index} className="flex-shrink-0">
               {partner.logo && !hiddenLogos[`${partner.name}-${index}`] ? (
                 <img
