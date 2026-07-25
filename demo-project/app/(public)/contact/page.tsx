@@ -23,12 +23,12 @@ const countryCodes = [
 ];
 
 const contactCards = [
-  { icon:MapPin, title:"Head Office",    delay:0,   link:null,
+  { icon:MapPin, title:"Registered Corporate Office", delay:0, link:null,
     details:["Block No.101/102, Shriram Tower","Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001"] },
   { icon:Mail,   title:"Email Us",       delay:0.1, link:"mailto:care@rupexa.in",
     details:["care@rupexa.in","info@rupexa.in"] },
-  { icon:Phone,  title:"Call Us",        delay:0.2, link:"tel:+919067488273",
-    details:["+91 9067488273"] },
+  { icon:Phone,  title:"Call Us",        delay:0.2, link:"tel:+919322482539",
+    details:["+91 9322482539"] },
   { icon:Clock,  title:"Business Hours", delay:0.3, link:null,
     details:["Mon - Fri: 9AM - 6PM","Sat - Sun: Closed"] },
 ];
@@ -392,7 +392,9 @@ export default function ContactPage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{once:true}} variants={stagger}>
             <motion.p variants={fadeUp} className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Location</motion.p>
             <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-bold text-slate-900">Find Us</motion.h2>
-            <motion.p variants={fadeUp} className="mt-2 text-slate-500 text-sm mb-10">Visit our office for a cup of coffee</motion.p>
+            <motion.p variants={fadeUp} className="mt-2 text-slate-500 text-sm mb-10">
+              Visit our Registered Corporate Office in Nagpur
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -404,9 +406,11 @@ export default function ContactPage() {
             className="w-full h-[300px] sm:h-[400px] md:h-[460px] rounded-2xl overflow-hidden border border-gray-200 shadow-sm transition-shadow duration-500"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.665678866956!2d79.08815461493454!3d21.14580038593506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a31faf13%3A0x19b32753b7b0969!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625634895621!5m2!1sen!2sin"
+              title="Rupexa Registered Corporate Office - Shriram Tower, Nagpur"
+              src="https://www.google.com/maps?q=Shriram+Tower+Sadar,+Kingsway+Road,+Near+NIT,+Sadar,+Nagpur,+Maharashtra+440001&z=17&output=embed"
               width="100%" height="100%"
               style={{ border:0 }} allowFullScreen loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
               className="grayscale hover:grayscale-0 transition-all duration-500"
             />
           </motion.div>
@@ -433,7 +437,7 @@ export default function ContactPage() {
             </motion.div>
 
             <motion.a
-              href="tel:+919067488273"
+              href="tel:+919322482539"
               initial={{ opacity:0, x:20 }}
               whileInView={{ opacity:1, x:0 }}
               viewport={{ once:true }}

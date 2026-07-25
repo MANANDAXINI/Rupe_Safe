@@ -8,7 +8,7 @@ const Footer = () => {
         <Image src="/images/RupexaLogo.jpeg" alt="Rupexa Logo" width={80} height={80} className="mx-auto mb-2" />
         <p className="font-bold text-lg">Rupexa Private Limited</p>
         <p>Block No.101/102, Shriram Tower Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001</p>
-        <p>Contact No: <a href="tel:+919067488273" className="underline">+91 9067488273</a></p>
+        <p>Contact No: <a href="tel:+919322482539" className="underline">+91 9322482539</a></p>
         <p>Email: <a href="mailto:care@rupexa.in" className="underline">care@rupexa.in</a>, <a href="mailto:info@rupexa.in" className="underline">info@rupexa.in</a></p>
         <div>
           <a href="/privacy-policy" className="text-gray-400 hover:text-white">Privacy Policy</a>

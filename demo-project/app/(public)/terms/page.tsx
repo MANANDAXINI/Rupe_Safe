@@ -86,7 +86,7 @@ export default function TermsAndConditions() {
                     <h3 className="text-2xl md:text-3xl font-semibold mb-4">Need Legal Clarification?</h3>
                     <p className="text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
                         Contact our legal department for specific inquiries regarding partner agreements or data usage.<br />
-                        <b>Contact:</b> +91 9067488273, care@rupexa.in, info@rupexa.in<br />
+                        <b>Contact:</b> +91 9322482539, care@rupexa.in, info@rupexa.in<br />
                         <b>Address:</b> Block No.101/102, Shriram Tower Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001
                     </p>
                     <button className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-xl hover:bg-slate-50 transition-all text-sm shadow-lg">

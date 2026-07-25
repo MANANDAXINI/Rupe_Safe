@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Linkedin, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,17 +16,32 @@ export default function Footer() {
               Technology solutions company helping businesses build, grow, and scale in the digital world.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                <Facebook className="h-5 w-5" />
+              <a
+                href="https://www.youtube.com/@Rupexa_Official"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Rupexa on YouTube"
+                className="hover:text-blue-400 transition-colors"
+              >
+                <Youtube className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" className="hover:text-blue-400 transition-colors">
+              <a
+                href="https://www.instagram.com/rupexa.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Rupexa on Instagram"
+                className="hover:text-blue-400 transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/rupexa.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Rupexa on LinkedIn"
+                className="hover:text-blue-400 transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -96,7 +111,9 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
-                <span>+91 9067488273</span>
+                <a href="tel:+919322482539" className="hover:text-blue-400 transition-colors">
+                  +91 9322482539
+                </a>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />

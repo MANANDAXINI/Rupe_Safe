@@ -3,7 +3,13 @@
 import React, { useEffect, useState } from 'react';
 
 // Fallback hardcoded list for fintech/payment gateways with legible names
+const clientPartners = [
+  { name: '1Pay', logo: '/images/1Pay.png' },
+  { name: 'BankU', logo: '/images/BankU.png' },
+];
+
 const fallbackPartners = [
+  ...clientPartners,
   { name: 'Visa', logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" },
   { name: 'Mastercard', logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" },
   { name: 'RuPay', logo: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" },
@@ -34,7 +40,11 @@ export default function PartnerMarquee() {
               .filter((p: { name: string }) => p.name.length > 0 && !INVALID_PARTNER_NAME.test(p.name));
 
             if (normalized.length > 0) {
-              setPartners(normalized);
+              const withoutClients = normalized.filter(
+                (p: { name: string }) =>
+                  !clientPartners.some((c) => c.name.toLowerCase() === p.name.toLowerCase())
+              );
+              setPartners([...clientPartners, ...withoutClients]);
             }
           }
         }

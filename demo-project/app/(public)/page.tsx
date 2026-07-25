@@ -215,12 +215,12 @@ export default function Home() {
                   <div className="text-xs text-slate-100">Uptime SLA</div>
                 </div>
                 <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl transition-all duration-300 hover:shadow-2xl">
-                  <div className="text-2xl font-bold mb-2 text-white">₹500Cr+</div>
-                  <div className="text-xs text-slate-100">Monthly Volume</div>
+                  <div className="text-2xl font-bold mb-2 text-white">500+</div>
+                  <div className="text-xs text-slate-100">Active Merchants</div>
                 </div>
                 <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl transition-all duration-300 hover:shadow-2xl">
-                  <div className="text-2xl font-bold mb-2 text-white">50K+</div>
-                  <div className="text-xs text-slate-100">Active Merchants</div>
+                  <div className="text-2xl font-bold mb-2 text-white">50 Cr+</div>
+                  <div className="text-xs text-slate-100">Monthly Volume</div>
                 </div>
                 <div className="bg-white/25 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-xl transition-all duration-300 hover:shadow-2xl">
                   <div className="text-2xl font-bold mb-2 text-white">&lt;2s</div>

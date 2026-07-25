@@ -54,7 +54,7 @@ export default function ContactSection(_: Props) {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">Phone</p>
-                  <p className="font-semibold text-slate-900">+91 9067488273</p>
+                  <p className="font-semibold text-slate-900">+91 9322482539</p>
                 </div>
               </li>
 
