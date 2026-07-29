@@ -49,9 +49,9 @@ export default function About(): JSX.Element {
             </h2>
             <div className="w-12 h-1 bg-blue-600 mb-10" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
-              {/* Roshni */}
-              <div className="flex flex-col items-center text-center gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-14 md:gap-y-16 items-start">
+              {/* 1 — Roshni */}
+              <div className="flex flex-col items-center text-center gap-5 w-full max-w-[280px] mx-auto">
                 <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
                   <Image
                     src="/images/roshni.jpeg"
@@ -67,25 +67,8 @@ export default function About(): JSX.Element {
                 </div>
               </div>
 
-              {/* Vedant */}
-              <div className="flex flex-col items-center text-center gap-5">
-                <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
-                  <Image
-                    src="/images/vedant.jpeg"
-                    alt="Vedant Vijay Dwivedi"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Vedant Vijay Dwivedi</h3>
-                  <p className="text-blue-600 font-semibold text-sm mt-1">Technical Department</p>
-                  <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Heads technical solutions, ensuring robust software delivery.</p>
-                </div>
-              </div>
-
-              {/* Vijay */}
-              <div className="flex flex-col items-center text-center gap-5">
+              {/* 2 — Vijay */}
+              <div className="flex flex-col items-center text-center gap-5 w-full max-w-[280px] mx-auto">
                 <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
                   <Image
                     src="/images/vijay.jpeg"
@@ -98,6 +81,39 @@ export default function About(): JSX.Element {
                   <h3 className="font-bold text-slate-900 text-lg">Vijay Dwivedi</h3>
                   <p className="text-blue-600 font-semibold text-sm mt-1">Consultant</p>
                   <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Providing unparalleled strategic guidance and corporate expertise.</p>
+                </div>
+              </div>
+
+              {/* 3 — Vedant */}
+              <div className="flex flex-col items-center text-center gap-5 w-full max-w-[280px] mx-auto">
+                <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
+                  <Image
+                    src="/images/vedant.jpeg"
+                    alt="Vedant Vijay Dwivedi"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Vedant Vijay Dwivedi</h3>
+                  <p className="text-blue-600 font-semibold text-sm mt-1">Technical Team</p>
+                  <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Heads technical solutions, ensuring robust software delivery.</p>
+                </div>
+              </div>
+
+              {/* 4 — MIMAG logo: same photo height as Vedant, no box */}
+              <div className="flex flex-col items-center text-center gap-5 w-full max-w-[280px] mx-auto">
+                <div className="w-[180px] h-[180px] flex items-center justify-center flex-shrink-0">
+                  <img
+                    src="/images/mimag-tech.png"
+                    alt="MIMAG Tech"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">MIMAG Tech</h3>
+                  <p className="text-blue-600 font-semibold text-sm mt-1">Technical Team</p>
+                  <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Innovation beyond boundaries — powering Rupexa&apos;s technology.</p>
                 </div>
               </div>
             </div>

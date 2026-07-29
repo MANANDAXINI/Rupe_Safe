@@ -59,13 +59,41 @@ export default function ContactPage() {
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormState(p => ({ ...p, phoneNumber: e.target.value.replace(/[^0-9]/g,"").slice(0,10) }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!/^[0-9]{10}$/.test(formState.phoneNumber)) {
       toast.error("Please enter a valid 10-digit phone number.");
       return;
     }
-    toast.success("Form details captured successfully.");
+    if (!formState.name.trim() || !formState.email.trim() || !formState.message.trim()) {
+      toast.error("Please fill name, email, and message.");
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formState.name.trim(),
+          email: formState.email.trim(),
+          phone: `${formState.countryCode} ${formState.phoneNumber}`.trim(),
+          subject: formState.subject.trim() || null,
+          message: formState.message.trim(),
+          source: "contact-page",
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      toast.success("Form submitted successfully. We will contact you soon.");
+      setFormState({ name:"", email:"", countryCode:"+91", phoneNumber:"", subject:"", message:"" });
+    } catch (error: any) {
+      toast.error(error?.message || "Failed to submit form");
+    }
   };
 
   const lbl = (f:string) => focusedField === f ? "text-blue-600" : "text-slate-400";
