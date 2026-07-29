@@ -11,6 +11,7 @@ import PartnerMarquee from '@/components/PartnerMarquee';
 import ProductFoldSection from '@/components/ProductFoldSection';
 import TestimonialTicker from '@/components/TestimonialTicker';
 import FAQSection from '@/components/FAQSection';
+import ContactSection from '@/app/components/ContactSection';
 
 interface Counter {
   label: string;
@@ -447,6 +448,8 @@ export default function Home() {
       <TestimonialTicker />
 
       <FAQSection />
+
+      <ContactSection />
 
       {/* Ready to Transform */}
       <section className="relative py-20 text-white bg-gradient-to-br from-blue-700 to-indigo-800 overflow-hidden z-10">

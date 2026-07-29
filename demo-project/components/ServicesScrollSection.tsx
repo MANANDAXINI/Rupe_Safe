@@ -274,10 +274,13 @@ export default function ServicesScrollSection() {
 
         {/* ── Heading ── */}
         <div className="mb-10">
-          <h2 className="text-[30px] sm:text-[38px] lg:text-[44px] font-[700] leading-[1.15] text-[#192839] max-w-2xl">
-            The all in one{" "}
-            <span className="text-[#009e5c]">technology platform </span>
-            you&apos;ve been looking for
+          <h2 className="text-[clamp(18px,3.2vw,42px)] font-[700] leading-[1.25] text-[#192839]">
+            <span className="block whitespace-nowrap">
+              The all in one <span className="text-[#009e5c]">technology platform</span>
+            </span>
+            <span className="block whitespace-nowrap">
+              you&apos;ve been looking for
+            </span>
           </h2>
           <p className="text-[15px] text-[#40566d] font-[450] mt-3">
             With Rupexa, you can:
