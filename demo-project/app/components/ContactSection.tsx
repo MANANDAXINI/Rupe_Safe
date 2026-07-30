@@ -117,7 +117,7 @@ export default function ContactSection(_: Props) {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-sm text-slate-500">Visit</p>
+                  <p className="text-sm text-slate-500">Registered Corporate Office</p>
                   <p className="font-semibold text-slate-900">Block No.101/102, Shriram Tower</p>
                   <p className="text-sm text-slate-500">Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001</p>
                 </div>

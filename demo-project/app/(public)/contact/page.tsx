@@ -1,12 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion, type Variants } from "framer-motion";
 import {
   Mail, MapPin, Phone, Send, Clock,
   MessageSquare, User, AtSign, FileText, Sparkles, ArrowRight
 } from "lucide-react";
 import { toast } from "sonner";
+
+const IndiaOfficeMap = dynamic(() => import("@/components/IndiaOfficeMap"), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="w-full max-w-6xl mx-auto bg-slate-50/80 animate-pulse"
+      style={{ aspectRatio: '800 / 960', maxHeight: 'min(88vh, 780px)' }}
+    />
+  ),
+});
 
 /* ── animation presets ────────────────────────────────────────────────────── */
 const fadeUp: Variants  = { hidden:{opacity:0,y:22}, visible:{opacity:1,y:0,transition:{duration:0.52}} };
@@ -415,32 +426,26 @@ export default function ContactPage() {
       </section>
 
       {/* ── 5. MAP ─────────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-gray-100 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial="hidden" whileInView="visible" viewport={{once:true}} variants={stagger}>
-            <motion.p variants={fadeUp} className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Location</motion.p>
-            <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-bold text-slate-900">Find Us</motion.h2>
-            <motion.p variants={fadeUp} className="mt-2 text-slate-500 text-sm mb-10">
-              Visit our Registered Corporate Office in Nagpur
-            </motion.p>
-          </motion.div>
+      <section className="py-6 sm:py-8 bg-white border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="text-center text-2xl md:text-3xl font-bold text-slate-900 mb-3"
+          >
+            Find Us
+          </motion.h2>
 
           <motion.div
-            initial={{ opacity:0, y:20 }}
-            whileInView={{ opacity:1, y:0 }}
-            viewport={{ once:true }}
-            transition={{ duration:0.55 }}
-            whileHover={{ boxShadow:"0 16px 48px rgba(37,99,235,0.12)" }}
-            className="w-full h-[300px] sm:h-[400px] md:h-[460px] rounded-2xl overflow-hidden border border-gray-200 shadow-sm transition-shadow duration-500"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="w-full"
           >
-            <iframe
-              title="Rupexa Registered Corporate Office - Shriram Tower, Nagpur"
-              src="https://www.google.com/maps?q=Shriram+Tower+Sadar,+Kingsway+Road,+Near+NIT,+Sadar,+Nagpur,+Maharashtra+440001&z=17&output=embed"
-              width="100%" height="100%"
-              style={{ border:0 }} allowFullScreen loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale hover:grayscale-0 transition-all duration-500"
-            />
+            <IndiaOfficeMap />
           </motion.div>
         </div>
       </section>

@@ -416,3 +416,12 @@ html {
   color: inherit;
   padding: 0;
 }
+
+/* India map (react-simple-maps) — keep SVG filling its frame */
+.india-lib-map svg,
+.india-lib-map .rsm-svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+

@@ -55,13 +55,13 @@ export default function About(): JSX.Element {
                 <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
                   <Image
                     src="/images/roshni.jpeg"
-                    alt="Roshni Vijay Dwivedi"
+                    alt="Dr. Roshni Dwivedi"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Roshni Vijay Dwivedi</h3>
+                  <h3 className="font-bold text-slate-900 text-lg">Dr. Roshni Dwivedi</h3>
                   <p className="text-blue-600 font-semibold text-sm mt-1">Founder & Director</p>
                   <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Visionary leader driving innovation and strategic growth.</p>
                 </div>
@@ -72,13 +72,13 @@ export default function About(): JSX.Element {
                 <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
                   <Image
                     src="/images/vijay.jpeg"
-                    alt="Vijay Dwivedi"
+                    alt="Dr. Vijay Dwivedi"
                     fill
                     className="object-cover object-top"
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Vijay Dwivedi</h3>
+                  <h3 className="font-bold text-slate-900 text-lg">Dr. Vijay Dwivedi</h3>
                   <p className="text-blue-600 font-semibold text-sm mt-1">Consultant</p>
                   <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Providing unparalleled strategic guidance and corporate expertise.</p>
                 </div>
@@ -89,29 +89,29 @@ export default function About(): JSX.Element {
                 <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0">
                   <Image
                     src="/images/vedant.jpeg"
-                    alt="Vedant Vijay Dwivedi"
+                    alt="Mr. Vedant Dwivedi"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Vedant Vijay Dwivedi</h3>
+                  <h3 className="font-bold text-slate-900 text-lg">Mr. Vedant Dwivedi</h3>
                   <p className="text-blue-600 font-semibold text-sm mt-1">Technical Team</p>
                   <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Heads technical solutions, ensuring robust software delivery.</p>
                 </div>
               </div>
 
-              {/* 4 — MIMAG logo: same photo height as Vedant, no box */}
+              {/* 4 — MIMAG logo: same circular slot as photos */}
               <div className="flex flex-col items-center text-center gap-5 w-full max-w-[280px] mx-auto">
-                <div className="w-[180px] h-[180px] flex items-center justify-center flex-shrink-0">
+                <div className="w-[180px] h-[180px] relative rounded-full overflow-hidden shadow-md flex-shrink-0 bg-white border border-slate-100 flex items-center justify-center p-5">
                   <img
                     src="/images/mimag-tech.png"
-                    alt="MIMAG Tech"
+                    alt="MIMAG Technologies"
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-lg">MIMAG Tech</h3>
+                  <h3 className="font-bold text-slate-900 text-lg">MIMAG Technologies</h3>
                   <p className="text-blue-600 font-semibold text-sm mt-1">Technical Team</p>
                   <p className="text-slate-600 text-sm leading-relaxed mt-2 max-w-[220px] mx-auto">Innovation beyond boundaries — powering Rupexa&apos;s technology.</p>
                 </div>
@@ -149,7 +149,7 @@ export default function About(): JSX.Element {
               <p className="text-md text-slate-600 mb-6">Sadar, Nagpur, Maharashtra 440001</p>
 
               <a
-                href="https://maps.google.com/?q=Shriram+Tower+NIT+Kingsway+Nagpur"
+                href="https://www.google.com/maps/search/?api=1&query=Rupexa+Private+Limited,+Shriram+Tower,+Sadar,+Nagpur,+Maharashtra+440001"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
