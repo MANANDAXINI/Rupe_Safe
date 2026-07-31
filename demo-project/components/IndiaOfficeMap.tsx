@@ -23,7 +23,7 @@ export const OFFICE_LOCATIONS = [
     lat: 21.1539,
     lng: 79.0831,
     mapsUrl:
-      'https://www.google.com/maps/search/?api=1&query=Rupexa+Private+Limited,+Shriram+Tower,+Sadar,+Nagpur,+Maharashtra+440001',
+      'https://www.google.com/maps/search/?api=1&query=Rupexa+Private+Limited,+Tent+Line,+Sadar,+Nagpur,+Maharashtra',
     /** Card anchor on the map (% left / top) for hover popup */
     cardX: 40,
     cardY: 52,

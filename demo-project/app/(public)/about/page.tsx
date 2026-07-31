@@ -149,7 +149,7 @@ export default function About(): JSX.Element {
               <p className="text-md text-slate-600 mb-6">Sadar, Nagpur, Maharashtra 440001</p>
 
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Rupexa+Private+Limited,+Shriram+Tower,+Sadar,+Nagpur,+Maharashtra+440001"
+                href="https://www.google.com/maps/search/?api=1&query=Rupexa+Private+Limited,+Tent+Line,+Sadar,+Nagpur,+Maharashtra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
