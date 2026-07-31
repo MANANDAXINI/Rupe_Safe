@@ -85,24 +85,10 @@ const typeMetrics = [
   { value: 30,  suffix: "+", label: "Technology\nPartners" },
 ];
 
-type PartnerLogo = { name: string; logo?: string };
-
-const FALLBACK_LOGOS: PartnerLogo[] = [
-  { name: "Visa", logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" },
-  { name: "Mastercard", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" },
-  { name: "RuPay", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" },
-  { name: "UPI", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" },
-  { name: "HDFC Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" },
-  { name: "ICICI Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" },
-  { name: "SBI", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/SBI-logo.svg" },
-  { name: "Axis Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Axis_Bank_Logo.svg" },
-  { name: "Yes Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/4/46/Yes_Bank_Logo.svg" },
-  { name: "Paytm", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png" },
-  { name: "PhonePe", logo: "https://upload.wikimedia.org/wikipedia/commons/7/71/PhonePe_Logo.svg" },
-  { name: "Razorpay", logo: "https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg" },
+const PARTNER_LOGOS = [
+  { name: "1Pay", logo: "/images/1Pay.png", className: "h-20 sm:h-24 md:h-28 w-auto" },
+  { name: "BankU", logo: "/images/BankU.png", className: "h-12 sm:h-14 md:h-16 w-auto" },
 ];
-
-const INVALID_PARTNER_NAME = /(test|demo|sample|dummy|temp)/i;
 
 const testimonials = [
   { quote: "Rupexa's interface is very user-friendly, and the support staff is outstanding. Startups who want to make their life easy, please start using Rupexa right away.", name: "Rahul Sharma",       role: "Co-Founder, StartUp Movers Pvt. Ltd.",     initials: "RS", color: "bg-blue-600"    },
@@ -149,51 +135,29 @@ function AnimatedCounter({ to, suffix }: { to: number; suffix: string }) {
 }
 
 /* ─────────────────────────────────────────
-   LOGO MARQUEE — fetches from /api/partners with fallback
+   PARTNER LOGOS — same as homepage / about (1Pay + BankU)
 ───────────────────────────────────────── */
 function LogoMarquee() {
-  const [logos, setLogos] = useState<PartnerLogo[]>(FALLBACK_LOGOS);
   const [hiddenLogos, setHiddenLogos] = useState<Record<string, boolean>>({});
 
-  useEffect(() => {
-    fetch("/api/partners")
-      .then((r) => r.json())
-      .then((data: Array<{ name: string; logo?: string }>) => {
-        if (Array.isArray(data) && data.length > 0) {
-          const items = data
-            .map((p) => ({ name: (p?.name || "").trim(), logo: (p?.logo || "").trim() }))
-            .filter((p) => p.name.length > 0 && !INVALID_PARTNER_NAME.test(p.name));
-          if (items.length > 0) setLogos(items);
-        }
-      })
-      .catch(() => {}); // silently keep fallback
-  }, []);
-
-  const doubled = [...logos, ...logos];
   return (
-    <div className="overflow-hidden w-full relative">
-      <div className="flex gap-8 w-max" style={{ animation: "marquee 30s linear infinite" }}>
-        {doubled.map((partner, i) => (
-          <div
-            key={i}
-            className="flex-shrink-0 px-5 py-2.5 bg-white rounded border border-gray-200"
-          >
-            {partner.logo && !hiddenLogos[`${partner.name}-${i}`] ? (
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="h-7 w-auto object-contain"
-                onError={() =>
-                  setHiddenLogos((prev) => ({ ...prev, [`${partner.name}-${i}`]: true }))
-                }
-              />
-            ) : (
-              <span className="text-[13px] font-medium text-[#40566d] whitespace-nowrap">{partner.name}</span>
-            )}
-          </div>
-        ))}
-      </div>
-      <style>{`@keyframes marquee { from { transform:translateX(0) } to { transform:translateX(-50%) } }`}</style>
+    <div className="flex items-center justify-center gap-12 sm:gap-16 md:gap-24 w-full">
+      {PARTNER_LOGOS.map((partner) => (
+        <div key={partner.name} className="flex items-center justify-center">
+          {partner.logo && !hiddenLogos[partner.name] ? (
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              className={`${partner.className} object-contain opacity-90 hover:opacity-100 transition-opacity duration-300`}
+              onError={() =>
+                setHiddenLogos((prev) => ({ ...prev, [partner.name]: true }))
+              }
+            />
+          ) : (
+            <span className="text-[13px] font-medium text-[#40566d] whitespace-nowrap">{partner.name}</span>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
@@ -538,16 +502,15 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ── LOGO STRIP (white) — real backend data ── */}
+      {/* ── LOGO STRIP (white) — 1Pay + BankU ── */}
       <section className="py-14 bg-white border-y border-gray-100">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="flex-shrink-0 text-center md:text-left min-w-[80px]">
-              {/* ✅ consistent: #192839 heading on white bg */}
               <p className="text-[14px] font-normal text-[#40566d]">Our</p>
               <h3 className="text-[22px] font-semibold text-[#192839]">Partners</h3>
             </div>
-            <div className="flex-1 overflow-hidden">
+            <div className="flex-1">
               <LogoMarquee />
             </div>
           </div>
