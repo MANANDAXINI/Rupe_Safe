@@ -52,7 +52,7 @@ export default function IndiaOfficeMap({
   const hovered = locations.find((l) => l.id === hoveredId) ?? null;
 
   const highlightStates = useMemo(
-    () => new Set(locations.map((l) => l.state)),
+    () => new Set<string>(locations.map((l) => l.state)),
     [locations]
   );
 

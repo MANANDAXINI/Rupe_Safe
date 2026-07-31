@@ -86,6 +86,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@types/react-simple-maps": "^3.0.6",
     "typescript": "^5.5.4"
   }
 }
