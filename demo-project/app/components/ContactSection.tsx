@@ -120,6 +120,15 @@ export default function ContactSection(_: Props) {
                   <p className="text-sm text-slate-500">Registered Corporate Office</p>
                   <p className="font-semibold text-slate-900">Block No.101/102, Shriram Tower</p>
                   <p className="text-sm text-slate-500">Next To NIT Kingsway Civil Lines, Sadar, Nagpur, Maharashtra 440001</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rupexa+Private+Limited,+Tent+Line,+Sadar,+Nagpur,+Maharashtra"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 mt-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                  >
+                    View on Maps
+                    <MapPin className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </li>
             </ul>
