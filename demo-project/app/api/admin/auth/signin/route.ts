@@ -4,10 +4,11 @@ import { getFirebaseAdmin } from '@/lib/firebaseAdmin';
 import { getAuth } from 'firebase-admin/auth';
 
 const ALLOWED_ADMIN_EMAILS = [
-    'ayushyadavv4@gmail.com',
-    'lhp01691@gmail.com',
+    
+    
     'daxini.manan@gmail.com',
-    'daxinimanan@gmail.com'  // Added correct email variant
+    'daxinimanan@gmail.com',
+    'rupexa.in@gmail.com',
 ];
 
 export async function POST(req: NextRequest) {
@@ -21,14 +22,14 @@ export async function POST(req: NextRequest) {
         const firebaseAdmin = getFirebaseAdmin();
         const auth = getAuth(firebaseAdmin);
         const decodedToken = await auth.verifyIdToken(idToken);
-        const email = decodedToken.email;
+        const email = decodedToken.email?.toLowerCase();
 
         if (!email) {
             return NextResponse.json({ message: 'Email not found in token.' }, { status: 400 });
         }
 
         // Check if the user is in the allowed list
-        if (!ALLOWED_ADMIN_EMAILS.includes(email)) {
+        if (!ALLOWED_ADMIN_EMAILS.map((e) => e.toLowerCase()).includes(email)) {
             return NextResponse.json({ message: 'Unauthorized. You are not an admin.' }, { status: 403 });
         }
 
