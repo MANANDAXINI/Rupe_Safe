@@ -7,7 +7,7 @@ const partners = [
   { name: 'BankU', logo: '/images/BankU.png', className: 'h-14 sm:h-16 md:h-20 w-auto' },
   { name: 'Cashfree', logo: '/images/cashfree.jpeg', className: 'h-14 sm:h-16 md:h-20 w-auto' },
   { name: 'Easebuzz', logo: '/images/easebuzz.jpeg', className: 'h-14 sm:h-16 md:h-20 w-auto' },
-  { name: 'BillDesk', logo: '/images/billdesk.jpeg', className: 'h-12 sm:h-14 md:h-16 w-auto' },
+  { name: 'BillDesk', logo: '/images/billdesk.jpeg', className: 'h-14 sm:h-16 md:h-20 w-auto' },
 ];
 
 export default function PartnerMarquee() {
