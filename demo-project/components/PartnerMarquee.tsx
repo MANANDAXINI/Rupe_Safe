@@ -5,6 +5,9 @@ import React, { useState } from 'react';
 const partners = [
   { name: '1Pay', logo: '/images/1Pay.png', className: 'h-28 sm:h-32 md:h-40 w-auto' },
   { name: 'BankU', logo: '/images/BankU.png', className: 'h-14 sm:h-16 md:h-20 w-auto' },
+  { name: 'Cashfree', logo: '/images/cashfree.jpeg', className: 'h-14 sm:h-16 md:h-20 w-auto' },
+  { name: 'Easebuzz', logo: '/images/easebuzz.jpeg', className: 'h-14 sm:h-16 md:h-20 w-auto' },
+  { name: 'BillDesk', logo: '/images/billdesk.jpeg', className: 'h-12 sm:h-14 md:h-16 w-auto' },
 ];
 
 export default function PartnerMarquee() {
